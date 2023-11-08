@@ -10,32 +10,60 @@ Monster::~Monster()
 void Monster::Update()
 {
 	srand(time(0));
-	mState = rand() % 4;
+	mState = rand() % 8;
 	float speed = 0.02f;
 
 	switch (mState)
 	{
-	case 0:
+	case 0:	//ÁÂ
 		if (350 + mX >= 0)
 		{
 			mX -= speed;
 		}
 		break;
-	case 1:
+	case 1:	//¿ì
 		if (400 + mX <= 1600)
 		{
 			mX += speed;
 		}
 		break;
-	case 2:
+	case 2:	//»ó
 		if (350 + mY >= 0)
 		{
 			mY -= speed;
 		}
 		break;
-	case 3:
+	case 3:	//ÇÏ
 		if (400 + mY <= 900)
 		{
+			mY += speed;
+		}
+		break;
+	case 4:	//ÁÂ»ó
+		if (350 + mX >= 0 && 350 + mY >= 0)
+		{
+			mX -= speed;
+			mY -= speed;
+		}
+		break;
+	case 5:	//ÁÂÇÏ
+		if (350 + mX >= 0 && 400 + mY <= 900)
+		{
+			mX -= speed;
+			mY += speed;
+		}
+		break;
+	case 6:	//¿ì»ó
+		if (400 + mX <= 1600 && 350 + mY >= 0)
+		{
+			mX += speed;
+			mY -= speed;
+		}
+		break;
+	case 7:	//¿ìÇÏ
+		if (400 + mX <= 1600 && 400 + mY <= 900)
+		{
+			mX += speed;
 			mY += speed;
 		}
 		break;
