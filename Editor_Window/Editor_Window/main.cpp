@@ -5,8 +5,6 @@
 #include "main.h"
 #include "..\\Engine_SourceCode\\tApplication.h"
 
-Application app;
-
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -26,6 +24,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
                      _In_ LPWSTR    lpCmdLine,  //명령행으로 입력된 프로그램 인수
                      _In_ int       nCmdShow)   //프로그램이 실행될 형태 - 보통 모양 정보 등이 전달됨
 {
+    Application app;
+    app.test();
 
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
