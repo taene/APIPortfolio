@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor_Window", "Editor_Window\Editor_Window.vcxproj", "{39C9EF36-2C2E-406A-A8DA-534A350C87AA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TaeneEngine", "TaeneEngine\TaeneEngine.vcxproj", "{C4D72886-3ED6-4C4F-9586-40BB90ABF2C1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine_SourceCode", "Engine_SourceCode\Engine_SourceCode.vcxitems", "{07AE9BED-8756-44EB-831B-D00B5B9E64FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39C9EF36-2C2E-406A-A8DA-534A350C87AA}.Debug|x64.ActiveCfg = Debug|x64
+		{39C9EF36-2C2E-406A-A8DA-534A350C87AA}.Debug|x64.Build.0 = Debug|x64
+		{39C9EF36-2C2E-406A-A8DA-534A350C87AA}.Debug|x86.ActiveCfg = Debug|Win32
+		{39C9EF36-2C2E-406A-A8DA-534A350C87AA}.Debug|x86.Build.0 = Debug|Win32
+		{39C9EF36-2C2E-406A-A8DA-534A350C87AA}.Release|x64.ActiveCfg = Release|x64
+		{39C9EF36-2C2E-406A-A8DA-534A350C87AA}.Release|x64.Build.0 = Release|x64
+		{39C9EF36-2C2E-406A-A8DA-534A350C87AA}.Release|x86.ActiveCfg = Release|Win32
+		{39C9EF36-2C2E-406A-A8DA-534A350C87AA}.Release|x86.Build.0 = Release|Win32
+		{C4D72886-3ED6-4C4F-9586-40BB90ABF2C1}.Debug|x64.ActiveCfg = Debug|x64
+		{C4D72886-3ED6-4C4F-9586-40BB90ABF2C1}.Debug|x64.Build.0 = Debug|x64
+		{C4D72886-3ED6-4C4F-9586-40BB90ABF2C1}.Debug|x86.ActiveCfg = Debug|Win32
+		{C4D72886-3ED6-4C4F-9586-40BB90ABF2C1}.Debug|x86.Build.0 = Debug|Win32
+		{C4D72886-3ED6-4C4F-9586-40BB90ABF2C1}.Release|x64.ActiveCfg = Release|x64
+		{C4D72886-3ED6-4C4F-9586-40BB90ABF2C1}.Release|x64.Build.0 = Release|x64
+		{C4D72886-3ED6-4C4F-9586-40BB90ABF2C1}.Release|x86.ActiveCfg = Release|Win32
+		{C4D72886-3ED6-4C4F-9586-40BB90ABF2C1}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FD3D954-6802-4F72-A13A-C0ECE479423B}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Engine_SourceCode\Engine_SourceCode.vcxitems*{07ae9bed-8756-44eb-831b-d00b5b9e64fd}*SharedItemsImports = 9
+		Engine_SourceCode\Engine_SourceCode.vcxitems*{39c9ef36-2c2e-406a-a8da-534a350c87aa}*SharedItemsImports = 4
+		Engine_SourceCode\Engine_SourceCode.vcxitems*{c4d72886-3ed6-4c4f-9586-40bb90abf2c1}*SharedItemsImports = 4
+	EndGlobalSection
+EndGlobal

@@ -3,12 +3,15 @@
 
 #include "framework.h"
 #include "main.h"
-#include "CommonInclude.h"
+#include "..\\Engine_SourceCode\\tApplication.h"
+
+Application app;
 
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
+HWND g_hwnd;
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 
@@ -23,9 +26,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
                      _In_ LPWSTR    lpCmdLine,  //명령행으로 입력된 프로그램 인수
                      _In_ int       nCmdShow)   //프로그램이 실행될 형태 - 보통 모양 정보 등이 전달됨
 {
-    //231106
-    Test a;
-    a.test();
 
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
@@ -35,25 +35,33 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
+
+    // 1) 윈도우 창 정보 등록
     MyRegisterClass(hInstance);
 
-    // 애플리케이션 초기화를 수행합니다:
+    // 2) 윈도우 창 생성
     if (!InitInstance (hInstance, nCmdShow))
-    {
         return FALSE;
-    }
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_EDITORWINDOW));
 
-    MSG msg;
+    MSG msg = {};
 
-    // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    // 3) 메인 루프
+    // - 입력
+    // - 로직
+    // - 렌더링
+    while (msg.message != WM_QUIT)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
+        }
+        else
+        {
+            // 게임 로직
+            
         }
     }
 
@@ -104,6 +112,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
        CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr);
+
+   g_hwnd = hWnd;
 
    if (!hWnd)
    {
