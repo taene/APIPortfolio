@@ -9,9 +9,10 @@
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
-HWND g_hwnd;
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
+
+t::Application application;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -24,8 +25,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
                      _In_ LPWSTR    lpCmdLine,  //명령행으로 입력된 프로그램 인수
                      _In_ int       nCmdShow)   //프로그램이 실행될 형태 - 보통 모양 정보 등이 전달됨
 {
-    Application app;
-    app.test();
 
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
@@ -61,7 +60,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
         else
         {
             // 게임 로직
-            
+            application.Run();
         }
     }
 
@@ -110,10 +109,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr);
+   RECT windowRect = { 0,0,1600,900 };
+   ::AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, false);
 
-   g_hwnd = hWnd;
+   //윈도우 창 위에 메뉴바 포함안하고 1600,900 만들기 - 할일1
+   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+       CW_USEDEFAULT, 0, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
+
+   // 윈도우 창을 만들 때 한번 Init으로 핸들을 받아옴
+   application.Init(hWnd);
 
    if (!hWnd)
    {
