@@ -2,3 +2,4 @@
 
 #include <windows.h>
 #include <random>
+#include <vector>

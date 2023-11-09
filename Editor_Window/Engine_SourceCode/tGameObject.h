@@ -1,24 +1,26 @@
 #pragma once
 #include "pch.h"
 
-class GameObject
+namespace t
 {
-public:
-	GameObject();
-	~GameObject();
-
-	void Update();
-	void LateUpdate();
-	void Render(HDC hdc);
-
-	void SetPosition(float x, float y)
+	class GameObject
 	{
-		mX = x;
-		mY = y;
-	}
+	public:
+		GameObject();
+		~GameObject();
 
-private:
-	float mX;
-	float mY;
-};
+		void Update();
+		void LateUpdate();
+		void Render(HDC hdc);
 
+		void SetPosition(float x, float y)
+		{
+			mX = x;
+			mY = y;
+		}
+
+	private:
+		float mX;
+		float mY;
+	};
+}

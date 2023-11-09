@@ -1,4 +1,5 @@
 #include "tApplication.h"
+#include "tInput.h"
 
 namespace t
 {
@@ -16,6 +17,8 @@ namespace t
 		_hdc = GetDC(hwnd);
 		_player.SetPosition(0, 0);
 		_monster.SetPosition(0, 0);
+
+		Input::Init();
 	}
 
 	void Application::Run()
@@ -27,6 +30,8 @@ namespace t
 
 	void Application::Update()
 	{
+		Input::Update();
+
 		_player.Update();
 		_monster.Update();
 	}
@@ -40,5 +45,4 @@ namespace t
 		_player.Render(_hdc);
 		_monster.Render(_hdc);
 	}
-
 }
