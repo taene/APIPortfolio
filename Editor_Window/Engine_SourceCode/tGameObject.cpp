@@ -1,5 +1,6 @@
 #include "tGameObject.h"
 #include "tInput.h"
+#include "tTime.h"
 
 namespace t
 {
@@ -13,24 +14,23 @@ namespace t
 
 	void GameObject::Update()
 	{
-
+		const float speed = 100.0f;
 		if (Input::GetKeyPressed(eKeyCode::A) || Input::GetKeyPressed(eKeyCode::Left))
 		{
-			mX -= 0.01f;
+			mX -= speed * Time::DeltaTime();
 		}
 		if (Input::GetKeyPressed(eKeyCode::D) || Input::GetKeyPressed(eKeyCode::Right))
 		{
-			mX += 0.01f;
+			mX += speed * Time::DeltaTime();
 		}
 		if (Input::GetKeyPressed(eKeyCode::W) || Input::GetKeyPressed(eKeyCode::Up))
 		{
-			mY -= 0.01f;
+			mY -= speed * Time::DeltaTime();
 		}
 		if (Input::GetKeyPressed(eKeyCode::S) || Input::GetKeyPressed(eKeyCode::Down))
 		{
-			mY += 0.01f;
+			mY += speed * Time::DeltaTime();
 		}
-
 	}
 
 	void GameObject::LateUpdate()

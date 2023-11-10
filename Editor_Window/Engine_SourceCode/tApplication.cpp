@@ -1,9 +1,10 @@
 #include "tApplication.h"
 #include "tInput.h"
+#include "tTime.h"
 
 namespace t
 {
-	Application::Application() :_hwnd(nullptr), _hdc(nullptr)
+	Application::Application() :_hwnd(nullptr), _hdc(nullptr), winWidth(0), winHeight(0), _backBuffer(NULL), _backHdc(NULL)
 	{
 
 	}
@@ -11,13 +12,25 @@ namespace t
 	{
 	}
 
-	void Application::Init(HWND hwnd)
+	void Application::Init(HWND hwnd, UINT width, UINT height)
 	{
 		_hwnd = hwnd;
 		_hdc = GetDC(hwnd);
+		winWidth = width;
+		winHeight = height;
+		
 		_player.SetPosition(0, 0);
 		_monster.SetPosition(0, 0);
 
+		// 윈도우 해상도에 맞는 도화지(백버퍼) 생성
+		_backBuffer = CreateCompatibleBitmap(_hdc, width, height);
+		// 교체하지않고 덮는 backHdc를 하나 더 써서 메모리를 더 쓰고 연산을 줄이는 방식
+		// + 백버퍼를 가르킬 DC 생성
+		_backHdc = CreateCompatibleDC(_hdc);
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(_backHdc, _backBuffer);
+		DeleteObject(oldBitmap);
+
+		Time::Init();
 		Input::Init();
 	}
 
@@ -31,7 +44,7 @@ namespace t
 	void Application::Update()
 	{
 		Input::Update();
-
+		Time::Update();
 		_player.Update();
 		_monster.Update();
 	}
@@ -42,7 +55,14 @@ namespace t
 
 	void Application::Render()
 	{
-		_player.Render(_hdc);
-		_monster.Render(_hdc);
+		//더블버퍼링 - dc(도화지)를 두개써서 그리고 바꾸고 그리고 바꾸는 알고리즘
+		Rectangle(_backHdc, 0, 0, winWidth, winHeight);
+		
+		Time::Render(_backHdc);
+		_player.Render(_backHdc);
+		_monster.Render(_backHdc);
+
+		//백버퍼에 있는것을 원본 버퍼에 복사해서 그린다
+		BitBlt(_hdc, 0, 0, winWidth, winHeight, _backHdc, 0, 0, SRCCOPY);
 	}
 }

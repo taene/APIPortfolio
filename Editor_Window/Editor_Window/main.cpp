@@ -117,7 +117,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
        CW_USEDEFAULT, 0, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
 
    // 윈도우 창을 만들 때 한번 Init으로 핸들을 받아옴
-   application.Init(hWnd);
+   application.Init(hWnd, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
 
    if (!hWnd)
    {

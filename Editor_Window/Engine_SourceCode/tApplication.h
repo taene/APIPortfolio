@@ -10,7 +10,7 @@ namespace t
 		Application();
 		~Application();
 
-		void Init(HWND hwnd);
+		void Init(HWND hwnd, UINT width, UINT height);
 		void Run();
 		void Update();
 		void LateUpdate();
@@ -19,6 +19,13 @@ namespace t
 	private:
 		HWND _hwnd;
 		HDC _hdc;
+		
+		HDC _backHdc;
+		HBITMAP _backBuffer;
+
+		UINT winWidth;
+		UINT winHeight;
+
 		GameObject _player;
 		Monster _monster;
 	};
