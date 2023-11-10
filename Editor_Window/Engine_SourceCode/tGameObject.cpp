@@ -14,19 +14,19 @@ namespace t
 	void GameObject::Update()
 	{
 
-		if (Input::GetKey(eKeyCode::A) || Input::GetKey(eKeyCode::Left))
+		if (Input::GetKeyPressed(eKeyCode::A) || Input::GetKeyPressed(eKeyCode::Left))
 		{
 			mX -= 0.01f;
 		}
-		if (Input::GetKey(eKeyCode::D) || Input::GetKey(eKeyCode::Right))
+		if (Input::GetKeyPressed(eKeyCode::D) || Input::GetKeyPressed(eKeyCode::Right))
 		{
 			mX += 0.01f;
 		}
-		if (Input::GetKey(eKeyCode::W) || Input::GetKey(eKeyCode::Up))
+		if (Input::GetKeyPressed(eKeyCode::W) || Input::GetKeyPressed(eKeyCode::Up))
 		{
 			mY -= 0.01f;
 		}
-		if (Input::GetKey(eKeyCode::S) || Input::GetKey(eKeyCode::Down))
+		if (Input::GetKeyPressed(eKeyCode::S) || Input::GetKeyPressed(eKeyCode::Down))
 		{
 			mY += 0.01f;
 		}

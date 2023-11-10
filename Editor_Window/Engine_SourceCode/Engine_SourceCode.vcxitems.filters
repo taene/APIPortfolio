@@ -6,6 +6,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Monster.cpp">
       <Filter>Monster</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tInput.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
@@ -14,10 +17,16 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h">
       <Filter>Monster</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tInput.h">
+      <Filter>System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Monster">
       <UniqueIdentifier>{e024d2ab-8c29-42c9-a44a-51c102cb6401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{9925ffcf-9f48-48fc-bf2d-15480e6e69cd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

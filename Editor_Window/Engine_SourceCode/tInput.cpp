@@ -15,8 +15,6 @@ namespace t
 
 	void Input::Init()
 	{
-		mKeys.resize((INT)eKeyCode::End);
-
 		for (int i = 0; i < (INT)eKeyCode::End; i++)
 		{
 			Key key = {};
