@@ -4,7 +4,7 @@
 
 namespace t
 {
-	GameObject::GameObject() :mX(0.0f), mY(0.0f)
+	GameObject::GameObject() :mX(0.0f), mY(0.0f), bullet(NULL), bullets(NULL)
 	{
 	}
 
@@ -30,6 +30,13 @@ namespace t
 		if (Input::GetKeyPressed(eKeyCode::S) || Input::GetKeyPressed(eKeyCode::Down))
 		{
 			mY += speed * Time::DeltaTime();
+		}
+		if (Input::GetKeyDown(eKeyCode::SpaceBar))
+		{
+			// ÃÑ¾Ë ½î±â
+			bullet = new Bullet();
+			bullet->GetPlayerPosition(100 + mX, 100 + mY, 200 + mX, 200 + mY);
+			bullets.push_back(bullet);
 		}
 	}
 

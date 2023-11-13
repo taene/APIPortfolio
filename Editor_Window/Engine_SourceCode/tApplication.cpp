@@ -18,7 +18,7 @@ namespace t
 		_hdc = GetDC(hwnd);
 		winWidth = width;
 		winHeight = height;
-		
+
 		_player.SetPosition(0, 0);
 		_monster.SetPosition(0, 0);
 
@@ -47,6 +47,56 @@ namespace t
 		Time::Update();
 		_player.Update();
 		_monster.Update();
+
+		bullets = _player.GetBullets();
+		if (!bullets.empty())
+		{
+			for (auto i : bullets)
+			{
+				i->Update();
+			}
+		}
+
+		// 할당 해제를 어떻게 해야하나요?
+
+		/*for (auto i : bullets)
+		{
+			if (i->GetBulletPositionX() <= 50 || i->GetBulletPositionX() >= 1550
+				|| i->GetBulletPositionY() <= 50 || i->GetBulletPositionY() >= 850)
+			{
+				delete i;
+			}
+		}*/
+
+		//for (int i = 0; i < bullets.size(); i++)
+		//{
+		//	if (bullets[i]->GetBulletPositionX() <= 50 || bullets[i]->GetBulletPositionX() >= 1550
+		//		|| bullets[i]->GetBulletPositionY() <= 50 || bullets[i]->GetBulletPositionY() >= 850)
+		//	{
+		//		//delete bullets[i];
+		//		bullets.erase(bullets.begin() + i);
+		//	}
+		//}
+
+		//if (!bullets.empty())
+		//{
+		//	for (auto iter = bullets.begin(); iter != bullets.end();)
+		//	{
+		//		Bullet* i = *iter;
+		//		if (i->GetBulletPositionX() <= 50 || i->GetBulletPositionX() >= 1550
+		//			|| i->GetBulletPositionY() <= 50 || i->GetBulletPositionY() >= 850)
+		//		{
+		//			//일정범위 넘어가거나 몬스터에 닿으면 bullet 할당 해제, 객체 삭제
+		//			iter = bullets.erase(iter);
+		//			delete i;
+
+		//		}
+		//		else
+		//		{
+		//			iter++;
+		//		}
+		//	}
+		//}
 	}
 
 	void Application::LateUpdate()
@@ -57,10 +107,18 @@ namespace t
 	{
 		//더블버퍼링 - dc(도화지)를 두개써서 그리고 바꾸고 그리고 바꾸는 알고리즘
 		Rectangle(_backHdc, 0, 0, winWidth, winHeight);
-		
+
 		Time::Render(_backHdc);
 		_player.Render(_backHdc);
 		_monster.Render(_backHdc);
+
+		if (!bullets.empty())
+		{
+			for (auto i : bullets)
+			{
+				i->Render(_backHdc);
+			}
+		}
 
 		//백버퍼에 있는것을 원본 버퍼에 복사해서 그린다
 		BitBlt(_hdc, 0, 0, winWidth, winHeight, _backHdc, 0, 0, SRCCOPY);

@@ -9,6 +9,10 @@ namespace t
 	{
 	}
 
+	void Monster::Init()
+	{
+	}
+
 	void Monster::Update()
 	{
 		srand(time(0));

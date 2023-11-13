@@ -16,6 +16,7 @@ namespace t
 		void LateUpdate();
 		void Render();
 
+
 	private:
 		HWND _hwnd;
 		HDC _hdc;
@@ -28,5 +29,6 @@ namespace t
 
 		GameObject _player;
 		Monster _monster;
+		std::vector<Bullet*> bullets;
 	};
 }

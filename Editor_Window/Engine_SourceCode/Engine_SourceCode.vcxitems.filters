@@ -2,26 +2,38 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)tApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)tGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Monster.cpp">
       <Filter>Monster</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tInput.cpp">
       <Filter>System</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)tTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tTime.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tGameObject.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)tGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h">
       <Filter>Monster</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tInput.h">
       <Filter>System</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)tTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tTime.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tGameObject.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Monster">
@@ -29,6 +41,9 @@
     </Filter>
     <Filter Include="System">
       <UniqueIdentifier>{9925ffcf-9f48-48fc-bf2d-15480e6e69cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{908beb24-f7c5-440b-930c-9ed867361670}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
