@@ -4,18 +4,48 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{1013bd84-af07-4978-9cbf-c6ec82c7d87a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scenes\_example">
+      <UniqueIdentifier>{c6862a35-825b-42f6-b1b9-f07357890540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\Loading">
+      <UniqueIdentifier>{ce61a151-ac95-4875-913d-21c5beb5e14b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\MainMenu">
+      <UniqueIdentifier>{d07c5a7b-9165-4eba-91c0-c21ad5fae505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\Game">
+      <UniqueIdentifier>{05fcd18b-d67b-4ad8-81dd-829e3cb27c01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoadScenes.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="LoadingScene.h">
+      <Filter>Scenes\Loading</Filter>
+    </ClInclude>
     <ClInclude Include="PlayScene.h">
-      <Filter>Scenes</Filter>
+      <Filter>Scenes\_example</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuScene.h">
+      <Filter>Scenes\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameScene.h">
+      <Filter>Scenes\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LoadingScene.cpp">
+      <Filter>Scenes\Loading</Filter>
+    </ClCompile>
     <ClCompile Include="PlayScene.cpp">
-      <Filter>Scenes</Filter>
+      <Filter>Scenes\_example</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuScene.cpp">
+      <Filter>Scenes\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameScene.cpp">
+      <Filter>Scenes\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

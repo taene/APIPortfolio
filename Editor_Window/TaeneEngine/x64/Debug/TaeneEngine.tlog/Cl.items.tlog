@@ -7,4 +7,7 @@ C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tEntity.cpp;C:\Gi
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tGameObject.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\tGameObject.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tInput.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\tInput.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tTime.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\tTime.obj
+C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\InGameScene.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\InGameScene.obj
+C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\LoadingScene.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\LoadingScene.obj
+C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\MainMenuScene.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\MainMenuScene.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\PlayScene.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\PlayScene.obj
