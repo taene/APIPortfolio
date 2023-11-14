@@ -4,7 +4,6 @@
 #include "framework.h"
 #include "main.h"
 #include "..\\Engine_SourceCode\\tApplication.h"
-#include "..\\TaeneEngine\\LoadScenes.h"
 
 #define MAX_LOADSTRING 100
 
@@ -127,9 +126,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
-
-   //load Scenes
-   t::LoadScenes();
 
    return TRUE;
 }

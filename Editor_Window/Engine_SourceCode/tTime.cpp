@@ -32,7 +32,7 @@ namespace t
 
 		wchar_t str[50] = L"";
 		swprintf_s(str, 50, L"Time : %d", (int)fps);
-		int len = wcsnlen_s(str, (size_t)50);
+		int len = wcsnlen_s(str, 50);
 
 		TextOut(hdc, 0, 0, str, len);
 	}

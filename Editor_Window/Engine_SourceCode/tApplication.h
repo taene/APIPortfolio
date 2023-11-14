@@ -15,11 +15,7 @@ namespace t
 		void Update();
 		void LateUpdate();
 		void Render();
-		
-	private:
-		void clearRenderTargert();
-		void copyRenderTargert(HDC source, HDC dest);
-		void createBuffer(UINT width, UINT height);
+
 
 	private:
 		HWND _hwnd;
@@ -31,6 +27,8 @@ namespace t
 		UINT winWidth;
 		UINT winHeight;
 
+		GameObject _player;
 		Monster _monster;
+		std::vector<Bullet*> bullets;
 	};
 }
