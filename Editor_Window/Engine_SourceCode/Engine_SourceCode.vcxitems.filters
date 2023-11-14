@@ -3,47 +3,78 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)tApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Monster.cpp">
-      <Filter>Monster</Filter>
+      <Filter>GameObject\Monster</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tInput.cpp">
-      <Filter>System</Filter>
+      <Filter>EngineSystem</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tTime.cpp">
-      <Filter>System</Filter>
+      <Filter>EngineSystem</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tGameObject.cpp">
-      <Filter>Player</Filter>
+      <Filter>GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Bullet.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Bullet.cpp">
+      <Filter>GameObject\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tEntity.cpp">
+      <Filter>Scene\SceneSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)tApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h">
-      <Filter>Monster</Filter>
+      <Filter>GameObject\Monster</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tInput.h">
-      <Filter>System</Filter>
+      <Filter>EngineSystem</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h">
-      <Filter>System</Filter>
+      <Filter>EngineSystem</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tTime.h">
-      <Filter>System</Filter>
+      <Filter>EngineSystem</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tGameObject.h">
-      <Filter>Player</Filter>
+      <Filter>GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Bullet.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Bullet.h">
+      <Filter>GameObject\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tEntity.h">
+      <Filter>Scene\SceneSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Monster">
+    <Filter Include="Scene">
+      <UniqueIdentifier>{11bfb011-f59d-4e8c-ae23-ab2bf24c4c74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\SceneSystem">
+      <UniqueIdentifier>{cf39aa39-ced9-49d3-b533-78d0c29b4af9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{908beb24-f7c5-440b-930c-9ed867361670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Monster">
       <UniqueIdentifier>{e024d2ab-8c29-42c9-a44a-51c102cb6401}</UniqueIdentifier>
     </Filter>
-    <Filter Include="System">
-      <UniqueIdentifier>{9925ffcf-9f48-48fc-bf2d-15480e6e69cd}</UniqueIdentifier>
+    <Filter Include="GameObject\Projectile">
+      <UniqueIdentifier>{3c05a406-66a8-4a12-a987-2c16a80e3347}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Player">
-      <UniqueIdentifier>{908beb24-f7c5-440b-930c-9ed867361670}</UniqueIdentifier>
+    <Filter Include="EngineSystem">
+      <UniqueIdentifier>{9925ffcf-9f48-48fc-bf2d-15480e6e69cd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
