@@ -15,7 +15,7 @@ namespace t
 
 	void Monster::Update()
 	{
-		srand(time(0));
+		srand(time(NULL));
 		mState = rand() % 8;
 		float speed = 0.02f;
 
@@ -87,7 +87,7 @@ namespace t
 	{
 		HBRUSH redBrush = CreateSolidBrush(RGB(255, 0, 0));
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, redBrush);
-		Ellipse(hdc, 350 + mX, 350 + mY, 400 + mX, 400 + mY);
+		Ellipse(hdc, 350.0f + mX, 350.0f + mY, 400.0f + mX, 400.0f + mY);
 
 		SelectObject(hdc, oldBrush);
 		DeleteObject(redBrush);

@@ -27,7 +27,7 @@ namespace t
 		HPEN oldPen = (HPEN)SelectObject(hdc, greenPen);
 		SelectObject(hdc, oldPen);
 
-		Ellipse(hdc, 40 + pX1 + bX, 40 + pY1 + bY, pX2 + bX - 40, pY2 + bY - 40);
+		Ellipse(hdc, 40.0f + pX1 + bX, 40.0f + pY1 + bY, pX2 + bX - 40.0f, pY2 + bY - 40.0f);
 
 		SelectObject(hdc, oldBrush);
 		DeleteObject(greenBrush);

@@ -4,7 +4,8 @@
 
 namespace t
 {
-	GameObject::GameObject() :mX(0.0f), mY(0.0f), bullet(NULL), bullets(NULL)
+	GameObject::GameObject() 
+		:mX(0.0f), mY(0.0f)
 	{
 	}
 
@@ -33,10 +34,10 @@ namespace t
 		}
 		if (Input::GetKeyDown(eKeyCode::SpaceBar))
 		{
-			// ÃÑ¾Ë ½î±â
-			bullet = new Bullet();
-			bullet->GetPlayerPosition(100 + mX, 100 + mY, 200 + mX, 200 + mY);
-			bullets.push_back(bullet);
+			//// ÃÑ¾Ë ½î±â
+			//bullet = new Bullet();
+			//bullet->GetPlayerPosition(100 + mX, 100 + mY, 200 + mX, 200 + mY);
+			//bullets.push_back(bullet);
 		}
 	}
 
@@ -46,14 +47,14 @@ namespace t
 
 	void GameObject::Render(HDC hdc)
 	{
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
+		HBRUSH blueBrush = CreateSolidBrush(RGB(rand()%255, rand() % 255, rand() % 255));
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
 
-		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(rand() % 255, rand() % 255, rand() % 255));
 		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
 		SelectObject(hdc, oldPen);
 
-		Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		Rectangle(hdc, mX, mY, 100.0f + mX, 100.0f + mY);
 
 		SelectObject(hdc, oldBrush);
 		DeleteObject(blueBrush);

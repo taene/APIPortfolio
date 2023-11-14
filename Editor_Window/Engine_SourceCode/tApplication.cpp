@@ -1,10 +1,14 @@
 #include "tApplication.h"
 #include "tInput.h"
 #include "tTime.h"
+#include "SceneManager.h"
 
 namespace t
 {
-	Application::Application() :_hwnd(nullptr), _hdc(nullptr), winWidth(0), winHeight(0), _backBuffer(NULL), _backHdc(NULL)
+	Application::Application() 
+		:_hwnd(nullptr), _hdc(nullptr), 
+		winWidth(0), winHeight(0), 
+		_backBuffer(NULL), _backHdc(NULL)
 	{
 
 	}
@@ -18,18 +22,10 @@ namespace t
 		_hdc = GetDC(hwnd);
 		winWidth = width;
 		winHeight = height;
+		createBuffer(width, height);
 
-		_player.SetPosition(0, 0);
 		_monster.SetPosition(0, 0);
-
-		// 윈도우 해상도에 맞는 도화지(백버퍼) 생성
-		_backBuffer = CreateCompatibleBitmap(_hdc, width, height);
-		// 교체하지않고 덮는 backHdc를 하나 더 써서 메모리를 더 쓰고 연산을 줄이는 방식
-		// + 백버퍼를 가르킬 DC 생성
-		_backHdc = CreateCompatibleDC(_hdc);
-		HBITMAP oldBitmap = (HBITMAP)SelectObject(_backHdc, _backBuffer);
-		DeleteObject(oldBitmap);
-
+		SceneManager::Init();
 		Time::Init();
 		Input::Init();
 	}
@@ -45,38 +41,17 @@ namespace t
 	{
 		Input::Update();
 		Time::Update();
-		_player.Update();
+		SceneManager::Update();
 		_monster.Update();
 
-		bullets = _player.GetBullets();
+		/*bullets = _player.GetBullets();
 		if (!bullets.empty())
 		{
 			for (auto i : bullets)
 			{
 				i->Update();
 			}
-		}
-
-		// 할당 해제를 어떻게 해야하나요?
-
-		/*for (auto i : bullets)
-		{
-			if (i->GetBulletPositionX() <= 50 || i->GetBulletPositionX() >= 1550
-				|| i->GetBulletPositionY() <= 50 || i->GetBulletPositionY() >= 850)
-			{
-				delete i;
-			}
 		}*/
-
-		//for (int i = 0; i < bullets.size(); i++)
-		//{
-		//	if (bullets[i]->GetBulletPositionX() <= 50 || bullets[i]->GetBulletPositionX() >= 1550
-		//		|| bullets[i]->GetBulletPositionY() <= 50 || bullets[i]->GetBulletPositionY() >= 850)
-		//	{
-		//		//delete bullets[i];
-		//		bullets.erase(bullets.begin() + i);
-		//	}
-		//}
 
 		//if (!bullets.empty())
 		//{
@@ -105,22 +80,43 @@ namespace t
 
 	void Application::Render()
 	{
-		//더블버퍼링 - dc(도화지)를 두개써서 그리고 바꾸고 그리고 바꾸는 알고리즘
-		Rectangle(_backHdc, 0, 0, winWidth, winHeight);
+		clearRenderTargert();
 
 		Time::Render(_backHdc);
-		_player.Render(_backHdc);
+		SceneManager::Render(_backHdc);
 		_monster.Render(_backHdc);
 
-		if (!bullets.empty())
+		copyRenderTargert(_backHdc, _hdc);
+
+		/*if (!bullets.empty())
 		{
 			for (auto i : bullets)
 			{
 				i->Render(_backHdc);
 			}
-		}
+		}*/
+	}
 
+	void Application::clearRenderTargert()
+	{
+		//더블버퍼링 - dc(도화지)를 두개써서 그리고 바꾸고 그리고 바꾸는 알고리즘
+		//clear
+		Rectangle(_backHdc, -1, -1, winWidth + 1, winHeight + 1);
+	}
+
+	void Application::copyRenderTargert(HDC source, HDC dest)
+	{
 		//백버퍼에 있는것을 원본 버퍼에 복사해서 그린다
-		BitBlt(_hdc, 0, 0, winWidth, winHeight, _backHdc, 0, 0, SRCCOPY);
+		BitBlt(dest, 0, 0, winWidth, winHeight, source, 0, 0, SRCCOPY);
+	}
+	void Application::createBuffer(UINT width, UINT height)
+	{
+		// 윈도우 해상도에 맞는 도화지(백버퍼) 생성
+		_backBuffer = CreateCompatibleBitmap(_hdc, width, height);
+		// 교체하지않고 덮는 backHdc를 하나 더 써서 메모리를 더 쓰고 연산을 줄이는 방식
+		// + 백버퍼를 가르킬 DC 생성
+		_backHdc = CreateCompatibleDC(_hdc);
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(_backHdc, _backBuffer);
+		DeleteObject(oldBitmap);
 	}
 }
