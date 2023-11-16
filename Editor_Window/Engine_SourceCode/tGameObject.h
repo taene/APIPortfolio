@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
-#include "Bullet.h"
+#include "Component.h"
+//#include "Bullet.h"
 
 namespace t
 {
@@ -10,15 +11,35 @@ namespace t
 		GameObject();
 		~GameObject();
 
-		void Update();
-		void LateUpdate();
-		void Render(HDC hdc);
+		virtual void Init();
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC hdc);
 
-		void SetPosition(float x, float y)
+		template <typename T>
+		T* AddComponent()
 		{
-			mX = x;
-			mY = y;
+			T* comp = new T();
+			comp->SetOwner(this);
+			mComponents.push_back(comp);
+
+			return comp;
 		}
+
+		template <typename T>
+		T* GetComponent()
+		{
+			T* component = nullptr;
+			for (Component* i : mComponents)
+			{
+				component = dynamic_cast<T*>(i);
+				if (component)
+					break;
+			}
+
+			return component;
+		}
+
 		/*std::vector<Bullet*> &GetBullets()
 		{
 			for (auto& i : bullets)
@@ -29,8 +50,7 @@ namespace t
 		}*/
 
 	private:
-		float mX;
-		float mY;
+		std::vector<Component*> mComponents;
 		/*Bullet* bullet;
 		std::vector<Bullet*> bullets;*/
 	};

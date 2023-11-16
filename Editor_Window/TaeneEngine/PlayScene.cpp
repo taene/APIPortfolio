@@ -1,4 +1,7 @@
 #include "PlayScene.h"
+#include "Player.h"
+#include "Transform.h"
+#include "SpriteRenderer.h"
 
 namespace t
 {
@@ -10,8 +13,15 @@ namespace t
 	}
 	void PlayScene::Init()
 	{
-		GameObject* obj = new GameObject();
-		AddGameObject(obj);
+		Player* pl = new Player();
+		Transform* tr = pl->AddComponent<Transform>();
+		tr->SetPos(100, 650);
+		tr->SetName(L"TR");
+
+		SpriteRenderer* sr = pl->AddComponent<SpriteRenderer>();
+		sr->SetName(L"SR");
+
+		AddGameObject(pl);
 	}
 	void PlayScene::Update()
 	{

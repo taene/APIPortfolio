@@ -1,10 +1,13 @@
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Bullet.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\Bullet.obj
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Component.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\Component.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Monster.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\Monster.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Scene.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\Scene.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SceneManager.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\SceneManager.obj
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\SpriteRenderer.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tApplication.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\tApplication.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tEntity.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\tEntity.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tGameObject.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\tGameObject.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tInput.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\tInput.obj
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Transform.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\Transform.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tTime.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\tTime.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\main.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\Editor_Window\x64\Debug\main.obj

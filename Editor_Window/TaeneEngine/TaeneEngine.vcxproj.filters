@@ -33,6 +33,7 @@
     <ClInclude Include="InGameScene.h">
       <Filter>Scenes\3. Game</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LoadingScene.cpp">
@@ -47,5 +48,6 @@
     <ClCompile Include="InGameScene.cpp">
       <Filter>Scenes\3. Game</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
 </Project>
