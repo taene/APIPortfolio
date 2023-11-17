@@ -24,7 +24,7 @@ namespace t
 		winHeight = height;
 		createBuffer(width, height);
 
-		_monster.SetPosition(0, 0);
+		//_monster.SetPosition(0, 0);
 		SceneManager::Init();
 		Time::Init();
 		Input::Init();
@@ -42,7 +42,7 @@ namespace t
 		Input::Update();
 		Time::Update();
 		SceneManager::Update();
-		_monster.Update();
+		//_monster.Update();
 
 		/*bullets = _player.GetBullets();
 		if (!bullets.empty())
@@ -84,7 +84,7 @@ namespace t
 
 		Time::Render(_backHdc);
 		SceneManager::Render(_backHdc);
-		_monster.Render(_backHdc);
+		//_monster.Render(_backHdc);
 
 		copyRenderTargert(_backHdc, _hdc);
 

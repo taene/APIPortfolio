@@ -13,15 +13,17 @@ namespace t
 	}
 	void PlayScene::Init()
 	{
-		Player* pl = new Player();
-		Transform* tr = pl->AddComponent<Transform>();
-		tr->SetPos(100, 650);
+		Player* bg = new Player();
+		Transform* tr = bg->AddComponent<Transform>();
+		tr->SetPos(Vector2(0, 0));
+
 		tr->SetName(L"TR");
 
-		SpriteRenderer* sr = pl->AddComponent<SpriteRenderer>();
+		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"SR");
+		sr->ImageLoad(L"C:\\GithubProjects\\APIPortfolio\\Assets\\Texture2D\\vheart_title.png");
 
-		AddGameObject(pl);
+		AddGameObject(bg);
 	}
 	void PlayScene::Update()
 	{

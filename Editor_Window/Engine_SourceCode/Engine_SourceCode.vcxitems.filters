@@ -5,12 +5,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Monster.cpp">
       <Filter>GameObject\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)tInput.cpp">
-      <Filter>EngineSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)tTime.cpp">
-      <Filter>EngineSystem</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tGameObject.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
@@ -35,20 +29,26 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Transform.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tMath.cpp">
+      <Filter>EngineSystem\Vector2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tInput.cpp">
+      <Filter>EngineSystem\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tTime.cpp">
+      <Filter>EngineSystem\DeltaTime</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tResource.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tResources.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)tApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h">
       <Filter>GameObject\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)tInput.h">
-      <Filter>EngineSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h">
-      <Filter>EngineSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)tTime.h">
-      <Filter>EngineSystem</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tGameObject.h">
       <Filter>GameObject</Filter>
@@ -74,6 +74,24 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Transform.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tMath.h">
+      <Filter>EngineSystem\Vector2</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tTime.h">
+      <Filter>EngineSystem\DeltaTime</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tInput.h">
+      <Filter>EngineSystem\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h">
+      <Filter>EngineSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tResource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tResources.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -96,6 +114,18 @@
     </Filter>
     <Filter Include="Component">
       <UniqueIdentifier>{80eb229e-3b23-4d36-be04-97525bae94b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineSystem\DeltaTime">
+      <UniqueIdentifier>{bb3cbcee-5843-4f69-8f75-798440c4c3c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineSystem\Input">
+      <UniqueIdentifier>{e084b2bc-09bf-49ed-8e9b-81b7cc18dac3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineSystem\Vector2">
+      <UniqueIdentifier>{0bcc3bea-9fbd-46e4-b0ed-2b60f6dfdbc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{ca284b01-bc4a-4c77-8e89-4e09446685ed}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

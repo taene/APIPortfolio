@@ -25,7 +25,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)tEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Transform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tTime.h" />
   </ItemGroup>
   <ItemGroup>
@@ -39,7 +42,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Transform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tTime.cpp" />
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 
 namespace t
 {
-	Transform::Transform() :mX(0.0f), mY(0.0f)
+	Transform::Transform() :mPosition(0.0f, 0.0f)
 	{
 	}
 	Transform::~Transform()
