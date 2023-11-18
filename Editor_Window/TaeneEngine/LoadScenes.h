@@ -23,6 +23,6 @@ namespace t
 		//SceneManager::CreateScene<MainMenuScene>(L"MainMenuScene");
 		//SceneManager::CreateScene<MainMenuScene>(L"MainMenuScene");
 
-		SceneManager::LoadScene(L"PlayScene");
+		SceneManager::LoadScene(L"LoadingScene");
 	}
 }

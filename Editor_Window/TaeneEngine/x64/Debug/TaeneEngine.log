@@ -1,4 +1,4 @@
-﻿  PlayScene.cpp
+﻿  tTime.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\pch.h(14,36): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\pch.h(15,34): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
