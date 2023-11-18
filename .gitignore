@@ -476,3 +476,11 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 *.ipch
+Editor_Window/.vs/Hollow Knight/v17/ipch/AutoPCH/2453411904d30e92/PLAYSCENE.ipch
+Editor_Window/.vs/Hollow Knight/v17/ipch/AutoPCH/2f088174cc2d19e2/TAPPLICATION.ipch
+Editor_Window/.vs/Hollow Knight/v17/ipch/AutoPCH/6a3cb8901661c22e/LOADINGSCENE.ipch
+Editor_Window/.vs/Hollow Knight/v17/ipch/AutoPCH/73a073ba59d5c2a6/TAPPLICATION.ipch
+Editor_Window/.vs/Hollow Knight/v17/ipch/AutoPCH/85384d4e9c9d7816/MAINMENUSCENE.ipch
+Editor_Window/.vs/Hollow Knight/v17/ipch/AutoPCH/c4021e68bff43af/INGAMESCENE.ipch
+Editor_Window/.vs/Hollow Knight/v17/ipch/AutoPCH/d5ff1a39574f5892/MAIN.ipch
+Editor_Window/.vs/Hollow Knight/v17/ipch/AutoPCH/dc2283458d555ff/TTIME.ipch
