@@ -13,7 +13,7 @@ namespace t
 	}
 	void PlayScene::Init()
 	{
-		bg = new Player();
+		/*bg = new Player();
 		Transform* tr = bg->AddComponent<Transform>();
 		tr->SetPosition(Vector2(0, 0));
 
@@ -23,7 +23,7 @@ namespace t
 		sr->SetName(L"SR");
 		sr->ImageLoad(L"C:\\GithubProjects\\APIPortfolio\\Assets\\Texture2D\\vheart_title.png");
 
-		AddGameObject(bg, enums::eLayerType::BackGround);
+		AddGameObject(bg, enums::eLayerType::BackGround);*/
 	}
 	void PlayScene::Update()
 	{

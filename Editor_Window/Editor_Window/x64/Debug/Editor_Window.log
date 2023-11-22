@@ -19,10 +19,12 @@ C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Monster.cpp(90,20
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   SpriteRenderer.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.cpp(28,54): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.cpp(28,47): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Transform.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.cpp(29,70): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.cpp(29,62): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.cpp(29,54): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.cpp(29,47): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.cpp(34,28): warning C4244: '=': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.cpp(35,29): warning C4244: '=': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   tApplication.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   tEntity.cpp
@@ -33,6 +35,11 @@ C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.cp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   tLayer.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  tMath.cpp
+  Transform.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  tResource.cpp
+  tResources.cpp
   tTime.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   main.cpp

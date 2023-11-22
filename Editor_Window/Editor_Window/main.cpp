@@ -114,7 +114,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   RECT windowRect = { 0,0,1024,573 };
+   RECT windowRect = { 0,0,1600,900 };
    ::AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, false);
 
    //윈도우 창 위에 메뉴바 포함안하고 1600,900 만들기 - 할일1

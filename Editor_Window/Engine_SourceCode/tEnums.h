@@ -5,10 +5,20 @@ namespace t::enums
 	enum class eLayerType
 	{
 		None,
-		BackGround,
-		//Tree 
-		//character
+		BackGround1,
+		BackGround2,
+		BackGround3,
+		BackGround4,
+		MapTile,
+		InteractObject,
+		Enemy,
 		Player,
+		Effects,
+		ForeGround1,
+		ForeGround2,
+		GameSystem,	//체력바 등
+
+
 		Max = 16,
 	};
 }

@@ -9,7 +9,7 @@
 
 namespace t
 {
-	MainMenuScene::MainMenuScene():bg(nullptr)
+	MainMenuScene::MainMenuScene():bg(nullptr),logo(nullptr)
 	{
 	}
 	MainMenuScene::~MainMenuScene()
@@ -17,20 +17,18 @@ namespace t
 	}
 	void MainMenuScene::Init()
 	{
-		/*bg = new Player();
-		Transform* tr = bg->AddComponent<Transform>();
-		tr->SetPosition(Vector2(0, 0));
-		tr->SetName(L"TR");
-		
+		bg = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround1, Vector2(0, 0));
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		sr->SetName(L"SR");
 		sr->ImageLoad(L"C:\\GithubProjects\\APIPortfolio\\Assets\\Hollow Knight sprites 1.4.3.2 (Voidheart edition)\\Menu\\controller_prompt_bg.png");
+		sr->SetSize(Vector2(1600.0f, 900.0f));	//main의 window창 크기와 동일함
 
-		AddGameObject(bg, enums::eLayerType::BackGround);*/
-		bg = object::Instantiate<Player>
-			(enums::eLayerType::BackGround, Vector2(0,0));
-		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		sr->ImageLoad(L"C:\\GithubProjects\\APIPortfolio\\Assets\\Hollow Knight sprites 1.4.3.2 (Voidheart edition)\\Menu\\controller_prompt_bg.png");
+
+		logo = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround2, Vector2(300.0f, 25.0f));
+		SpriteRenderer* sr1 = logo->AddComponent<SpriteRenderer>();
+		sr1->ImageLoad(L"C:\\GithubProjects\\APIPortfolio\\Assets\\Hollow Knight sprites 1.4.3.2 (Voidheart edition)\\Backend\\title.png");
+		sr1->SetSize(Vector2(sr1->GetSize().x * 0.8f, sr1->GetSize().y * 0.8f));
 	}
 	void MainMenuScene::Update()
 	{

@@ -2,6 +2,10 @@
 #include "Player.h"
 #include "Transform.h"
 #include "SpriteRenderer.h"
+#include "tInput.h"
+#include "MainMenuScene.h"
+#include "SceneManager.h"
+#include "tObject.h"
 
 namespace t
 {
@@ -15,16 +19,13 @@ namespace t
 
 	void LoadingScene::Init()
 	{
-		Player* bg = new Player();
-		Transform* tr = bg->AddComponent<Transform>();
-		tr->SetPosition(Vector2(0, 0));
-		tr->SetName(L"TR");
+		Scene::Init();
 
+		bg = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround1, Vector2(0, 0));
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		sr->SetName(L"SR");
-		sr->ImageLoad(L"C:\\GithubProjects\\APIPortfolio\\Assets\\Hollow Knight sprites 1.4.3.2 (Voidheart edition)\\Menu\\vheart_title.png");
-
-		AddGameObject(bg, enums::eLayerType::BackGround);
+		sr->ImageLoad(L"C:\\GithubProjects\\APIPortfolio\\Assets\\Hollow Knight sprites 1.4.3.2 (Voidheart edition)\\Menu\\Voidheart_menu_BG.png");
+		sr->SetSize(Vector2(1600.0f, 900.0f));	//main의 window창 크기와 동일함
 	}
 
 	void LoadingScene::Update()
@@ -35,6 +36,11 @@ namespace t
 	void LoadingScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"MainMenuScene");
+		}
 	}
 
 	void LoadingScene::Render(HDC hdc)

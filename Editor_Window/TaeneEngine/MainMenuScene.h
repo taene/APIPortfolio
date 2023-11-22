@@ -18,6 +18,7 @@ namespace t
         void OnExit() override;
 
     private:
-        class Player* bg;
+        class GameObject* bg;
+        class GameObject* logo;
     };
 }
