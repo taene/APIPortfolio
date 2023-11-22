@@ -1,6 +1,7 @@
 #pragma once
 #include "tEntity.h"
 #include "tGameObject.h"
+#include "tLayer.h"
 
 namespace t
 {
@@ -15,9 +16,16 @@ namespace t
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		void AddGameObject(GameObject* gameObject);
+		virtual void OnEnter();
+		virtual void OnExit();
+
+		void AddGameObject(GameObject* gameObj, const enums::eLayerType type);
+		Layer* GetLayer(enums::eLayerType type) { return mLayers[(UINT)type]; }
 
 	private:
-		std::vector<GameObject*> mGameObjects;
+		void createLayers();
+
+	private:
+		std::vector<Layer*> mLayers; 
 	};
 }

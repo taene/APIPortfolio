@@ -2,38 +2,70 @@
 
 namespace t
 {
-	Scene::Scene() :mGameObjects{}
+	Scene::Scene() :mLayers{}
 	{
+		createLayers();
 	}
 	Scene::~Scene()
 	{
 	}
 	void Scene::Init()
 	{
+		for (Layer* i : mLayers)
+		{
+			if (i == nullptr)
+				continue;
+
+			i->Init();
+		}
 	}
 	void Scene::Update()
 	{
-		for (GameObject* i : mGameObjects)
+		for (Layer* i : mLayers)
 		{
+			if (i == nullptr)
+				continue;
+
 			i->Update();
 		}
 	}
 	void Scene::LateUpdate()
 	{
-		for (GameObject* i : mGameObjects)
+		for (Layer* i : mLayers)
 		{
+			if (i == nullptr)
+				continue;
+
 			i->LateUpdate();
 		}
 	}
 	void Scene::Render(HDC hdc)
 	{
-		for (GameObject* i : mGameObjects)
+		for (Layer* i : mLayers)
 		{
+			if (i == nullptr)
+				continue;
+
 			i->Render(hdc);
 		}
 	}
-	void Scene::AddGameObject(GameObject* gameObject)
+	void Scene::OnEnter()
 	{
-		mGameObjects.push_back(gameObject);
+	}
+	void Scene::OnExit()
+	{
+	}
+	void Scene::AddGameObject(GameObject* gameObj, const enums::eLayerType type)
+	{
+		mLayers[(UINT)type]->AddGameObject(gameObj);
+	}
+	void Scene::createLayers()
+	{
+		mLayers.resize((UINT)enums::eLayerType::Max);
+
+		for (size_t i = 0; i < (UINT)enums::eLayerType::Max; i++)
+		{
+			mLayers[i] = new Layer();
+		}
 	}
 }

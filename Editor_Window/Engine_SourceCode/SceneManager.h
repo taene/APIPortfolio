@@ -11,6 +11,7 @@ namespace t
 		{
 			T* scene = new T();
 			scene->SetName(name);
+			mActiveScene = scene;
 			scene->Init();
 
 			mScene.insert(std::make_pair(name, scene));
@@ -20,6 +21,8 @@ namespace t
 
 		static Scene* LoadScene(const std::wstring& name)
 		{
+			mActiveScene->OnExit();
+
 			std::map<std::wstring, Scene*>::iterator it
 				= mScene.find(name);
 
@@ -27,8 +30,12 @@ namespace t
 				return nullptr;
 
 			mActiveScene = it->second;
+			mActiveScene->OnEnter();
+
 			return it->second;
 		}
+
+		static Scene* GetActiveScene() { return mActiveScene; }
 
 		static void Init();
 		static void Update();

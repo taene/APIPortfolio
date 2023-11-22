@@ -1,11 +1,13 @@
 #include "tGameObject.h"
 #include "tInput.h"
 #include "tTime.h"
+#include "Transform.h"
 
 namespace t
 {
 	GameObject::GameObject()
 	{
+		initTransform();
 	}
 
 	GameObject::~GameObject()
@@ -72,5 +74,9 @@ namespace t
 		{
 			i->Render(hdc);
 		}
+	}
+	void GameObject::initTransform()
+	{
+		AddComponent<Transform>();
 	}
 }

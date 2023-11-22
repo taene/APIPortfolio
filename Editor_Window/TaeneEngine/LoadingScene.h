@@ -14,6 +14,9 @@ namespace t
         virtual void LateUpdate() override;
         virtual void Render(HDC hdc) override;
 
+        void OnEnter() override;
+        void OnExit() override;
+
     private:
 
     };

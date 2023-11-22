@@ -23,9 +23,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Transform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tResources.h" />
@@ -42,6 +45,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Transform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tResource.cpp" />

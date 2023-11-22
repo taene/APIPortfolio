@@ -20,6 +20,7 @@ namespace t
 		T* AddComponent()
 		{
 			T* comp = new T();
+			comp->Init();
 			comp->SetOwner(this);
 			mComponents.push_back(comp);
 
@@ -39,6 +40,9 @@ namespace t
 
 			return component;
 		}
+
+	private:
+		void initTransform();
 
 		/*std::vector<Bullet*> &GetBullets()
 		{

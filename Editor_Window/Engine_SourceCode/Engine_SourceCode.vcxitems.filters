@@ -44,6 +44,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tResources.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)tApplication.h" />
@@ -92,6 +95,15 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)tResources.h">
       <Filter>Resources</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tEnums.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tObject.h">
+      <Filter>EngineSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -126,6 +138,9 @@
     </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{ca284b01-bc4a-4c77-8e89-4e09446685ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{86ab9d27-469e-4974-b1b1-a5042fa64d68}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
