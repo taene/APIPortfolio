@@ -5,6 +5,7 @@
 #include "main.h"
 #include "..\\Engine_SourceCode\\tApplication.h"
 #include "..\\TaeneEngine\\LoadScenes.h"
+#include "..\\TaeneEngine\\LoadResources.h"
 
 ULONG_PTR gpToken;
 Gdiplus::GdiplusStartupInput gpsi;
@@ -134,7 +135,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
-   //load Scenes
+   //리소스, 씬 로드
+   t::LoadResources();
    t::LoadScenes();
 
    return TRUE;

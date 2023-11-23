@@ -39,13 +39,16 @@
       <Filter>EngineSystem\DeltaTime</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tResource.cpp">
-      <Filter>Resources</Filter>
+      <Filter>Resource</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tResources.cpp">
-      <Filter>Resources</Filter>
+      <Filter>Resource</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tLayer.cpp">
       <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tTexture.cpp">
+      <Filter>Resource\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,10 +93,10 @@
       <Filter>EngineSystem</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tResource.h">
-      <Filter>Resources</Filter>
+      <Filter>Resource</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tResources.h">
-      <Filter>Resources</Filter>
+      <Filter>Resource</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tEnums.h">
       <Filter>Layer</Filter>
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tLayer.h">
       <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tTexture.h">
+      <Filter>Resource\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -136,11 +142,14 @@
     <Filter Include="EngineSystem\Vector2">
       <UniqueIdentifier>{0bcc3bea-9fbd-46e4-b0ed-2b60f6dfdbc9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{ca284b01-bc4a-4c77-8e89-4e09446685ed}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{86ab9d27-469e-4974-b1b1-a5042fa64d68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{ca284b01-bc4a-4c77-8e89-4e09446685ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{f0205f31-553c-434a-ae86-732d38fe7820}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -6,6 +6,8 @@
 #include "InGameScene.h"
 #include "SceneManager.h"
 #include "tObject.h"
+#include "tTexture.h"
+#include "tResources.h"
 
 namespace t
 {
@@ -20,15 +22,20 @@ namespace t
 		bg = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround1, Vector2(0, 0));
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		sr->ImageLoad(L"C:\\GithubProjects\\APIPortfolio\\Assets\\Hollow Knight sprites 1.4.3.2 (Voidheart edition)\\Menu\\controller_prompt_bg.png");
-		sr->SetSize(Vector2(1600.0f, 900.0f));	//main의 window창 크기와 동일함
+		graphics::Texture* tBg = Resources::Find<graphics::Texture>(L"MMS_BG");
+		sr->SetTexture(tBg);
+		sr->SetSize(Vector2(1600.f, 900.0f));
 
 
 		logo = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround2, Vector2(300.0f, 25.0f));
+			(enums::eLayerType::BackGround2, Vector2(380.0f, 25.0f));
 		SpriteRenderer* sr1 = logo->AddComponent<SpriteRenderer>();
-		sr1->ImageLoad(L"C:\\GithubProjects\\APIPortfolio\\Assets\\Hollow Knight sprites 1.4.3.2 (Voidheart edition)\\Backend\\title.png");
-		sr1->SetSize(Vector2(sr1->GetSize().x * 0.8f, sr1->GetSize().y * 0.8f));
+		graphics::Texture* tLg = Resources::Find<graphics::Texture>(L"MMS_Title");
+		sr1->SetTexture(tLg);
+		sr1->SetSize(Vector2(sr1->GetTextureSize().x * 0.7f, sr1->GetTextureSize().y * 0.7f));
+
+
+		Scene::Init();
 	}
 	void MainMenuScene::Update()
 	{

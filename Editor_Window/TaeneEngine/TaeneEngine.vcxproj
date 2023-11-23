@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClInclude Include="InGameScene.h" />
     <ClInclude Include="LoadingScene.h" />
+    <ClInclude Include="LoadResources.h" />
     <ClInclude Include="LoadScenes.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Player.h" />

@@ -15,6 +15,8 @@ namespace t
 		void Update();
 		void LateUpdate();
 		void Render();
+
+		HDC GetHdc() { return mHdc; }
 		
 	private:
 		void clearRenderTargert();
@@ -22,15 +24,15 @@ namespace t
 		void createBuffer(UINT width, UINT height);
 
 	private:
-		HWND _hwnd;
-		HDC _hdc;
+		HWND mHwnd;
+		HDC mHdc;
 		
-		HDC _backHdc;
-		HBITMAP _backBuffer;
+		HDC mBackHdc;
+		HBITMAP mBackBuffer;
 
 		UINT winWidth;
 		UINT winHeight;
 
-		Monster _monster;
+		Monster mMonster;
 	};
 }

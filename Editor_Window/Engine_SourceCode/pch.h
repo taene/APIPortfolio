@@ -1,6 +1,8 @@
 #pragma once
 
 #include <windows.h>
+#include <assert.h>
+
 #include <random>
 #include <vector>
 #include <iostream>

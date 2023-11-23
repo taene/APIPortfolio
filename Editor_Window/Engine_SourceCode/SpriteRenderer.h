@@ -1,9 +1,9 @@
 #pragma once
 #include "Component.h"
+#include "tTexture.h"
+
 namespace t
 {
-	using namespace math;
-
 	class SpriteRenderer : public Component
 	{
 	public:
@@ -15,12 +15,14 @@ namespace t
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void SetSize(Vector2 pos) { size.x = pos.x; size.y = pos.y; }
-		Vector2 GetSize() { return size; }
-		void ImageLoad(const std::wstring& path);
+		void SetTexture(graphics::Texture* texture) { mTexture = texture; }
+		void SetSize(math::Vector2 size) { mSize = size; }
+		
+		math::Vector2 GetTextureSize() { return math::Vector2(mTexture->GetWidth(), mTexture->GetHeight()); }
+
 
 	private:
-		Gdiplus::Image* mImgae;
-		Vector2 size;
+		graphics::Texture* mTexture;
+		math::Vector2 mSize;
 	};
 }

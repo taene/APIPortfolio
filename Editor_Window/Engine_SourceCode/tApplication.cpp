@@ -6,9 +6,9 @@
 namespace t
 {
 	Application::Application() 
-		:_hwnd(nullptr), _hdc(nullptr), 
+		:mHwnd(nullptr), mHdc(nullptr), 
 		winWidth(0), winHeight(0), 
-		_backBuffer(NULL), _backHdc(NULL)
+		mBackBuffer(NULL), mBackHdc(NULL)
 	{
 
 	}
@@ -18,8 +18,8 @@ namespace t
 
 	void Application::Init(HWND hwnd, UINT width, UINT height)
 	{
-		_hwnd = hwnd;
-		_hdc = GetDC(hwnd);
+		mHwnd = hwnd;
+		mHdc = GetDC(hwnd);
 		winWidth = width;
 		winHeight = height;
 		createBuffer(width, height);
@@ -83,11 +83,11 @@ namespace t
 	{
 		clearRenderTargert();
 
-		Time::Render(_backHdc);
-		SceneManager::Render(_backHdc);
+		Time::Render(mBackHdc);
+		SceneManager::Render(mBackHdc);
 		//_monster.Render(_backHdc);
 
-		copyRenderTargert(_backHdc, _hdc);
+		copyRenderTargert(mBackHdc, mHdc);
 
 		/*if (!bullets.empty())
 		{
@@ -102,7 +102,7 @@ namespace t
 	{
 		//더블버퍼링 - dc(도화지)를 두개써서 그리고 바꾸고 그리고 바꾸는 알고리즘
 		//clear
-		Rectangle(_backHdc, -1, -1, winWidth + 1, winHeight + 1);
+		Rectangle(mBackHdc, -1, -1, winWidth + 1, winHeight + 1);
 	}
 
 	void Application::copyRenderTargert(HDC source, HDC dest)
@@ -113,11 +113,11 @@ namespace t
 	void Application::createBuffer(UINT width, UINT height)
 	{
 		// 윈도우 해상도에 맞는 도화지(백버퍼) 생성
-		_backBuffer = CreateCompatibleBitmap(_hdc, width, height);
+		mBackBuffer = CreateCompatibleBitmap(mHdc, width, height);
 		// 교체하지않고 덮는 backHdc를 하나 더 써서 메모리를 더 쓰고 연산을 줄이는 방식
 		// + 백버퍼를 가르킬 DC 생성
-		_backHdc = CreateCompatibleDC(_hdc);
-		HBITMAP oldBitmap = (HBITMAP)SelectObject(_backHdc, _backBuffer);
+		mBackHdc = CreateCompatibleDC(mHdc);
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBuffer);
 		DeleteObject(oldBitmap);
 	}
 }
