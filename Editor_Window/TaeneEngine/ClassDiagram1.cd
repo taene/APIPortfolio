@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="t::PlayScene" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAIAAAAAIAAACAAQAAAAAJACAAAAAAA=</HashCode>
+      <FileName>PlayScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::LoadingScene" Collapsed="true">
+    <Position X="3.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAAACAAAAIAAAAAIAAAAEAQAAAAALACAAAAAAA=</HashCode>
+      <FileName>LoadingScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::MainMenuScene" Collapsed="true">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAIAEAAAIAAAAAIAAAAAAQAAEAAJACAAAAAAA=</HashCode>
+      <FileName>MainMenuScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::InGameScene" Collapsed="true">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAABAAAAIAAAAAAQAAEAAJACAAAQAAA=</HashCode>
+      <FileName>InGameScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Player" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAABACAAAAAAA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::PlayerScript" Collapsed="true">
+    <Position X="17.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAJAAAAAAAAAAIAAAAAAAgAAAABACAAAAAAA=</HashCode>
+      <FileName>PlayerScript.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::CameraMoveScript" Collapsed="true">
+    <Position X="15" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAAAAAAAIAAAAAAAIAAAAAAAAAAAABACAAAAAAA=</HashCode>
+      <FileName>CameraMoveScript.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Bullet" Collapsed="true">
+    <Position X="28.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAAAAAAAEAAEAAAAgAAAAAACEADAAAAAQAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Bullet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Camera" Collapsed="true">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAABAQAAAIAAAQAAACAAAABACABAAACA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::GameObject" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABUAAAAAAAAIAAAAAgAAJAAAAAAAAAAAABACAAIAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tGameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Component" Collapsed="true">
+    <Position X="17.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAIAIAAAAAAAAAAIBAAAAAAAAEAABBCAAAAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Monster" Collapsed="true">
+    <Position X="26.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAACAAAAAAAiAAAIAAAAAAAAgAAAhACAAAAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Monster.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Scene" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAAEAAAAAAgAAAIAAAQAAQAAAABJACAAAAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::SceneManager" Collapsed="true">
+    <Position X="30" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAQAAAAAAAAAABAKAAAAAAAAAgAABACACAAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Script" Collapsed="true">
+    <Position X="16.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAABACAAAhAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Script.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::SpriteRenderer" Collapsed="true">
+    <Position X="19.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQQAAAAAAAAAABAAAAIIAAAACAAAAAAIBACAAAAIAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Application" Collapsed="true">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAABQABAAAABAQAAAIABECAACAAAAADACAEQAAUI=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tApplication.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Entity" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAQAAABAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tEntity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Input" Collapsed="true">
+    <Position X="30" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAQAAAgAAAAAAAAAAAAAIAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tInput.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Layer" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAQAAIAAAAAAAAAAIBAAAAAAAAAEABACAAAAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tLayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Transform" Collapsed="true">
+    <Position X="21.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAIAQAAAAAAgAAABACAAAAAoA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Transform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Resource" Collapsed="true">
+    <Position X="24" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAIAAAAAAAAAAIABAAAAACIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tResource.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Resources" Collapsed="true">
+    <Position X="28.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tResources.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::Time" Collapsed="true">
+    <Position X="26.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAAAAABABAAAAAIAAIAAAAAABACAAAAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tTime.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="t::graphics::Texture" Collapsed="true">
+    <Position X="24" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAgAAQAAAAhAAAAAAAAABQABAEAAAAAAIAAEQAAAI=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="t::math::Vector2" Collapsed="true">
+    <Position X="26.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAQAAAAAAAABgAAAAAIA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="t::eKeyState" Collapsed="true">
+    <Position X="30" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAI=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tInput.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="t::eKeyCode" Collapsed="true">
+    <Position X="28.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAIAAAAAAAAAAAAAAAAAAAAAAABACACAvv//YQM=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tInput.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="t::enums::eComponentType" Collapsed="true">
+    <Position X="26.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgIAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tEnums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="t::enums::eLayerType" Collapsed="true">
+    <Position X="26.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAgAAQBAAAAAAAAQABAAAAAEAAAAIAAAAgUEEAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tEnums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="t::enums::eResourceType" Collapsed="true">
+    <Position X="28.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAIIAAAAAAAA=</HashCode>
+      <FileName>C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tEnums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
