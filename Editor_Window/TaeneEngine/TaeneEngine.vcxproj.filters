@@ -19,6 +19,12 @@
     <Filter Include="Scenes\2. Game">
       <UniqueIdentifier>{05fcd18b-d67b-4ad8-81dd-829e3cb27c01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{4b77e826-0f1f-485a-901d-5bbb6e2d74c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Player">
+      <UniqueIdentifier>{c534e8a9-daa2-442e-9ca2-ff74a578d364}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoadScenes.h">
@@ -40,6 +46,9 @@
       <Filter>Contents</Filter>
     </ClInclude>
     <ClInclude Include="LoadResources.h" />
+    <ClInclude Include="PlayerScript.h">
+      <Filter>Scripts\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LoadingScene.cpp">
@@ -56,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerScript.cpp">
+      <Filter>Scripts\Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

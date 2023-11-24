@@ -6,7 +6,7 @@
 namespace t
 {
 	SpriteRenderer::SpriteRenderer()
-		:Component(), mTexture(nullptr), mSize(math::Vector2::One)
+		:Component(enums::eComponentType::SpriteRenderer), mTexture(nullptr), mSize(math::Vector2::One)
 	{
 	}
 	SpriteRenderer::~SpriteRenderer()

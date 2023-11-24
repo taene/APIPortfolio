@@ -2,7 +2,7 @@
 
 namespace t
 {
-	Transform::Transform() :mPosition(0.0f, 0.0f)
+	Transform::Transform() :Component(enums::eComponentType::Transform), mPosition(0.0f, 0.0f)
 	{
 	}
 	Transform::~Transform()

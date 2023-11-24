@@ -8,6 +8,7 @@
 #include "tObject.h"
 #include "tTexture.h"
 #include "tResources.h"
+#include "PlayerScript.h"
 
 namespace t
 {
@@ -36,6 +37,7 @@ namespace t
 		knight = object::Instantiate<Player>
 			(enums::eLayerType::Player, Vector2(250.0f, 550.0f));
 		SpriteRenderer* sr2 = knight->AddComponent<SpriteRenderer>();
+		knight->AddComponent<PlayerScript>();
 		graphics::Texture* tKnight = Resources::Find<graphics::Texture>(L"IGS_Player");
 		sr2->SetTexture(tKnight);
 		sr2->SetSize(Vector2(sr2->GetTextureSize().x * 0.1f, sr2->GetTextureSize().y * 0.1f));
