@@ -14,6 +14,7 @@ namespace t
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void Move();
 
 	private:
 

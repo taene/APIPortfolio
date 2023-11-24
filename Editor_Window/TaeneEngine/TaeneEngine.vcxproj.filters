@@ -25,11 +25,11 @@
     <Filter Include="Scripts\Player">
       <UniqueIdentifier>{c534e8a9-daa2-442e-9ca2-ff74a578d364}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Camera">
+      <UniqueIdentifier>{5c8fb422-22e5-4b75-a9b4-e5ee81de0e2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LoadScenes.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="LoadingScene.h">
       <Filter>Scenes\0. Loading</Filter>
     </ClInclude>
@@ -48,6 +48,12 @@
     <ClInclude Include="LoadResources.h" />
     <ClInclude Include="PlayerScript.h">
       <Filter>Scripts\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraMoveScript.h">
+      <Filter>Scripts\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadScenes.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="PlayerScript.cpp">
       <Filter>Scripts\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraMoveScript.cpp">
+      <Filter>Scripts\Camera</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

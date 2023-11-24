@@ -18,7 +18,6 @@ namespace t
         void OnExit() override;
 
     private:
-        class GameObject* bg1;
         class Player* knight;
 
     };

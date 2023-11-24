@@ -1,6 +1,8 @@
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Bullet.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\Bullet.obj
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Camera.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\Camera.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Component.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\Component.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Monster.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\Monster.obj
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Renderer.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\Renderer.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Scene.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\Scene.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SceneManager.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\SceneManager.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\Script.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\Script.obj
@@ -16,6 +18,7 @@ C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tResource.cpp;C:\
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tResources.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\tResources.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tTexture.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\tTexture.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\tTime.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\tTime.obj
+C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\CameraMoveScript.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\CameraMoveScript.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\InGameScene.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\InGameScene.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\LoadingScene.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\LoadingScene.obj
 C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\MainMenuScene.cpp;C:\GithubProjects\APIPortfolio\Editor_Window\TaeneEngine\x64\Debug\MainMenuScene.obj

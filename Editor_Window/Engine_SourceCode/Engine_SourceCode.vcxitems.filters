@@ -53,6 +53,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Component.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Camera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Renderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)tApplication.h" />
@@ -95,9 +101,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)tResources.h">
       <Filter>Resource</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)tEnums.h">
-      <Filter>Layer</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tObject.h">
       <Filter>EngineSystem</Filter>
     </ClInclude>
@@ -115,6 +118,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Script.h">
       <Filter>Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Camera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tEnums.h">
+      <Filter>EngineSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Renderer.h">
+      <Filter>Renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +177,12 @@
     </Filter>
     <Filter Include="Component\Transform">
       <UniqueIdentifier>{bd4a4e4c-72a6-42f6-94b4-8e4613e72a64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{488aacfc-92eb-4afd-889f-5a63561b2012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{401e3973-17cf-4172-9524-12baecbfb1fa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,1 +1,3 @@
-﻿  Editor_Window.vcxproj -> C:\GithubProjects\APIPortfolio\Editor_Window\x64\Debug\Editor_Window.exe
+﻿  main.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Editor_Window.vcxproj -> C:\GithubProjects\APIPortfolio\Editor_Window\x64\Debug\Editor_Window.exe

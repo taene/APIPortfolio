@@ -2,11 +2,12 @@
 #include "tGameObject.h"
 #include "Transform.h"
 #include "tTexture.h"
+#include "Renderer.h"
 
 namespace t
 {
 	SpriteRenderer::SpriteRenderer()
-		:Component(enums::eComponentType::SpriteRenderer), mTexture(nullptr), mSize(math::Vector2::One)
+		:Component(enums::eComponentType::SpriteRenderer), mTexture(nullptr), mSize(math::Vector2::Zero)
 	{
 	}
 	SpriteRenderer::~SpriteRenderer()
@@ -28,6 +29,8 @@ namespace t
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		pos = renderer::mainCamera->CalculatePosition(pos);
+
 		if (mTexture->GetTextureType() 
 			== graphics::Texture::eTextureType::Bmp)
 		{

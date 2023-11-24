@@ -7,6 +7,7 @@ namespace t::enums
 		Transform,
 		SpriteRenderer,
 		Script,
+		Camera,
 		End,
 	};
 

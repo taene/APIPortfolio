@@ -17,30 +17,40 @@ namespace t
 	}
 	void PlayerScript::Update()
 	{
+		Move();
+	}
+	void PlayerScript::LateUpdate()
+	{
+	}
+	void PlayerScript::Render(HDC hdc)
+	{
+	}
+	void PlayerScript::Move()
+	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
 		const float speed = 100.0f;
-		
-		if (Input::GetKeyPressed(eKeyCode::A) || Input::GetKeyPressed(eKeyCode::Left))
+
+		if (Input::GetKeyPressed(eKeyCode::Left))
 		{
 			pos.x -= speed * Time::DeltaTime();
-			tr->SetPosition(pos);
+			//tr->SetPosition(pos);
 		}
-		if (Input::GetKeyPressed(eKeyCode::D) || Input::GetKeyPressed(eKeyCode::Right))
+		if (Input::GetKeyPressed(eKeyCode::Right))
 		{
 			pos.x += speed * Time::DeltaTime();
-			tr->SetPosition(pos);
+			//tr->SetPosition(pos);
 		}
-		if (Input::GetKeyPressed(eKeyCode::W) || Input::GetKeyPressed(eKeyCode::Up))
+		if (Input::GetKeyPressed(eKeyCode::Up))
 		{
 			pos.y -= speed * Time::DeltaTime();
-			tr->SetPosition(pos);
+			//tr->SetPosition(pos);
 		}
-		if (Input::GetKeyPressed(eKeyCode::S) || Input::GetKeyPressed(eKeyCode::Down))
+		if (Input::GetKeyPressed(eKeyCode::Down))
 		{
 			pos.y += speed * Time::DeltaTime();
-			tr->SetPosition(pos);
+			//tr->SetPosition(pos);
 		}
 		if (Input::GetKeyDown(eKeyCode::SpaceBar))
 		{
@@ -49,11 +59,6 @@ namespace t
 			//bullet->GetPlayerPosition(100 + mX, 100 + mY, 200 + mX, 200 + mY);
 			//bullets.push_back(bullet);
 		}
-	}
-	void PlayerScript::LateUpdate()
-	{
-	}
-	void PlayerScript::Render(HDC hdc)
-	{
+		tr->SetPosition(pos);
 	}
 }

@@ -2,7 +2,9 @@
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.h(21,98): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.h(21,75): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  PlayerScript.cpp
+  MainMenuScene.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.h(21,98): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\GithubProjects\APIPortfolio\Editor_Window\Engine_SourceCode\SpriteRenderer.h(21,75): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다...
   TaeneEngine.vcxproj -> C:\GithubProjects\APIPortfolio\Editor_Window\x64\Debug\TaeneEngine.lib

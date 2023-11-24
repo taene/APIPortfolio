@@ -17,6 +17,8 @@ namespace t
 		void Render();
 
 		HDC GetHdc() { return mHdc; }
+		UINT GetWidth() { return winWidth; }
+		UINT GetHeight() { return winHeight; }
 		
 	private:
 		void clearRenderTargert();

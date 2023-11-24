@@ -19,5 +19,7 @@ namespace t
 
     private:
         class GameObject* bg;
+        class GameObject* logo1;
+        class GameObject* logo2;
     };
 }

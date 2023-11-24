@@ -19,20 +19,21 @@ namespace t
 	}
 	void MainMenuScene::Init()
 	{
+		//배경
 		bg = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround1, Vector2(0, 0));
-		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
 		graphics::Texture* tBg = Resources::Find<graphics::Texture>(L"MMS_BG");
-		sr->SetTexture(tBg);
-		sr->SetSize(Vector2(1600.f, 900.0f));
+		bgSr->SetTexture(tBg);
+		bgSr->SetSize(Vector2(1600.f, 900.0f));
 
-
+		//로고
 		logo = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround2, Vector2(380.0f, 25.0f));
-		SpriteRenderer* sr1 = logo->AddComponent<SpriteRenderer>();
-		graphics::Texture* tLg = Resources::Find<graphics::Texture>(L"MMS_Title");
-		sr1->SetTexture(tLg);
-		sr1->SetSize(Vector2(sr1->GetTextureSize().x * 0.7f, sr1->GetTextureSize().y * 0.7f));
+		SpriteRenderer* lgSr = logo->AddComponent<SpriteRenderer>();
+		graphics::Texture* lgT = Resources::Find<graphics::Texture>(L"MMS_Title");
+		lgSr->SetTexture(lgT);
+		lgSr->SetSize(Vector2(lgSr->GetTextureSize().x * 0.7f, lgSr->GetTextureSize().y * 0.7f));
 
 
 		Scene::Init();
