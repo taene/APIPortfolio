@@ -43,6 +43,7 @@ namespace t::graphics
 		{
 			textureType = eTextureType::Png;
 			mImage = Gdiplus::Image::FromFile(path.c_str());
+
 			if (mImage == nullptr)
 				return S_FALSE;
 
