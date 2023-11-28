@@ -1,7 +1,7 @@
 #include "tInput.h"
 #include "tObject.h"
-#include "tTexture.h"
 #include "tResources.h"
+#include "tTexture.h"
 #include "Transform.h"
 #include "SpriteRenderer.h"
 #include "Camera.h"
@@ -19,7 +19,7 @@
 
 namespace t
 {
-	InGameScene::InGameScene() :knight(nullptr)
+	InGameScene::InGameScene()
 	{
 	}
 	InGameScene::~InGameScene()
@@ -27,12 +27,6 @@ namespace t
 	}
 	void InGameScene::Init()
 	{
-		/*플레이어 기사가 절벽으로 떨어지는 동영상 먼저(로딩)
-		왕의길로 떨어짐
-		할로우나이트 배경은 연극의 배경처럼 오브젝트를 때려박은 여러개의 레이어들로 원근감있게 했음
-		왕의길에서 나올때 문뿌수고 까만화면(로딩)
-		흙의마을로 도착함*/
-
 		//Camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
 		Camera* cameraComp = camera->AddComponent<Camera>();
@@ -40,44 +34,44 @@ namespace t
 		camera->AddComponent<CameraMoveScript>();
 
 		//배경
-		GameObject* bg1 = object::Instantiate<GameObject>
+		/*GameObject* bg1 = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround1, Vector2(0, 0));
 		SpriteRenderer* bg1Sr = bg1->AddComponent<SpriteRenderer>();
 		graphics::Texture* bg1T = Resources::Find<graphics::Texture>(L"IGS_BG1");
 		bg1Sr->SetTexture(bg1T);
-		bg1Sr->SetSize(bg1Sr->GetTextureSize());
+		bg1Sr->SetSize(bg1Sr->GetTextureSize());*/
 
-		GameObject* bg2 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround1, Vector2(500, 0));
-		SpriteRenderer* bg2Sr = bg2->AddComponent<SpriteRenderer>();
-		graphics::Texture* bg2T = Resources::Find<graphics::Texture>(L"IGS_BG2");
-		bg2Sr->SetTexture(bg2T);
-		bg2Sr->SetSize(bg2Sr->GetTextureSize());
+		//GameObject* bg2 = object::Instantiate<GameObject>
+		//	(enums::eLayerType::BackGround1, Vector2(500, 0));
+		//SpriteRenderer* bg2Sr = bg2->AddComponent<SpriteRenderer>();
+		//graphics::Texture* bg2T = Resources::Find<graphics::Texture>(L"IGS_BG2");
+		//bg2Sr->SetTexture(bg2T);
+		//bg2Sr->SetSize(bg2Sr->GetTextureSize());
 
-		GameObject* bg3 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround1, Vector2(100, 50));
-		SpriteRenderer* bg3Sr = bg3->AddComponent<SpriteRenderer>();
-		graphics::Texture* bg3T = Resources::Find<graphics::Texture>(L"IGS_BG3");
-		bg3Sr->SetTexture(bg3T);
-		bg3Sr->SetSize(bg3Sr->GetTextureSize());
+		//GameObject* bg3 = object::Instantiate<GameObject>
+		//	(enums::eLayerType::BackGround1, Vector2(100, 50));
+		//SpriteRenderer* bg3Sr = bg3->AddComponent<SpriteRenderer>();
+		//graphics::Texture* bg3T = Resources::Find<graphics::Texture>(L"IGS_BG3");
+		//bg3Sr->SetTexture(bg3T);
+		//bg3Sr->SetSize(bg3Sr->GetTextureSize());
 
-		GameObject* bg4 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround1, Vector2(50, 200));
-		SpriteRenderer* bg4Sr = bg4->AddComponent<SpriteRenderer>();
-		graphics::Texture* bg4T = Resources::Find<graphics::Texture>(L"IGS_BG4");
-		bg4Sr->SetTexture(bg4T);
-		bg4Sr->SetSize(bg4Sr->GetTextureSize());
+		//GameObject* bg4 = object::Instantiate<GameObject>
+		//	(enums::eLayerType::BackGround1, Vector2(50, 200));
+		//SpriteRenderer* bg4Sr = bg4->AddComponent<SpriteRenderer>();
+		//graphics::Texture* bg4T = Resources::Find<graphics::Texture>(L"IGS_BG4");
+		//bg4Sr->SetTexture(bg4T);
+		//bg4Sr->SetSize(bg4Sr->GetTextureSize());
 
 
 
-		//플레이어
-		knight = object::Instantiate<Player>
-			(enums::eLayerType::Player, Vector2(250.0f, 550.0f));
-		SpriteRenderer* playerSr = knight->AddComponent<SpriteRenderer>();
-		knight->AddComponent<PlayerScript>();
-		graphics::Texture* playerT = Resources::Find<graphics::Texture>(L"IGS_Player");
-		playerSr->SetTexture(playerT);
-		playerSr->SetSize(Vector2(playerSr->GetTextureSize().x * 0.1f, playerSr->GetTextureSize().y * 0.1f));
+		////플레이어
+		//knight = object::Instantiate<Player>
+		//	(enums::eLayerType::Player, Vector2(250.0f, 550.0f));
+		//SpriteRenderer* playerSr = knight->AddComponent<SpriteRenderer>();
+		//knight->AddComponent<PlayerScript>();
+		//graphics::Texture* playerT = Resources::Find<graphics::Texture>(L"IGS_Player");
+		//playerSr->SetTexture(playerT);
+		//playerSr->SetSize(Vector2(playerSr->GetTextureSize().x * 0.1f, playerSr->GetTextureSize().y * 0.1f));
 
 
 		Scene::Init();

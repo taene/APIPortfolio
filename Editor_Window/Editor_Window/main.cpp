@@ -94,7 +94,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_EDITORWINDOW));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_EDITORWINDOW);
+    wcex.lpszMenuName   = NULL;
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -118,7 +118,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    RECT windowRect = { 0,0,1600,900 };
    ::AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, false);
 
-   //윈도우 창 위에 메뉴바 포함안하고 1600,900 만들기 - 할일1
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
        CW_USEDEFAULT, 0, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
 

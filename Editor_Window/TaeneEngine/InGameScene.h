@@ -18,7 +18,6 @@ namespace t
         void OnExit() override;
 
     private:
-        class Player* knight;
 
     };
 }
