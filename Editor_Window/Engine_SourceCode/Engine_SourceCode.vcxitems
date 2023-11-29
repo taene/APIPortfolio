@@ -24,6 +24,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Script.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tEnums.h" />
@@ -48,6 +50,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Script.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tGameObject.cpp" />

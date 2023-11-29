@@ -7,6 +7,7 @@
 #include "Camera.h"
 #include "Renderer.h"
 #include "Player.h"
+//#include "tAnimator.h"
 
 //Scene
 #include "SceneManager.h"
@@ -92,9 +93,6 @@ namespace t
 	void InGameScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
-
-		wchar_t str[50] = L"InGame Scene";
-		TextOut(hdc, 0, 0, str, 12);
 	}
 	void InGameScene::OnEnter()
 	{

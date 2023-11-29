@@ -1,6 +1,8 @@
 #pragma once
 #include "pch.h"
 
+using namespace t::math;
+
 namespace t
 {
 	class Entity
