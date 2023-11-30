@@ -29,6 +29,8 @@ namespace t
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		float rot = tr->GetRoation();
+		Vector2 scale = tr->GetScale();
 
 		if (renderer::mainCamera)
 			pos = renderer::mainCamera->CalculatePosition(pos);
@@ -46,9 +48,27 @@ namespace t
 		else if (mTexture->GetTextureType()
 			== graphics::Texture::eTextureType::Png)
 		{
+			//투명화 시킬 색의 범위
+			Gdiplus::ImageAttributes imgAtt = {};
+			//imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
+
 			Gdiplus::Graphics graphcis(hdc);
-			graphcis.DrawImage(mTexture->GetImage(),
-				Gdiplus::Rect(pos.x, pos.y, mSize.x, mSize.y));
+
+			graphcis.TranslateTransform(pos.x, pos.y);
+			graphcis.RotateTransform(rot);
+			graphcis.TranslateTransform(-pos.x, -pos.y);
+
+			graphcis.DrawImage(mTexture->GetImage()
+				, Gdiplus::Rect
+				(
+					pos.x, pos.y, mSize.x, mSize.y
+					/*, mTexture->GetWidth() * mSize.x * scale.x
+					, mTexture->GetHeight() * mSize.y * scale.y*/
+				)
+				, 0, 0
+				, mTexture->GetWidth(), mTexture->GetHeight()
+				, Gdiplus::UnitPixel
+				, nullptr/*&imgAtt*/);
 		}
 	}
 }

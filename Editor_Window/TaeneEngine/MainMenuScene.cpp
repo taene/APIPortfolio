@@ -84,6 +84,13 @@ namespace t
 		bgObj8Sr->SetTexture(bgObj8T);
 		bgObj8Sr->SetSize(Vector2(bgObj8Sr->GetTextureSize().x * 0.8f, bgObj8Sr->GetTextureSize().y * 0.8f));
 
+		GameObject* bgTitle = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround3, Vector2(5.0f, 330.0f));
+		SpriteRenderer* bgTitleSr = bgTitle->AddComponent<SpriteRenderer>();
+		graphics::Texture* bgTitleT = Resources::Find<graphics::Texture>(L"MMS_Title");
+		bgTitleSr->SetTexture(bgTitleT);
+		bgTitleSr->SetSize(Vector2(bgTitleSr->GetTextureSize().x * 0.6f, bgTitleSr->GetTextureSize().y * 0.6f));
+
 
 		Scene::Init();
 	}
@@ -103,8 +110,9 @@ namespace t
 	void MainMenuScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
-		wchar_t str[50] = L"MainMenu Scene";
-		TextOut(hdc, 0, 0, str, 14);
+
+		/*wchar_t str[50] = L"MainMenu Scene";
+		TextOut(hdc, 0, 0, str, 14);*/
 	}
 	void MainMenuScene::OnEnter()
 	{

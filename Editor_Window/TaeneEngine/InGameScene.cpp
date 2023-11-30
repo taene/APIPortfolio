@@ -35,12 +35,12 @@ namespace t
 		camera->AddComponent<CameraMoveScript>();
 
 		//¹è°æ
-		/*GameObject* bg1 = object::Instantiate<GameObject>
+		GameObject* bg1 = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround1, Vector2(0, 0));
 		SpriteRenderer* bg1Sr = bg1->AddComponent<SpriteRenderer>();
-		graphics::Texture* bg1T = Resources::Find<graphics::Texture>(L"IGS_BG1");
+		graphics::Texture* bg1T = Resources::Find<graphics::Texture>(L"IGS_BG");
 		bg1Sr->SetTexture(bg1T);
-		bg1Sr->SetSize(bg1Sr->GetTextureSize());*/
+		bg1Sr->SetSize(bg1Sr->GetTextureSize());
 
 		//GameObject* bg2 = object::Instantiate<GameObject>
 		//	(enums::eLayerType::BackGround1, Vector2(500, 0));
@@ -83,10 +83,10 @@ namespace t
 	}
 	void InGameScene::LateUpdate()
 	{
-		if (Input::GetKeyDown(eKeyCode::N))
+		/*if (Input::GetKeyDown(eKeyCode::N))
 		{
 			SceneManager::LoadScene(L"MainMenuScene");
-		}
+		}*/
 
 		Scene::LateUpdate();
 	}

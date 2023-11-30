@@ -8,6 +8,7 @@
 #include "tObject.h"
 #include "tTexture.h"
 #include "tResources.h"
+#include "tAnimator.h"
 
 namespace t
 {
@@ -21,14 +22,14 @@ namespace t
 
 	void LoadingScene::Init()
 	{
-		////배경
-		//bg = object::Instantiate<GameObject>
-		//	(enums::eLayerType::BackGround1, Vector2(0, 0));
-
-		//SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-		//graphics::Texture* bgT = Resources::Find<graphics::Texture>(L"LS_BG");
-		//bgSr->SetTexture(bgT);
-		//bgSr->SetSize(Vector2(1600.f, 900.0f));
+		//배경
+		bg = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround1, Vector2(800.0f,450.0f));
+		graphics::Texture* bgT = Resources::Find<graphics::Texture>(L"LS_BG");
+		Animator* bgAni = bg->AddComponent<Animator>();
+		bgAni->CreateAnimation(L"PlayLoading1", bgT
+			, Vector2(0.0f, 0.0f), Vector2(1600.0f, 900.0f), Vector2::Zero, 11, 0.05f);
+		bgAni->PlayAnimation(L"PlayLoading1", false);
 
 		////로고
 		//logo1 = object::Instantiate<GameObject>

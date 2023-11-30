@@ -23,7 +23,7 @@ namespace t::enums
 		InteractObject,
 		Enemy,
 		Player,
-		Effects,
+		Particle,
 		ForeGround1,
 		ForeGround2,
 		GameSystem,	//체력바 등
