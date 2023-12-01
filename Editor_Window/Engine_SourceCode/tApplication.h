@@ -16,6 +16,7 @@ namespace t
 		void LateUpdate();
 		void Render();
 
+		HWND GetHwnd() { return mHwnd; }
 		HDC GetHdc() { return mHdc; }
 		UINT GetWidth() { return winWidth; }
 		UINT GetHeight() { return winHeight; }

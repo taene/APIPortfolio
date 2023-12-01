@@ -6,6 +6,15 @@ namespace t
 	class PlayerScript :public Script
 	{
 	public:
+		enum class eState
+		{
+			Idle,
+			Walk,
+			Sleep,
+			GiveWater,
+			Attack,
+		};
+
 		PlayerScript();
 		~PlayerScript();
 
@@ -14,9 +23,17 @@ namespace t
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void Move();
+	private:
+		void idle();
+		void move();
+		void giveWater();
 
 	private:
+		eState mState;
+		class Animator* mAnimator;
 
+		//void (*StartEvent)();
+		//void (*CompleteEvent)();
+		//void (*EndEvent)();
 	};
 }

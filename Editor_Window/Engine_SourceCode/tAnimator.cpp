@@ -6,7 +6,8 @@ namespace t
         :Component(enums::eComponentType::Animator), 
         mAnimations{}, 
         mActiveAnimation(nullptr),
-        mbLoopAnimation(false)
+        mbLoopAnimation(false),
+        mEvents{}
     {
     }
     Animator::~Animator()
