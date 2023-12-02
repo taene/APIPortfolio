@@ -43,6 +43,15 @@ namespace t
 			return resource;
 		}
 
+		static void Release()
+		{
+			for (auto& it : mResources)
+			{
+				delete it.second;
+				it.second = nullptr;
+			}
+		}
+
 	private:
 		static std::map<std::wstring, Resource*> mResources;
 	};

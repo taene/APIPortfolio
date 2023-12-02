@@ -20,4 +20,12 @@ namespace t
     {
         mActiveScene->Render(hdc);
     }
+    void SceneManager::Release()
+    {
+        for (auto& it : mScene)
+        {
+            delete it.second;
+            it.second = nullptr;
+        }
+    }
 }

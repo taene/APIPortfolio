@@ -13,10 +13,13 @@ namespace t
 
 	GameObject::~GameObject()
 	{
-		for (Component* i : mComponents)
+		for (Component* comp : mComponents)
 		{
-			delete i;
-			i = nullptr;
+			if (comp == nullptr)
+				continue;
+
+			delete comp;
+			comp = nullptr;
 		}
 	}
 

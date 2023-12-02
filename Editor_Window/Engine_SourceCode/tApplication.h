@@ -12,9 +12,11 @@ namespace t
 
 		void Init(HWND hwnd, UINT width, UINT height);
 		void Run();
+
 		void Update();
 		void LateUpdate();
 		void Render();
+		void Release();
 
 		HWND GetHwnd() { return mHwnd; }
 		HDC GetHdc() { return mHdc; }

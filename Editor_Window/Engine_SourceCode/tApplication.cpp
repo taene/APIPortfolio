@@ -2,6 +2,7 @@
 #include "tInput.h"
 #include "tTime.h"
 #include "SceneManager.h"
+#include "tResources.h"
 
 namespace t
 {
@@ -96,6 +97,12 @@ namespace t
 				i->Render(_backHdc);
 			}
 		}*/
+	}
+
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 
 	void Application::clearRenderTargert()

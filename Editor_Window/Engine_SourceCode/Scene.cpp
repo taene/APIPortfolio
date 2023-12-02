@@ -8,6 +8,11 @@ namespace t
 	}
 	Scene::~Scene()
 	{
+		for (Layer* lay : mLayers)
+		{
+			delete lay;
+			lay = nullptr;
+		}
 	}
 	void Scene::Init()
 	{

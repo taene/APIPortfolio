@@ -23,7 +23,11 @@ namespace t
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+	public:
+		//이벤트함수
+
 	private:
+		//로직함수
 		void idle();
 		void move();
 		void giveWater();

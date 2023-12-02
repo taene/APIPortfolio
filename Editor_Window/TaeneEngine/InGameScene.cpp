@@ -33,6 +33,7 @@ namespace t
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 		camera->AddComponent<CameraMoveScript>();
+		//cameraComp->SetTarget();
 
 		//¹è°æ
 		GameObject* bg1 = object::Instantiate<GameObject>
