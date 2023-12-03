@@ -16,8 +16,8 @@ namespace t
 	{
 		//SceneManager::CreateScene<PlayScene>(L"PlayScene");
 		SceneManager::CreateScene<LoadingScene>(L"LoadingScene");
-		SceneManager::CreateScene<MainMenuScene>(L"MainMenuScene");
-		SceneManager::CreateScene<InGameScene>(L"InGameScene");
+		/*SceneManager::CreateScene<MainMenuScene>(L"MainMenuScene");
+		SceneManager::CreateScene<InGameScene>(L"InGameScene");*/
 		//SceneManager::CreateScene<MainMenuScene>(L"MainMenuScene");
 		//SceneManager::CreateScene<MainMenuScene>(L"MainMenuScene");
 		//SceneManager::CreateScene<MainMenuScene>(L"MainMenuScene");

@@ -12,7 +12,7 @@
 
 namespace t
 {
-	LoadingScene::LoadingScene() :bg(nullptr), logo1(nullptr), logo2(nullptr)
+	LoadingScene::LoadingScene() :bg(nullptr)
 	{
 	}
 
@@ -24,12 +24,12 @@ namespace t
 	{
 		//배경
 		bg = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround1, Vector2(800.0f,450.0f));
-		graphics::Texture* bgT = Resources::Find<graphics::Texture>(L"LS_BG");
+			(enums::eLayerType::BackGround1, Vector2(200.0f,200.0f));
+		graphics::Texture* bgT = Resources::Find<graphics::Texture>(L"LS_StartMenu");
 		Animator* bgAni = bg->AddComponent<Animator>();
-		bgAni->CreateAnimation(L"PlayLoading1", bgT
-			, Vector2(0.0f, 0.0f), Vector2(1600.0f, 900.0f), Vector2::Zero, 11, 0.05f);
-		bgAni->PlayAnimation(L"PlayLoading1", false);
+		bgAni->CreateAnimation(L"StartMenu", bgT
+			, Vector2(0.0f, 0.0f), Vector2(480.0f, 272.0f), Vector2::Zero, 40, 0.05f);
+		bgAni->PlayAnimation(L"StartMenu");
 
 		////로고
 		//logo1 = object::Instantiate<GameObject>

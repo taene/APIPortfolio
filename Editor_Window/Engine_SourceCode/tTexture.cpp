@@ -6,7 +6,8 @@ extern t::Application application;
 namespace t::graphics
 {
 	Texture::Texture()
-		:Resource(enums::eResourceType::Texture)
+		:Resource(enums::eResourceType::Texture),
+		textureType(eTextureType::None), mImage(nullptr), mBitmap(nullptr), mHdc(), mWidth(), mHeight()
 	{
 	}
 	Texture::~Texture()
