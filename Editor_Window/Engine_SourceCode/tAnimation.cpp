@@ -64,25 +64,37 @@ namespace t
 		graphics::Texture::eTextureType type = mTexture->GetTextureType();
 		if (type == graphics::Texture::eTextureType::Bmp)
 		{
-			BLENDFUNCTION func = {};
-			func.BlendOp = AC_SRC_OVER;
-			func.BlendFlags = 0;
-			func.AlphaFormat = AC_SRC_ALPHA;
-			func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
+			//BLENDFUNCTION func = {};
+			//func.BlendOp = AC_SRC_OVER;
+			//func.BlendFlags = 0;
+			//func.AlphaFormat = AC_SRC_ALPHA;
+			//func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
 			HDC imgHdc = mTexture->GetHdc();
 
-			AlphaBlend(hdc
-				, pos.x - (sprite.size.x / 2.0f)
-				, pos.y - (sprite.size.y / 2.0f)
-				, sprite.size.x * scale.x
-				, sprite.size.y * scale.y
-				, imgHdc
-				, sprite.leftTop.x
-				, sprite.leftTop.y
-				, sprite.size.x
-				, sprite.size.y
-				, func);
+			//AlphaBlend(hdc
+			//	, sprite.pivot.x/*pos.x - (sprite.size.x / 2.0f)*/
+			//	, sprite.pivot.y/*pos.y - (sprite.size.y / 2.0f)*/
+			//	, sprite.size.x * scale.x
+			//	, sprite.size.y * scale.y
+			//	, imgHdc
+			//	, sprite.leftTop.x
+			//	, sprite.leftTop.y
+			//	, sprite.size.x
+			//	, sprite.size.y
+			//	, func);
+
+			TransparentBlt(hdc
+					, sprite.pivot.x/*pos.x - (sprite.size.x / 2.0f)*/
+					, sprite.pivot.y/*pos.y - (sprite.size.y / 2.0f)*/
+					, sprite.size.x * scale.x
+					, sprite.size.y * scale.y
+					, imgHdc
+					, sprite.leftTop.x
+					, sprite.leftTop.y
+					, sprite.size.x
+					, sprite.size.y
+					, RGB(255 , 0 , 255));
 		}
 		else if (type == graphics::Texture::eTextureType::Png)
 		{
@@ -90,7 +102,7 @@ namespace t
 			Gdiplus::ImageAttributes imgAtt = {};
 
 			//투명화 시킬 픽셀의 색 범위
-			imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
+			//imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
 
 			Gdiplus::Graphics graphics(hdc);
 

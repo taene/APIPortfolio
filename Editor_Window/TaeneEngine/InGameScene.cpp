@@ -33,15 +33,18 @@ namespace t
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 		camera->AddComponent<CameraMoveScript>();
-		//cameraComp->SetTarget();
 
 		//배경
 		GameObject* bg1 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround1, Vector2(0, 0));
+			(enums::eLayerType::BackGround1, Vector2::Zero);
 		SpriteRenderer* bg1Sr = bg1->AddComponent<SpriteRenderer>();
-		graphics::Texture* bg1T = Resources::Find<graphics::Texture>(L"IGS_BG");
+		graphics::Texture* bg1T = Resources::Find<graphics::Texture>(L"IGS_BG1");
 		bg1Sr->SetTexture(bg1T);
-		bg1Sr->SetSize(bg1Sr->GetTextureSize());
+		bg1Sr->SetSize(bg1Sr->GetTextureSize() * 3.0f);
+		cameraComp->SetTarget(bg1);
+
+		Player* player = object::Instantiate<Player>
+			(enums::eLayerType::Player , Vector2::Zero);
 
 		//GameObject* bg2 = object::Instantiate<GameObject>
 		//	(enums::eLayerType::BackGround1, Vector2(500, 0));

@@ -18,6 +18,8 @@ namespace t
 		void Render();
 		void Release();
 
+		void Destroy();
+
 		HWND GetHwnd() { return mHwnd; }
 		HDC GetHdc() { return mHdc; }
 		UINT GetWidth() { return winWidth; }

@@ -8,6 +8,14 @@ namespace t
 	class GameObject
 	{
 	public:
+		enum class eState
+		{
+			Active ,
+			Paused ,
+			Dead ,
+			End
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -43,6 +51,14 @@ namespace t
 			return component;
 		}
 
+		eState GetActive() { return mState; }
+		void SetActive(bool power)
+		{
+			if ( power == true ) mState = eState::Active;
+			if ( power == false ) mState = eState::Paused;
+		}
+		void Death() { mState = eState::Dead; }
+
 	private:
 		void initTransform();
 
@@ -56,6 +72,7 @@ namespace t
 		}*/
 
 	private:
+		eState mState;
 		std::vector<Component*> mComponents;
 		/*Bullet* bullet;
 		std::vector<Bullet*> bullets;*/

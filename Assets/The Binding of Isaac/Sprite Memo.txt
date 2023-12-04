@@ -1,5 +1,0 @@
-앱 해상도 (, )
-death (722, 583)
-moveBody_Left,Right (162, 126)
-moveBody_UpDown (180, 135)
-TitleMenu (480, 272)

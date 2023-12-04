@@ -33,6 +33,11 @@ namespace t
 			if (i == nullptr)
 				continue;
 
+			GameObject::eState state = i->GetActive();
+			if (state == GameObject::eState::Paused
+				|| state == GameObject::eState::Dead)
+				continue;
+
 			i->Update();
 		}
 	}
@@ -41,6 +46,11 @@ namespace t
 		for (GameObject* i : mGameObjects)
 		{
 			if (i == nullptr)
+				continue;
+
+			GameObject::eState state = i->GetActive();
+			if (state == GameObject::eState::Paused
+				|| state == GameObject::eState::Dead)
 				continue;
 
 			i->LateUpdate();
@@ -53,7 +63,35 @@ namespace t
 			if (i == nullptr)
 				continue;
 
+			GameObject::eState state = i->GetActive();
+			if (state == GameObject::eState::Paused
+				|| state == GameObject::eState::Dead)
+				continue;
+
 			i->Render(hdc);
+		}
+	}
+	void Layer::Destroy()
+	{
+		//GameObjectIter == std::vector<GameObject*>::iterator
+
+		for (GameObjectIter iter = mGameObjects.begin()
+			; iter != mGameObjects.end()
+			; )
+		{
+			GameObject::eState active = (*iter)->GetActive();
+			if (active == GameObject::eState::Dead)
+			{
+				GameObject* deathObj = (*iter);
+				iter = mGameObjects.erase(iter);
+
+				delete deathObj;
+				deathObj = nullptr;
+
+				continue;
+			}
+
+			iter++;
 		}
 	}
 	void Layer::AddGameObject(GameObject* gameObject)

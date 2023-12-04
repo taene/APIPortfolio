@@ -48,7 +48,7 @@ namespace t
 		else if (mTexture->GetTextureType()
 			== graphics::Texture::eTextureType::Png)
 		{
-			//����ȭ ��ų ���� ����
+			//원하는 범위의 색을 지울 수 있음
 			Gdiplus::ImageAttributes imgAtt = {};
 			//imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
 

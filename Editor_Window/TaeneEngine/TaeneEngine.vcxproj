@@ -136,6 +136,8 @@
   <ItemGroup>
     <ClInclude Include="CameraMoveScript.h" />
     <ClInclude Include="InGameScene.h" />
+    <ClInclude Include="IsaacBody.h" />
+    <ClInclude Include="IsaacHead.h" />
     <ClInclude Include="LoadingScene.h" />
     <ClInclude Include="LoadResources.h" />
     <ClInclude Include="LoadScenes.h" />
@@ -147,6 +149,8 @@
   <ItemGroup>
     <ClCompile Include="CameraMoveScript.cpp" />
     <ClCompile Include="InGameScene.cpp" />
+    <ClCompile Include="IsaacBody.cpp" />
+    <ClCompile Include="IsaacHead.cpp" />
     <ClCompile Include="LoadingScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Player.cpp" />

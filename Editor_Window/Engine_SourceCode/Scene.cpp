@@ -54,6 +54,16 @@ namespace t
 			i->Render(hdc);
 		}
 	}
+	void Scene::Destroy()
+	{
+		for (Layer* i : mLayers)
+		{
+			if (i == nullptr)
+				continue;
+
+			i->Destroy();
+		}
+	}
 	void Scene::OnEnter()
 	{
 	}

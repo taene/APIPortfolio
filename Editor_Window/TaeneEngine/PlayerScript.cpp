@@ -4,6 +4,8 @@
 #include "tTime.h"
 #include "tGameObject.h"
 #include "tAnimator.h"
+#include "tObject.h"
+#include "tResources.h"
 
 namespace t
 {
@@ -36,7 +38,7 @@ namespace t
 		case t::PlayerScript::eState::Sleep:
 			break;
 		case t::PlayerScript::eState::GiveWater:
-			giveWater();
+			/*giveWater();*/
 			break;
 		case t::PlayerScript::eState::Attack:
 			break;
@@ -52,13 +54,13 @@ namespace t
 	}
 	void PlayerScript::idle()
 	{
-		if (Input::GetKeyPressed(eKeyCode::LButton))
+		/*if (Input::GetKeyPressed(eKeyCode::LButton))
 		{
 			mState = PlayerScript::eState::GiveWater;
 			mAnimator->PlayAnimation(L"FrontGiveWater", false);
 
 			Vector2 mousePos = Input::GetMousePosition();
-		}
+		}*/
 	}
 	void PlayerScript::move()
 	{

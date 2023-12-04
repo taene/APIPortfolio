@@ -36,6 +36,7 @@ namespace t
 		Update();
 		LateUpdate();
 		Render();
+		Destroy();
 	}
 
 	void Application::Update()
@@ -103,6 +104,11 @@ namespace t
 	{
 		SceneManager::Release();
 		Resources::Release();
+	}
+
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
 	}
 
 	void Application::clearRenderTargert()

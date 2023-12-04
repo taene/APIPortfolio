@@ -28,6 +28,12 @@
     <Filter Include="Scenes\0. StartMenu">
       <UniqueIdentifier>{ce61a151-ac95-4875-913d-21c5beb5e14b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\Player">
+      <UniqueIdentifier>{3759add1-121a-4901-af7d-372a70a9a67f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Player\Isaac">
+      <UniqueIdentifier>{1c44eada-fbf2-4233-986a-bfd0a2784c3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoadingScene.h">
@@ -42,9 +48,6 @@
     <ClInclude Include="InGameScene.h">
       <Filter>Scenes\2. Game</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Contents</Filter>
-    </ClInclude>
     <ClInclude Include="LoadResources.h" />
     <ClInclude Include="PlayerScript.h">
       <Filter>Scripts\Player</Filter>
@@ -54,6 +57,15 @@
     </ClInclude>
     <ClInclude Include="LoadScenes.h">
       <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Contents\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="IsaacHead.h">
+      <Filter>Contents\Player\Isaac</Filter>
+    </ClInclude>
+    <ClInclude Include="IsaacBody.h">
+      <Filter>Contents\Player\Isaac</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -69,14 +81,20 @@
     <ClCompile Include="InGameScene.cpp">
       <Filter>Scenes\2. Game</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Contents</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerScript.cpp">
       <Filter>Scripts\Player</Filter>
     </ClCompile>
     <ClCompile Include="CameraMoveScript.cpp">
       <Filter>Scripts\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Contents\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="IsaacHead.cpp">
+      <Filter>Contents\Player\Isaac</Filter>
+    </ClCompile>
+    <ClCompile Include="IsaacBody.cpp">
+      <Filter>Contents\Player\Isaac</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

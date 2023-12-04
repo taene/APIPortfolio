@@ -1,5 +1,6 @@
 #include "tInput.h"
 #include "tObject.h"
+#include "tApplication.h"
 #include "tResources.h"
 #include "tTexture.h"
 #include "Transform.h"
@@ -11,9 +12,12 @@
 #include "MainMenuScene.h"
 #include "InGameScene.h"
 
+extern t::Application application;
+
 namespace t
 {
 	MainMenuScene::MainMenuScene()
+		:button1(nullptr) , button2(nullptr)
 	{
 	}
 	MainMenuScene::~MainMenuScene()
@@ -24,73 +28,39 @@ namespace t
 		GameObject* bg = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround1, Vector2(0, 0));
 		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-		graphics::Texture* tBg = Resources::Find<graphics::Texture>(L"MMS_BG");
-		bgSr->SetTexture(tBg);
-		bgSr->SetSize(Vector2(bgSr->GetTextureSize().x, bgSr->GetTextureSize().y));
+		graphics::Texture* bgT = Resources::Find<graphics::Texture>(L"MMS_Bg");
+		bgSr->SetTexture(bgT);
+		bgSr->SetSize(Vector2(bgSr->GetTextureSize().x * 3.0f , bgSr->GetTextureSize().y * 3.0f));
 
-		GameObject* bgObj1 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround2, Vector2(-150.0f, -50.0f));
-		SpriteRenderer* bgObj1Sr = bgObj1->AddComponent<SpriteRenderer>();
-		graphics::Texture* bgObj1T = Resources::Find<graphics::Texture>(L"MMS_bg1");
-		bgObj1Sr->SetTexture(bgObj1T);
-		bgObj1Sr->SetSize(Vector2(bgObj1Sr->GetTextureSize().x * 0.8f, bgObj1Sr->GetTextureSize().y * 0.8f));
+		GameObject* newRunMenu = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround2 , Vector2(550.0f , 250.0f));
+		SpriteRenderer* newRunMenuSr = newRunMenu->AddComponent<SpriteRenderer>();
+		graphics::Texture* newRunMenuT = Resources::Find<graphics::Texture>(L"MMS_NewRunMenu");
+		newRunMenuSr->SetTexture(newRunMenuT);
+		newRunMenuSr->SetSize(Vector2(bgSr->GetTextureSize().x * 0.7f , bgSr->GetTextureSize().y * 0.7f));
 
-		GameObject* bgObj2 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround2, Vector2(400.0f, 25.0f));
-		SpriteRenderer* bgObj2Sr = bgObj2->AddComponent<SpriteRenderer>();
-		graphics::Texture* bgObj2T = Resources::Find<graphics::Texture>(L"MMS_bg2");
-		bgObj2Sr->SetTexture(bgObj2T);
-		bgObj2Sr->SetSize(Vector2(bgObj2Sr->GetTextureSize().x * 0.8f, bgObj2Sr->GetTextureSize().y * 0.8f));
+		GameObject* outMenu = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround2 , Vector2(550.0f , 400.0f));
+		SpriteRenderer* outMenuSr = outMenu->AddComponent<SpriteRenderer>();
+		graphics::Texture* outMenuT = Resources::Find<graphics::Texture>(L"MMS_OutMenu");
+		outMenuSr->SetTexture(outMenuT);
+		outMenuSr->SetSize(Vector2(bgSr->GetTextureSize().x * 0.5f , bgSr->GetTextureSize().y * 0.5f));
 
-		GameObject* bgObj3 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround2, Vector2(1200.0f, -25.0f));
-		SpriteRenderer* bgObj3Sr = bgObj3->AddComponent<SpriteRenderer>();
-		graphics::Texture* bgObj3T = Resources::Find<graphics::Texture>(L"MMS_bg3");
-		bgObj3Sr->SetTexture(bgObj3T);
-		bgObj3Sr->SetSize(Vector2(bgObj3Sr->GetTextureSize().x * 0.8f, bgObj3Sr->GetTextureSize().y * 0.8f));
+		button1 = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround2 , Vector2(480.0f , 330.0f));
+		SpriteRenderer* button1Sr = button1->AddComponent<SpriteRenderer>();
+		graphics::Texture* button1T = Resources::Find<graphics::Texture>(L"MMS_Button");
+		button1Sr->SetTexture(button1T);
+		button1Sr->SetSize(Vector2(button1Sr->GetTextureSize().x * 3.0f , button1Sr->GetTextureSize().y * 3.0f));
+		button1->SetActive(true);
 
-		GameObject* bgObj4 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround2, Vector2(300.0f, 400.0f));
-		SpriteRenderer* bgObj4Sr = bgObj4->AddComponent<SpriteRenderer>();
-		graphics::Texture* bgObj4T = Resources::Find<graphics::Texture>(L"MMS_bg4");
-		bgObj4Sr->SetTexture(bgObj4T);
-		bgObj4Sr->SetSize(Vector2(bgObj4Sr->GetTextureSize().x * 0.8f, bgObj4Sr->GetTextureSize().y * 0.8f));
-
-		GameObject* bgObj5 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround2, Vector2(500.0f, 580.0f));
-		SpriteRenderer* bgObj5Sr = bgObj5->AddComponent<SpriteRenderer>();
-		graphics::Texture* bgObj5T = Resources::Find<graphics::Texture>(L"MMS_bg5");
-		bgObj5Sr->SetTexture(bgObj5T);
-		bgObj5Sr->SetSize(Vector2(bgObj5Sr->GetTextureSize().x * 0.8f, bgObj5Sr->GetTextureSize().y * 0.8f));
-
-		GameObject* bgObj6 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround2, Vector2(1200.0f, 600.0f));
-		SpriteRenderer* bgObj6Sr = bgObj6->AddComponent<SpriteRenderer>();
-		graphics::Texture* bgObj6T = Resources::Find<graphics::Texture>(L"MMS_bg6");
-		bgObj6Sr->SetTexture(bgObj6T);
-		bgObj6Sr->SetSize(Vector2(bgObj6Sr->GetTextureSize().x * 0.8f, bgObj6Sr->GetTextureSize().y * 0.8f));
-
-		GameObject* bgObj7 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround2, Vector2(1400.0f, 300.0f));
-		SpriteRenderer* bgObj7Sr = bgObj7->AddComponent<SpriteRenderer>();
-		graphics::Texture* bgObj7T = Resources::Find<graphics::Texture>(L"MMS_bg7");
-		bgObj7Sr->SetTexture(bgObj7T);
-		bgObj7Sr->SetSize(Vector2(bgObj7Sr->GetTextureSize().x * 0.8f, bgObj7Sr->GetTextureSize().y * 0.8f));
-
-		GameObject* bgObj8 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround2, Vector2(730.0f, 380.0f));
-		SpriteRenderer* bgObj8Sr = bgObj8->AddComponent<SpriteRenderer>();
-		graphics::Texture* bgObj8T = Resources::Find<graphics::Texture>(L"MMS_bg8");
-		bgObj8Sr->SetTexture(bgObj8T);
-		bgObj8Sr->SetSize(Vector2(bgObj8Sr->GetTextureSize().x * 0.8f, bgObj8Sr->GetTextureSize().y * 0.8f));
-
-		GameObject* bgTitle = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround3, Vector2(5.0f, 330.0f));
-		SpriteRenderer* bgTitleSr = bgTitle->AddComponent<SpriteRenderer>();
-		graphics::Texture* bgTitleT = Resources::Find<graphics::Texture>(L"MMS_Title");
-		bgTitleSr->SetTexture(bgTitleT);
-		bgTitleSr->SetSize(Vector2(bgTitleSr->GetTextureSize().x * 0.6f, bgTitleSr->GetTextureSize().y * 0.6f));
-
+		button2 = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround2 , Vector2(500.0f , 430.0f));
+		SpriteRenderer* button2Sr = button2->AddComponent<SpriteRenderer>();
+		graphics::Texture* button2T = Resources::Find<graphics::Texture>(L"MMS_Button");
+		button2Sr->SetTexture(button2T);
+		button2Sr->SetSize(Vector2(button2Sr->GetTextureSize().x * 3.0f , button2Sr->GetTextureSize().y * 3.0f));
+		button2->SetActive(false);
 
 		Scene::Init();
 	}
@@ -101,11 +71,7 @@ namespace t
 	void MainMenuScene::LateUpdate()
 	{
 		Scene::LateUpdate();
-
-		if (Input::GetKeyDown(eKeyCode::N))
-		{
-			SceneManager::LoadScene(L"InGameScene");
-		}
+		switchScene();
 	}
 	void MainMenuScene::Render(HDC hdc)
 	{
@@ -119,5 +85,36 @@ namespace t
 	}
 	void MainMenuScene::OnExit()
 	{
+	}
+	void MainMenuScene::switchScene()
+	{
+		if ( Input::GetKeyDown(eKeyCode::Down) || Input::GetKeyDown(eKeyCode::Up) )
+		{
+			if ( button1->GetActive() == GameObject::eState::Active
+				&& button2->GetActive() == GameObject::eState::Paused )
+			{
+				button1->SetActive(false);
+				button2->SetActive(true);
+			}
+			else if ( button1->GetActive() == GameObject::eState::Paused
+				&& button2->GetActive() == GameObject::eState::Active )
+			{
+				button1->SetActive(true);
+				button2->SetActive(false);
+			}
+		}
+
+		if ( ( Input::GetKeyDown(eKeyCode::Enter) || Input::GetKeyDown(eKeyCode::SpaceBar) )
+			&& button1->GetActive() == GameObject::eState::Active
+			&& button2->GetActive() == GameObject::eState::Paused )
+		{
+			SceneManager::LoadScene(L"InGameScene");
+		}
+		else if ( ( Input::GetKeyDown(eKeyCode::Enter) || Input::GetKeyDown(eKeyCode::SpaceBar) )
+			&& button2->GetActive() == GameObject::eState::Active
+			&& button1->GetActive() == GameObject::eState::Paused )
+		{
+			DestroyWindow(application.GetHwnd());
+		}
 	}
 }

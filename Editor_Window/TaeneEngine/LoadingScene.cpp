@@ -24,11 +24,14 @@ namespace t
 	{
 		//배경
 		bg = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround1, Vector2(200.0f,200.0f));
+			(enums::eLayerType::BackGround1 , Vector2::Zero);
 		graphics::Texture* bgT = Resources::Find<graphics::Texture>(L"LS_StartMenu");
 		Animator* bgAni = bg->AddComponent<Animator>();
-		bgAni->CreateAnimation(L"StartMenu", bgT
-			, Vector2(0.0f, 0.0f), Vector2(480.0f, 272.0f), Vector2::Zero, 40, 0.05f);
+		Transform* bgTr = bg->GetComponent<Transform>();
+		bgTr->SetScale(Vector2(3.0f , 3.0f));
+		bgAni->CreateAnimation(L"StartMenu" , bgT
+			, Vector2(0.0f , 0.0f) , Vector2(480.0f , 272.0f) ,
+			Vector2(bgTr->GetPosition().x / 2.0f , bgTr->GetPosition().y / 2.0f) , 40 , 0.05f);
 		bgAni->PlayAnimation(L"StartMenu");
 
 		////로고
@@ -62,7 +65,7 @@ namespace t
 	{
 		Scene::LateUpdate();
 
-		if (Input::GetKeyDown(eKeyCode::N))
+		if (Input::GetKeyDown(eKeyCode::SpaceBar)|| Input::GetKeyDown(eKeyCode::Enter) )
 		{
 			SceneManager::LoadScene(L"MainMenuScene");
 		}

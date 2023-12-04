@@ -18,5 +18,10 @@ namespace t
         void OnExit() override;
 
     private:
+        void switchScene();
+
+    private:
+        class GameObject* button1;
+        class GameObject* button2;
     };
 }
