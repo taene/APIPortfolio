@@ -62,7 +62,7 @@ namespace t
 		//		if (i->GetBulletPositionX() <= 50 || i->GetBulletPositionX() >= 1550
 		//			|| i->GetBulletPositionY() <= 50 || i->GetBulletPositionY() >= 850)
 		//		{
-		//			//ÀÏÁ¤¹üÀ§ ³Ñ¾î°¡°Å³ª ¸ó½ºÅÍ¿¡ ´êÀ¸¸é bullet ÇÒ´ç ÇØÁ¦, °´Ã¼ »èÁ¦
+		//			//ì¼ì •ë²”ìœ„ ë„˜ì–´ê°€ê±°ë‚˜ ëª¬ìŠ¤í„°ì— ë‹¿ìœ¼ë©´ bullet í• ë‹¹ í•´ì œ, ê°ì²´ ì‚­ì œ
 		//			iter = bullets.erase(iter);
 		//			delete i;
 
@@ -107,22 +107,22 @@ namespace t
 
 	void Application::clearRenderTargert()
 	{
-		//´õºí¹öÆÛ¸µ - dc(µµÈ­Áö)¸¦ µÎ°³½á¼­ ±×¸®°í ¹Ù²Ù°í ±×¸®°í ¹Ù²Ù´Â ¾Ë°í¸®Áò
+		//ë”ë¸”ë²„í¼ë§ - dc(ë„í™”ì§€)ë¥¼ ë‘ê°œì¨ì„œ ê·¸ë¦¬ê³  ë°”ê¾¸ê³  ê·¸ë¦¬ê³  ë°”ê¾¸ëŠ” ì•Œê³ ë¦¬ì¦˜
 		//clear
 		Rectangle(mBackHdc, -1, -1, winWidth + 1, winHeight + 1);
 	}
 
 	void Application::copyRenderTargert(HDC source, HDC dest)
 	{
-		//¹é¹öÆÛ¿¡ ÀÖ´Â°ÍÀ» ¿øº» ¹öÆÛ¿¡ º¹»çÇØ¼­ ±×¸°´Ù
+		//ë°±ë²„í¼ì— ìžˆëŠ”ê²ƒì„ ì›ë³¸ ë²„í¼ì— ë³µì‚¬í•´ì„œ ê·¸ë¦°ë‹¤
 		BitBlt(dest, 0, 0, winWidth, winHeight, source, 0, 0, SRCCOPY);
 	}
 	void Application::createBuffer(UINT width, UINT height)
 	{
-		// À©µµ¿ì ÇØ»óµµ¿¡ ¸Â´Â µµÈ­Áö(¹é¹öÆÛ) »ý¼º
+		// ìœˆë„ìš° í•´ìƒë„ì— ë§žëŠ” ë„í™”ì§€(ë°±ë²„í¼) ìƒì„±
 		mBackBuffer = CreateCompatibleBitmap(mHdc, width, height);
-		// ±³Ã¼ÇÏÁö¾Ê°í µ¤´Â backHdc¸¦ ÇÏ³ª ´õ ½á¼­ ¸Þ¸ð¸®¸¦ ´õ ¾²°í ¿¬»êÀ» ÁÙÀÌ´Â ¹æ½Ä
-		// + ¹é¹öÆÛ¸¦ °¡¸£Å³ DC »ý¼º
+		// êµì²´í•˜ì§€ì•Šê³  ë®ëŠ” backHdcë¥¼ í•˜ë‚˜ ë” ì¨ì„œ ë©”ëª¨ë¦¬ë¥¼ ë” ì“°ê³  ì—°ì‚°ì„ ì¤„ì´ëŠ” ë°©ì‹
+		// + ë°±ë²„í¼ë¥¼ ê°€ë¥´í‚¬ DC ìƒì„±
 		mBackHdc = CreateCompatibleDC(mHdc);
 		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBuffer);
 		DeleteObject(oldBitmap);

@@ -13,7 +13,7 @@ namespace t
 		static float DeltaTime() { return deltaTimeValue; }
 
 	private:
-		static LARGE_INTEGER cpuFrequency;	//cpu 고유 진동 수
+		static LARGE_INTEGER cpuFrequency;
 		static LARGE_INTEGER prevFrequency;
 		static LARGE_INTEGER currentFrequency;
 		static float deltaTimeValue;

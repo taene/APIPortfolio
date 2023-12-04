@@ -21,52 +21,52 @@ namespace t
 
 		switch (mState)
 		{
-		case 0:	//ÁÂ
+		case 0:	//ì¢Œ
 			if (350 + mX >= 0)
 			{
 				mX -= speed;
 			}
 			break;
-		case 1:	//¿ì
+		case 1:	//ìš°
 			if (400 + mX <= 1600)
 			{
 				mX += speed;
 			}
 			break;
-		case 2:	//»ó
+		case 2:	//ìƒ
 			if (350 + mY >= 0)
 			{
 				mY -= speed;
 			}
 			break;
-		case 3:	//ÇÏ
+		case 3:	//í•˜
 			if (400 + mY <= 900)
 			{
 				mY += speed;
 			}
 			break;
-		case 4:	//ÁÂ»ó
+		case 4:	//ì¢Œìƒ
 			if (350 + mX >= 0 && 350 + mY >= 0)
 			{
 				mX -= speed;
 				mY -= speed;
 			}
 			break;
-		case 5:	//ÁÂÇÏ
+		case 5:	//ì¢Œí•˜
 			if (350 + mX >= 0 && 400 + mY <= 900)
 			{
 				mX -= speed;
 				mY += speed;
 			}
 			break;
-		case 6:	//¿ì»ó
+		case 6:	//ìš°ìƒ
 			if (400 + mX <= 1600 && 350 + mY >= 0)
 			{
 				mX += speed;
 				mY -= speed;
 			}
 			break;
-		case 7:	//¿ìÇÏ
+		case 7:	//ìš°í•˜
 			if (400 + mX <= 1600 && 400 + mY <= 900)
 			{
 				mX += speed;

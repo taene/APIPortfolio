@@ -44,7 +44,7 @@ namespace t
 	}
 	void Animation::Render(HDC hdc)
 	{
-		//¾ËÆÄºí·»µå¸¦ ¾µ ¼ö ÀÖ´Â Á¶°Ç: ÇØ´ç ÀÌ¹ÌÁö¿¡ ¾ËÆÄÃ¤³ÎÀÌ ÀÖ¾î¾ß ÇÑ´Ù.
+		//ì•ŒíŒŒë¸”ë Œë“œë¥¼ ì“¸ ìˆ˜ ìˆëŠ” ì¡°ê±´: í•´ë‹¹ ì´ë¯¸ì§€ì— ì•ŒíŒŒì±„ë„ì´ ìˆì–´ì•¼ í•œë‹¤.
 
 		if (mTexture == nullptr)
 			return;
@@ -86,10 +86,10 @@ namespace t
 		}
 		else if (type == graphics::Texture::eTextureType::Png)
 		{
-			//³»°¡ ¿øÇÏ´Â ÇÈ¼¿À» Åõ¸íÈ­ ½ÃÅ´
+			//ë‚´ê°€ ì›í•˜ëŠ” í”½ì…€ì„ íˆ¬ëª…í™” ì‹œí‚´
 			Gdiplus::ImageAttributes imgAtt = {};
 
-			//Åõ¸íÈ­ ½ÃÅ³ ÇÈ¼¿ÀÇ »ö ¹üÀ§
+			//íˆ¬ëª…í™” ì‹œí‚¬ í”½ì…€ì˜ ìƒ‰ ë²”ìœ„
 			imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
 
 			Gdiplus::Graphics graphics(hdc);

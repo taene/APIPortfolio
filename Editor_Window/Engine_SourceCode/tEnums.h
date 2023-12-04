@@ -26,7 +26,7 @@ namespace t::enums
 		Particle,
 		ForeGround1,
 		ForeGround2,
-		GameSystem,	//Ã¼·Â¹Ù µî
+		GameSystem,	//ì²´ë ¥ë°” ë“±
 
 
 		Max = 16,

@@ -22,9 +22,9 @@ namespace t
 
 	private:
 		class GameObject* mTarget;
-		Vector2 mDistance;	//¹°Ã¼ °£ °Å¸®
-		Vector2 mResolution;	//È­¸é ÇØ»óµµ
-		Vector2 mLookPosition;	//Ä«¸Ş¶ó°¡ ¹Ù¶óº¸°íÀÖ´Â À§Ä¡
+		Vector2 mDistance;	//ë¬¼ì²´ ê°„ ê±°ë¦¬
+		Vector2 mResolution;	//í™”ë©´ í•´ìƒë„
+		Vector2 mLookPosition;	//ì¹´ë©”ë¼ê°€ ë°”ë¼ë³´ê³ ìˆëŠ” ìœ„ì¹˜
 	};
 
 }

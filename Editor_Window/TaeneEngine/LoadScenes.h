@@ -1,6 +1,6 @@
 #pragma once
 #include "..\\Engine_SourceCode\\SceneManager.h"
-//¸¸µç ¾Àµé Ãß°¡ÇÏ±â, main¿¡µµ Ãß°¡
+//ë§Œë“  ì”¬ë“¤ ì¶”ê°€í•˜ê¸°, mainì—ë„ ì¶”ê°€
 #include "PlayScene.h"
 #include "LoadingScene.h"
 #include "MainMenuScene.h"

@@ -12,13 +12,13 @@ namespace t
 			std::map<std::wstring, Resource*>::iterator iter
 				= mResources.find(key);
 
-			//iteratorÀº ¾øÀ¸¸é end() ¹İÈ¯ÇÔ
+			//iteratorì€ ì—†ìœ¼ë©´ end() ë°˜í™˜í•¨
 			if (iter == mResources.end())
 				return nullptr;
 
-			// iteratorÀº ºÎ¸ğÀÎ Resource* ÇüÅÂÀÌ°í 
-			// °¡Á®¿À´Â FindÇÔ¼öÀÇ T*´Â ÀÚ½ÄÇüÅÂ(Texture...)ÀÌ¹Ç·Î
-			// ºÎ¸ğÀÚ½Ä°£ÀÇ Çüº¯È¯À» ¸ÂÃçÁÖ´Â dynamic_cast<T*>¸¦ »ç¿ëÇÑ´Ù.
+			// iteratorì€ ë¶€ëª¨ì¸ Resource* í˜•íƒœì´ê³  
+			// ê°€ì ¸ì˜¤ëŠ” Findí•¨ìˆ˜ì˜ T*ëŠ” ìì‹í˜•íƒœ(Texture...)ì´ë¯€ë¡œ
+			// ë¶€ëª¨ìì‹ê°„ì˜ í˜•ë³€í™˜ì„ ë§ì¶°ì£¼ëŠ” dynamic_cast<T*>ë¥¼ ì‚¬ìš©í•œë‹¤.
 			return dynamic_cast<T*> (iter->second);
 		}
 
@@ -32,7 +32,7 @@ namespace t
 			resource = new T();
 			if ( FAILED(resource->Load(path)) )
 			{
-				//¿©±â µé¾î¿ÔÀ¸¸é °æ·Î¸¦ Àß¸øÀûÀº°Í
+				//ì—¬ê¸° ë“¤ì–´ì™”ìœ¼ë©´ ê²½ë¡œë¥¼ ì˜ëª»ì ì€ê²ƒ
 				assert(false);
 			}
 

@@ -24,10 +24,10 @@ namespace t
 		void Render(HDC hdc) override;
 
 	public:
-		//ÀÌº¥Æ®ÇÔ¼ö
+		//ì´ë²¤íŠ¸í•¨ìˆ˜
 
 	private:
-		//·ÎÁ÷ÇÔ¼ö
+		//ë¡œì§í•¨ìˆ˜
 		void idle();
 		void move();
 		void giveWater();

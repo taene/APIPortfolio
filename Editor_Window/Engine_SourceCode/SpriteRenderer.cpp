@@ -24,7 +24,7 @@ namespace t
 	}
 	void SpriteRenderer::Render(HDC hdc)
 	{
-		if (mTexture == nullptr)	//texture ¼¼ÆÃ ¾ÈµÇ¾îÀÖÀ½
+		if (mTexture == nullptr)	//texture ì„¸íŒ… ì•ˆë˜ì–´ìžˆìŒ
 			assert(false);
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
@@ -48,7 +48,7 @@ namespace t
 		else if (mTexture->GetTextureType()
 			== graphics::Texture::eTextureType::Png)
 		{
-			//Åõ¸íÈ­ ½ÃÅ³ »öÀÇ ¹üÀ§
+			//ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			Gdiplus::ImageAttributes imgAtt = {};
 			//imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
 

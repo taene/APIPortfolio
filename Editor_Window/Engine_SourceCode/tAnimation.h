@@ -27,7 +27,7 @@ namespace t
 		Animation();
 		~Animation();
 
-		//¾Ö´Ï¸ŞÀÌ¼Ç Åø ¸¸µé¼ö ÀÖÀ½
+		//ì• ë‹ˆë©”ì´ì…˜ íˆ´ ë§Œë“¤ìˆ˜ ìˆìŒ
 		HRESULT Load(const std::wstring& path) override;
 
 		void Update();

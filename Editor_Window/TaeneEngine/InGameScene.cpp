@@ -35,7 +35,7 @@ namespace t
 		camera->AddComponent<CameraMoveScript>();
 		//cameraComp->SetTarget();
 
-		//¹è°æ
+		//ë°°ê²½
 		GameObject* bg1 = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround1, Vector2(0, 0));
 		SpriteRenderer* bg1Sr = bg1->AddComponent<SpriteRenderer>();
@@ -66,7 +66,7 @@ namespace t
 
 
 
-		////ÇÃ·¹ÀÌ¾î
+		////í”Œë ˆì´ì–´
 		//knight = object::Instantiate<Player>
 		//	(enums::eLayerType::Player, Vector2(250.0f, 550.0f));
 		//SpriteRenderer* playerSr = knight->AddComponent<SpriteRenderer>();

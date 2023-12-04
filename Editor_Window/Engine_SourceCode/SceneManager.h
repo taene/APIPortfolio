@@ -46,6 +46,6 @@ namespace t
 
 	private:
 		static std::map<std::wstring, Scene*> mScene;
-		static Scene* mActiveScene;	//ÇöÀç ¾À
+		static Scene* mActiveScene;	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	};
 }

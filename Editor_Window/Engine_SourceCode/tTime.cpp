@@ -9,10 +9,10 @@ namespace t
 
 	void Time::Init()
 	{
-		//cpu °íÀ¯ Áøµ¿¼ö
+		//cpu ê³ ìœ  ì§„ë™ìˆ˜
 		QueryPerformanceFrequency(&cpuFrequency);
 
-		//ÇÁ·Î±×·¥ÀÌ ½ÃÀÛÇßÀ» ¶§ ÇöÀç Áøµ¿¼ö
+		//í”„ë¡œê·¸ë¨ì´ ì‹œì‘í–ˆì„ ë•Œ í˜„ì¬ ì§„ë™ìˆ˜
 		QueryPerformanceCounter(&prevFrequency);
 	}
 

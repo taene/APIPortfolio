@@ -3,13 +3,13 @@
 
 namespace t
 {
-	class Resource abstract :public Entity	//Resource Ãß»ó Å¬·¡½º
+	class Resource abstract :public Entity	//Resource ì¶”ìƒ í´ë˜ìŠ¤
 	{
 	public:
 		Resource(enums::eResourceType type);
 		virtual ~Resource();
 
-		virtual HRESULT Load(const std::wstring& path) = 0;	//¼ø¼ö°¡»óÇÔ¼ö
+		virtual HRESULT Load(const std::wstring& path) = 0;	//ìˆœìˆ˜ê°€ìƒí•¨ìˆ˜
 
 		const std::wstring& GetPath() { return mPath; }
 		void SetPath(const std::wstring& path) { mPath = path; }

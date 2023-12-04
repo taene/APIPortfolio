@@ -22,7 +22,7 @@ namespace t
 
 	void LoadingScene::Init()
 	{
-		//¹è°æ
+		//ë°°ê²½
 		bg = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround1, Vector2(200.0f,200.0f));
 		graphics::Texture* bgT = Resources::Find<graphics::Texture>(L"LS_StartMenu");
@@ -31,7 +31,7 @@ namespace t
 			, Vector2(0.0f, 0.0f), Vector2(480.0f, 272.0f), Vector2::Zero, 40, 0.05f);
 		bgAni->PlayAnimation(L"StartMenu");
 
-		////·Î°í
+		////ë¡œê³ 
 		//logo1 = object::Instantiate<GameObject>
 		//	(enums::eLayerType::BackGround1, Vector2(612.5f, 150.f));
 
@@ -49,7 +49,7 @@ namespace t
 		//lg2Sr->SetSize(lg2Sr->GetTextureSize());
 		
 
-		//°ÔÀÓ ¿ÀºêÁ§Æ® »ı¼ºÈÄ¿¡ ·¹ÀÌ¾î¿Í °ÔÀÓ¿ÀºêÁ§Æ®µéÀÇ initÇÔ¼ö¸¦ È£Ãâ
+		//ê²Œì„ ì˜¤ë¸Œì íŠ¸ ìƒì„±í›„ì— ë ˆì´ì–´ì™€ ê²Œì„ì˜¤ë¸Œì íŠ¸ë“¤ì˜ inití•¨ìˆ˜ë¥¼ í˜¸ì¶œ
 		Scene::Init();
 	}
 
