@@ -42,10 +42,9 @@ namespace t
 
 		head = object::Instantiate<GameObject>(enums::eLayerType::Player , Vector2::Zero);
 		SpriteRenderer* headSr = head->AddComponent<SpriteRenderer>();
-		graphics::Texture* headIdleT = nullptr;
-		headIdleT->SetTextureAtSpriteSheet( Resources::Find<graphics::Texture>(L"MMS_Bg") , index번호 , vector size , spriteLength,);
-
-		headSr->SetTexture(headIdleT);
+		//graphics::Texture* headIdleT = nullptr;
+		//headIdleT->SetTextureAtSpriteSheet( Resources::Find<graphics::Texture>(L"MMS_Bg") , index번호 , vector size , spriteLength,);
+		//headSr->SetTexture(headIdleT);
 		Transform* headTr = head->GetComponent<Transform>();
 		//headTr->SetScale(Vector2(3.0f , 3.0f));
 
