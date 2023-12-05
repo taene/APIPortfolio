@@ -31,7 +31,7 @@ namespace t
 		else
 		{
 			Transform* cameraTr = GetOwner()->GetComponent<Transform>();
-			cameraTr->SetPosition(Vector2(720.0f , 408.0f));
+			cameraTr->SetPosition(Vector2(728.0f , 420.0f));
 			mLookPosition = cameraTr->GetPosition();
 		}
 		mDistance = mLookPosition - (mResolution / 2.0f);

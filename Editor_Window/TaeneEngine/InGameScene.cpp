@@ -41,10 +41,9 @@ namespace t
 		graphics::Texture* bg1T = Resources::Find<graphics::Texture>(L"IGS_BG1");
 		bg1Sr->SetTexture(bg1T);
 		bg1Sr->SetSize(bg1Sr->GetTextureSize() * 3.0f);
-		cameraComp->SetTarget(bg1);
+		//cameraComp->SetTarget(bg1);
 
-		Player* player = object::Instantiate<Player>
-			(enums::eLayerType::Player , Vector2::Zero);
+		Player* player = object::Instantiate<Player>(enums::eLayerType::Player , Vector2::Zero);
 
 		//GameObject* bg2 = object::Instantiate<GameObject>
 		//	(enums::eLayerType::BackGround1, Vector2(500, 0));

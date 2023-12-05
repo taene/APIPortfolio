@@ -3,11 +3,18 @@
 #include "Component.h"
 //#include "Bullet.h"
 
+namespace t::object
+{
+	void Destory(GameObject* gameObject);
+}
+
 namespace t
 {
 	class GameObject
 	{
 	public:
+		friend void object::Destory(GameObject* obj);
+
 		enum class eState
 		{
 			Active ,
@@ -57,10 +64,13 @@ namespace t
 			if ( power == true ) mState = eState::Active;
 			if ( power == false ) mState = eState::Paused;
 		}
-		void Death() { mState = eState::Dead; }
+		bool IsActive() { return mState == eState::Active; }
+		bool IsPaused() { return mState == eState::Paused; }
+		bool IsDead() { return mState == eState::Dead; }
 
 	private:
 		void initTransform();
+		void death() { mState = eState::Dead; }
 
 		/*std::vector<Bullet*> &GetBullets()
 		{

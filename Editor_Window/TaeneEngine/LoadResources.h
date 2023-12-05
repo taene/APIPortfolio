@@ -30,15 +30,16 @@ namespace t
 
 		Resources::Load<graphics::Texture>(L"Player_Death", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\death.bmp");
 		
+		//body move
 		Resources::Load<graphics::Texture>(L"Player_MoveBodyLeft", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\moveBody_Left.bmp");
 		Resources::Load<graphics::Texture>(L"Player_MoveBodyRight", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\moveBody_Right.bmp");
 		Resources::Load<graphics::Texture>(L"Player_MoveBodyUpDown", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\moveBody_UpDown.bmp");
-
+		//head move
 		Resources::Load<graphics::Texture>(L"Player_HeadDown", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\headDown.bmp");
 		Resources::Load<graphics::Texture>(L"Player_HeadUp", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\headUp.bmp");
 		Resources::Load<graphics::Texture>(L"Player_HeadLeft", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\headLeft.bmp");
 		Resources::Load<graphics::Texture>(L"Player_HeadRight", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\headRight.bmp");
-
+		//player pickUp
 		Resources::Load<graphics::Texture>(L"Player_BodyPickUp", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\bodyPickUp.bmp");
 		Resources::Load<graphics::Texture>(L"Player_HeadPickUp", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\headPickUp.bmp");
 

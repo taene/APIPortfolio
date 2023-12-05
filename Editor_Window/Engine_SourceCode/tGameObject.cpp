@@ -3,6 +3,15 @@
 #include "tTime.h"
 #include "Transform.h"
 
+namespace t::object
+{
+	void Destory(GameObject* gameObject)
+	{
+		if ( gameObject != nullptr )
+			gameObject->death();
+	}
+}
+
 namespace t
 {
 	GameObject::GameObject()
@@ -72,3 +81,4 @@ namespace t
 		AddComponent<Transform>();
 	}
 }
+

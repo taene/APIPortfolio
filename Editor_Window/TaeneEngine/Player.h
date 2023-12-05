@@ -11,7 +11,15 @@ namespace t
 		void LateUpdate()override;
 		void Render(HDC hdc) override;
 
-	private:
+	public:
 
+
+	private:
+		void createHeadAnimation();
+		void createBodyAnimation();
+
+	private:
+		GameObject* head;
+		GameObject* body;
 	};
 }

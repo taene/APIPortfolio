@@ -18,15 +18,13 @@ namespace t
 {
 	MainMenuScene::MainMenuScene()
 		:button1(nullptr) , button2(nullptr)
-	{
-	}
+	{}
 	MainMenuScene::~MainMenuScene()
-	{
-	}
+	{}
 	void MainMenuScene::Init()
 	{
 		GameObject* bg = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround1, Vector2(0, 0));
+			(enums::eLayerType::BackGround1 , Vector2(0 , 0));
 		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
 		graphics::Texture* bgT = Resources::Find<graphics::Texture>(L"MMS_Bg");
 		bgSr->SetTexture(bgT);
@@ -81,23 +79,19 @@ namespace t
 		TextOut(hdc, 0, 0, str, 14);*/
 	}
 	void MainMenuScene::OnEnter()
-	{
-	}
+	{}
 	void MainMenuScene::OnExit()
-	{
-	}
+	{}
 	void MainMenuScene::switchScene()
 	{
 		if ( Input::GetKeyDown(eKeyCode::Down) || Input::GetKeyDown(eKeyCode::Up) )
 		{
-			if ( button1->GetActive() == GameObject::eState::Active
-				&& button2->GetActive() == GameObject::eState::Paused )
+			if ( button1->IsActive() && button2->IsPaused() )
 			{
 				button1->SetActive(false);
 				button2->SetActive(true);
 			}
-			else if ( button1->GetActive() == GameObject::eState::Paused
-				&& button2->GetActive() == GameObject::eState::Active )
+			else if ( button1->IsPaused() && button2->IsActive() )
 			{
 				button1->SetActive(true);
 				button2->SetActive(false);
@@ -105,14 +99,12 @@ namespace t
 		}
 
 		if ( ( Input::GetKeyDown(eKeyCode::Enter) || Input::GetKeyDown(eKeyCode::SpaceBar) )
-			&& button1->GetActive() == GameObject::eState::Active
-			&& button2->GetActive() == GameObject::eState::Paused )
+			&& button1->IsActive() && button2->IsPaused() )
 		{
 			SceneManager::LoadScene(L"InGameScene");
 		}
 		else if ( ( Input::GetKeyDown(eKeyCode::Enter) || Input::GetKeyDown(eKeyCode::SpaceBar) )
-			&& button2->GetActive() == GameObject::eState::Active
-			&& button1->GetActive() == GameObject::eState::Paused )
+			&& button2->IsActive() && button1->IsPaused() )
 		{
 			DestroyWindow(application.GetHwnd());
 		}
