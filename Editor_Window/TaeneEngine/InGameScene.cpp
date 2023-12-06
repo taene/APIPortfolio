@@ -7,7 +7,7 @@
 #include "Camera.h"
 #include "Renderer.h"
 #include "Player.h"
-//#include "tAnimator.h"
+#include "tAnimator.h"
 
 //Scene
 #include "SceneManager.h"
@@ -43,7 +43,30 @@ namespace t
 		bg1Sr->SetSize(bg1Sr->GetTextureSize() * 3.0f);
 		//cameraComp->SetTarget(bg1);
 
-		//Player* player = object::Instantiate<Player>(enums::eLayerType::Player , Vector2::Zero);
+		GameObject* head = object::Instantiate<GameObject>(enums::eLayerType::PlayerHead , Vector2::Zero);
+		graphics::Texture* headT = Resources::Find<graphics::Texture>(L"Player_HeadDown");
+		Transform* headTr = head->GetComponent<Transform>();
+		Animator* headIdleAni = head->AddComponent<Animator>();
+		headTr->SetScale(Vector2(3.0f , 3.0f));
+		headIdleAni->CreateAnimation(L"PlayerHeadIdle" , headT
+			, Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
+			Vector2(headTr->GetPosition().x / 2.0f , headTr->GetPosition().y / 2.0f) , 1 , 0.0f);
+		headIdleAni->PlayAnimation(L"PlayerHeadIdle" , false);
+
+		GameObject* body = object::Instantiate<GameObject>(enums::eLayerType::PlayerBody , Vector2(0.0f , 65.0f));
+		graphics::Texture* bodyT = Resources::Find<graphics::Texture>(L"Player_MoveBodyUpDown");
+		Transform* bodyTr = body->GetComponent<Transform>();
+		Animator* bodyIdleAni = body->AddComponent<Animator>();
+		bodyTr->SetScale(Vector2(3.0f , 3.0f));
+		bodyIdleAni->CreateAnimation(L"PlayerBodyIdle" , bodyT
+			, Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
+			Vector2(bodyTr->GetPosition().x / 2.0f , bodyTr->GetPosition().y / 2.0f) , 1 , 0.0f);
+		bodyIdleAni->PlayAnimation(L"PlayerBodyIdle" , false);
+
+		Player* player = object::Instantiate<Player>(Vector2::Zero);
+		player->SetPlayerHeadBody(head , body);
+		player->AddComponent<PlayerScript>()->SetPlayer(player);
+
 
 		//GameObject* bg2 = object::Instantiate<GameObject>
 		//	(enums::eLayerType::BackGround1, Vector2(500, 0));

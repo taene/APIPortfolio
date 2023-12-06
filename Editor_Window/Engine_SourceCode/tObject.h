@@ -9,6 +9,18 @@
 namespace t::object
 {
 	template <typename T>
+	static T* Instantiate(math::Vector2 position)
+	{
+		T* gameObject = new T();
+		Scene* activeScene = SceneManager::GetActiveScene();
+
+		Transform* tr = gameObject->GetComponent<Transform>();
+		tr->SetPosition(position);
+
+		return gameObject;
+	}
+
+	template <typename T>
 	static T* Instantiate(enums::eLayerType type)
 	{
 		T* gameObject = new T();

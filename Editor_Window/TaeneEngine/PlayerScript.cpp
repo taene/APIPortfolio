@@ -12,6 +12,7 @@ namespace t
 	PlayerScript::PlayerScript()
 		: mState(PlayerScript::eState::Idle)
 		, mAnimator(nullptr)
+		, player(nullptr), head(nullptr),body(nullptr)
 	{
 	}
 	PlayerScript::~PlayerScript()
@@ -19,28 +20,30 @@ namespace t
 	}
 	void PlayerScript::Init()
 	{
+		head = player->GetPlayerHead();
+		body = player->GetPlayerBody();
 	}
 	void PlayerScript::Update()
 	{
 		if (mAnimator == nullptr)
 		{
+			
 			mAnimator = GetOwner()->GetComponent<Animator>();
 		}
 
-		switch (mState)
+		switch ( mState )
 		{
 		case t::PlayerScript::eState::Idle:
 			idle();
 			break;
-		case t::PlayerScript::eState::Walk:
+		case t::PlayerScript::eState::Move:
 			move();
 			break;
-		case t::PlayerScript::eState::Sleep:
-			break;
-		case t::PlayerScript::eState::GiveWater:
-			/*giveWater();*/
-			break;
 		case t::PlayerScript::eState::Attack:
+			attack();
+			break;
+		case t::PlayerScript::eState::Damaged:
+			damaged();
 			break;
 		default:
 			break;
@@ -54,17 +57,11 @@ namespace t
 	}
 	void PlayerScript::idle()
 	{
-		/*if (Input::GetKeyPressed(eKeyCode::LButton))
-		{
-			mState = PlayerScript::eState::GiveWater;
-			mAnimator->PlayAnimation(L"FrontGiveWater", false);
-
-			Vector2 mousePos = Input::GetMousePosition();
-		}*/
+		
 	}
 	void PlayerScript::move()
 	{
-		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Transform* tr = player->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
 		if (Input::GetKeyPressed(eKeyCode::D))
@@ -86,20 +83,17 @@ namespace t
 		tr->SetPosition(pos);
 
 
-		/*if (Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::A)
+		if (Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::A)
 			|| Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
 		{
 			mState = PlayerScript::eState::Idle;
 			mAnimator->PlayAnimation(L"Idle", false);
-		}*/
+		}
 	}
 
-		void PlayerScript::giveWater()
-		{
-			if (mAnimator->IsComplete())
-			{
-				mState = eState::Idle;
-				mAnimator->PlayAnimation(L"Idle", false);
-			}
-		}
+	void PlayerScript::attack()
+	{}
+
+	void PlayerScript::damaged()
+	{}
 }

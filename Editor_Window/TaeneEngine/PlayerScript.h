@@ -1,5 +1,6 @@
 #pragma once
 #include "..\\Engine_SourceCode\\Script.h"
+#include "Player.h"
 
 namespace t
 {
@@ -9,10 +10,10 @@ namespace t
 		enum class eState
 		{
 			Idle,
-			Walk,
-			Sleep,
-			GiveWater,
+			Move,
 			Attack,
+			Damaged,
+
 		};
 
 		PlayerScript();
@@ -23,6 +24,8 @@ namespace t
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void SetPlayer(Player* pl) { player = pl; }
+
 	public:
 		//이벤트함수
 
@@ -30,10 +33,16 @@ namespace t
 		//로직함수
 		void idle();
 		void move();
-		void giveWater();
+		void attack();
+		void damaged();
 
 	private:
 		eState mState;
+
+		Player* player;
+		GameObject* head;
+		GameObject* body;
+
 		class Animator* mAnimator;
 
 		//void (*StartEvent)();

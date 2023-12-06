@@ -47,6 +47,6 @@ namespace t
 
 	private:
 		static std::map<std::wstring, Scene*> mScene;
-		static Scene* mActiveScene;	//���� ��
+		static Scene* mActiveScene;	//현재 실행되고 있는 씬
 	};
 }

@@ -12,14 +12,14 @@ namespace t
 		void Render(HDC hdc) override;
 
 	public:
-
-
-	private:
-		void createHeadAnimation();
-		void createBodyAnimation();
+		void SetPlayerHeadBody(GameObject* head , GameObject* body) { mHead = head; mBody = body; }
+		GameObject* GetPlayerHead() { return mHead; }
+		GameObject* GetPlayerBody() { return mBody; }
 
 	private:
-		GameObject* head;
-		GameObject* body;
+
+	private:
+		GameObject* mHead;
+		GameObject* mBody;
 	};
 }
