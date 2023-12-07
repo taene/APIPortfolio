@@ -27,6 +27,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)tAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tBoxCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tCircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tCollider.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tGameObject.h" />
@@ -53,6 +57,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tBoxCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tCircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tCollider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tInput.cpp" />

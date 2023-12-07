@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)tApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Monster.cpp">
       <Filter>GameObject\Monster</Filter>
     </ClCompile>
@@ -62,10 +61,26 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tAnimation.cpp">
       <Filter>Resource\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)tAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tCollider.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tCollisionManager.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tAnimator.cpp">
+      <Filter>Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tApplication.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tBoxCollider2D.cpp">
+      <Filter>Component\Collider\BoxCollider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tCircleCollider2D.cpp">
+      <Filter>Component\Collider\CircleCollider2D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)tApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h">
       <Filter>GameObject\Monster</Filter>
     </ClInclude>
@@ -135,7 +150,24 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)tAnimation.h">
       <Filter>Resource\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)tAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tCollider.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tCollisionManager.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tAnimator.h">
+      <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tApplication.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tBoxCollider2D.h">
+      <Filter>Component\Collider\BoxCollider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tCircleCollider2D.h">
+      <Filter>Component\Collider\CircleCollider2D</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -194,6 +226,21 @@
     </Filter>
     <Filter Include="Resource\Animation">
       <UniqueIdentifier>{6feeaf75-88d5-40f0-a251-39c5c17d6e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider">
+      <UniqueIdentifier>{9ea172bc-d843-4ce4-bc00-55423cce0781}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animator">
+      <UniqueIdentifier>{026e9dc7-b2db-40be-a587-d428d2127547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{e1d42fff-c5c9-4b29-ab8f-810fc33455ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider\BoxCollider2D">
+      <UniqueIdentifier>{fb46e78a-d117-4ac1-bace-63c7983cc269}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider\CircleCollider2D">
+      <UniqueIdentifier>{bf8b8a8c-dbcc-4095-9239-8de4ffb3aaf2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

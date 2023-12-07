@@ -4,12 +4,13 @@ namespace t::enums
 {
 	enum class eComponentType
 	{
-		Transform,
-		SpriteRenderer,
-		Animator,
-		Script,
-		Camera,
-		End,
+		Transform ,
+		Colider ,
+		Script ,
+		SpriteRenderer ,
+		Animator ,
+		Camera ,
+		End ,
 	};
 
 	enum class eLayerType

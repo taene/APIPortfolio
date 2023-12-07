@@ -3,6 +3,7 @@
 #include "tTime.h"
 #include "SceneManager.h"
 #include "tResources.h"
+#include "tCollisionManager.h"
 
 namespace t
 {
@@ -27,6 +28,7 @@ namespace t
 
 		//_monster.SetPosition(0, 0);
 		SceneManager::Init();
+		CollisionManager::Init();
 		Time::Init();
 		Input::Init();
 	}
@@ -43,6 +45,7 @@ namespace t
 	{
 		Input::Update();
 		Time::Update();
+		CollisionManager::Update();
 		SceneManager::Update();
 		//_monster.Update();
 
@@ -78,6 +81,7 @@ namespace t
 
 	void Application::LateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
@@ -86,6 +90,7 @@ namespace t
 		clearRenderTargert();
 
 		Time::Render(mBackHdc);
+		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 		//_monster.Render(_backHdc);
 
@@ -114,8 +119,14 @@ namespace t
 	void Application::clearRenderTargert()
 	{
 		//더블버퍼링 - dc(도화지)를 두개써서 그리고 바꾸고 그리고 바꾸는 알고리즘
-		//clear
+		//윈도우 배경색 회색
+		HBRUSH grayBrush = ( HBRUSH ) CreateSolidBrush(RGB(128 , 128 , 128));
+		HBRUSH oldBrush = ( HBRUSH ) SelectObject(mBackHdc , grayBrush);
+		
 		Rectangle(mBackHdc, -1, -1, winWidth + 1, winHeight + 1);
+		
+		( HBRUSH ) SelectObject(mBackHdc , oldBrush);
+		DeleteObject(grayBrush);
 	}
 
 	void Application::copyRenderTargert(HDC source, HDC dest)

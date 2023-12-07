@@ -23,6 +23,12 @@ namespace t::graphics
 
 		image->mBitmap = CreateCompatibleBitmap(hdc , width , height);
 		image->mHdc = CreateCompatibleDC(hdc);
+		
+		//충돌체 그리기
+		HBRUSH transparentBrush = ( HBRUSH ) GetStockObject(NULL_BRUSH);
+		HBRUSH oldBrush = ( HBRUSH ) SelectObject(hdc , transparentBrush);
+		Rectangle(image->mHdc , -1 , -1 , image->GetWidth() + 1 , image->GetHeight() + 1);
+		SelectObject(hdc , oldBrush);
 
 		HBITMAP oldBitmap = ( HBITMAP ) SelectObject(image->mHdc , image->mBitmap);
 		DeleteObject(oldBitmap);
@@ -58,6 +64,11 @@ namespace t::graphics
 
 			mWidth = info.bmWidth;
 			mHeight = info.bmHeight;
+
+			if ( info.bmBitsPixel == 32 )
+				mbAlpha = true;
+			else if ( info.bmBitsPixel == 24 )
+				mbAlpha = false;
 
 			HDC mainDC = application.GetHdc();
 			mHdc = CreateCompatibleDC(mainDC);

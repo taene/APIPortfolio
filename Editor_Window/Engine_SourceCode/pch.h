@@ -2,17 +2,17 @@
 
 #include <windows.h>
 #include <assert.h>
-
-#include <random>
-#include <vector>
 #include <iostream>
+
+#include <vector>
+#include <random>
 #include <algorithm>
 #include <string>
 #include <map>
+#include <bitset>
 #include <functional>
 #include <filesystem>
 
-#include "tMath.h"
 
 #include <mmsystem.h>
 #include <dinput.h>
@@ -23,3 +23,4 @@
 #pragma comment(lib, "gdiplus.lib")
 
 #include "tEnums.h"
+#include "tMath.h"

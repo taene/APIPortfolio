@@ -101,4 +101,10 @@ namespace t
 
 		mGameObjects.push_back(gameObject);
 	}
+	void Layer::findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs)
+	{}
+	void Layer::deleteGameObjects(std::vector<GameObject*> gameObjs)
+	{}
+	void Layer::eraseGameObject()
+	{}
 }

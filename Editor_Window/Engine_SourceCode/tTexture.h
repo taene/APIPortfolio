@@ -27,6 +27,7 @@ namespace t::graphics
 		HDC GetHdc() { return mHdc; }
 		eTextureType GetTextureType() { return textureType; }
 		Gdiplus::Image* GetImage() { return mImage; }
+		bool IsAlpha() { return mbAlpha; }
 
 	private:
 		bool mbAlpha;

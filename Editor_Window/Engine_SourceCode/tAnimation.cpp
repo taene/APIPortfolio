@@ -64,27 +64,42 @@ namespace t
 		graphics::Texture::eTextureType type = mTexture->GetTextureType();
 		if (type == graphics::Texture::eTextureType::Bmp)
 		{
-			//BLENDFUNCTION func = {};
-			//func.BlendOp = AC_SRC_OVER;
-			//func.BlendFlags = 0;
-			//func.AlphaFormat = AC_SRC_ALPHA;
-			//func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
-
 			HDC imgHdc = mTexture->GetHdc();
 
-			//AlphaBlend(hdc
-			//	, sprite.pivot.x/*pos.x - (sprite.size.x / 2.0f)*/
-			//	, sprite.pivot.y/*pos.y - (sprite.size.y / 2.0f)*/
-			//	, sprite.size.x * scale.x
-			//	, sprite.size.y * scale.y
-			//	, imgHdc
-			//	, sprite.leftTop.x
-			//	, sprite.leftTop.y
-			//	, sprite.size.x
-			//	, sprite.size.y
-			//	, func);
+			if ( mTexture->IsAlpha() )
+			{
+				BLENDFUNCTION func = {};
+				func.BlendOp = AC_SRC_OVER;
+				func.BlendFlags = 0;
+				func.AlphaFormat = AC_SRC_ALPHA;
+				func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
-			TransparentBlt(hdc
+				AlphaBlend(hdc
+					, sprite.pivot.x/*pos.x - (sprite.size.x / 2.0f)*/
+					, sprite.pivot.y/*pos.y - (sprite.size.y / 2.0f)*/
+					, sprite.size.x * scale.x
+					, sprite.size.y * scale.y
+					, imgHdc
+					, sprite.leftTop.x
+					, sprite.leftTop.y
+					, sprite.size.x
+					, sprite.size.y
+					, func);
+			}
+			else
+			{
+				/*TransparentBlt(hdc
+					, pos.x - ( sprite.size.x / 2.0f ) + sprite.pivot.x
+					, pos.y - ( sprite.size.y / 2.0f ) + sprite.pivot.y
+					, sprite.size.x * scale.x
+					, sprite.size.y * scale.y
+					, imgHdc
+					, sprite.leftTop.x
+					, sprite.leftTop.y
+					, sprite.size.x
+					, sprite.size.y
+					, RGB(255 , 0 , 255));*/
+				TransparentBlt(hdc
 					, sprite.pivot.x/*pos.x - (sprite.size.x / 2.0f)*/
 					, sprite.pivot.y/*pos.y - (sprite.size.y / 2.0f)*/
 					, sprite.size.x * scale.x
@@ -95,6 +110,10 @@ namespace t
 					, sprite.size.x
 					, sprite.size.y
 					, RGB(255 , 0 , 255));
+			}
+
+			//충돌체 그리기
+			Rectangle(hdc , pos.x , pos.y , pos.x + 10 , pos.y + 10);
 		}
 		else if (type == graphics::Texture::eTextureType::Png)
 		{

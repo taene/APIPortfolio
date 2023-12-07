@@ -34,10 +34,10 @@ namespace t
 		static void Init();
 		static void Update();
 
-		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; }
-		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
-		static bool GetKeyPressed(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
-		static math::Vector2 GetMousePosition() { return mMousePosition; }
+		__forceinline static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; }
+		__forceinline static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
+		__forceinline static bool GetKeyPressed(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
+		__forceinline static math::Vector2 GetMousePosition() { return mMousePosition; }
 
 	private:
 		static void createKeys();

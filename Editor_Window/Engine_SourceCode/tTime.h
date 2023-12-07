@@ -10,7 +10,7 @@ namespace t
 		static void Update();
 		static void Render(HDC hdc);
 
-		static float DeltaTime() { return deltaTimeValue; }
+		__forceinline static float DeltaTime() { return deltaTimeValue; }
 
 	private:
 		static LARGE_INTEGER cpuFrequency;

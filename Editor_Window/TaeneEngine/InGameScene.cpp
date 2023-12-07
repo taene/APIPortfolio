@@ -65,7 +65,7 @@ namespace t
 
 		Player* player = object::Instantiate<Player>(Vector2::Zero);
 		player->SetPlayerHeadBody(head , body);
-		player->AddComponent<PlayerScript>()->SetPlayer(player);
+		//player->AddComponent<PlayerScript>()->SetPlayer(player);
 
 
 		//GameObject* bg2 = object::Instantiate<GameObject>
