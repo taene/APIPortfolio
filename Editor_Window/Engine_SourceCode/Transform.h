@@ -1,6 +1,7 @@
 #pragma once
 #include "tEntity.h"
 #include "Component.h"
+#include "tGameObject.h"
 
 namespace t
 {
@@ -24,9 +25,17 @@ namespace t
 		void SetRotation(float rotate) { mRotation = rotate; }
 		void SetScale(Vector2 scale) { mScale = scale; }
 
+		void SetParent(Transform* tr) 
+		{
+			mParent = tr;
+			mPosition = mParent->GetPosition() + GetOwner()->GetComponent<Transform>()->GetPosition();
+		}
+
 	private:
 		Vector2 mPosition;
 		Vector2 mScale;
 		float mRotation;
+
+		Transform* mParent;
 	};
 }

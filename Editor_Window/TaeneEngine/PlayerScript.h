@@ -1,6 +1,7 @@
 #pragma once
 #include "..\\Engine_SourceCode\\Script.h"
 #include "Player.h"
+#include "tAnimator.h"
 
 namespace t
 {
@@ -9,11 +10,10 @@ namespace t
 	public:
 		enum class eState
 		{
-			Idle,
-			Move,
-			Attack,
-			Damaged,
-
+			Idle ,
+			Move ,
+			Attack ,
+			Damaged ,
 		};
 
 		PlayerScript();
@@ -34,7 +34,7 @@ namespace t
 		void idle();
 		void move();
 		void attack();
-		void damaged();
+		void onDamaged();
 
 	private:
 		eState mState;
@@ -42,8 +42,6 @@ namespace t
 		Player* player;
 		GameObject* head;
 		GameObject* body;
-
-		class Animator* mAnimator;
 
 		//void (*StartEvent)();
 		//void (*CompleteEvent)();

@@ -6,7 +6,8 @@ namespace t
 		:Component(enums::eComponentType::Transform), 
 		mPosition(0.0f, 0.0f),
 		mScale(Vector2::One),
-		mRotation(0.0f)
+		mRotation(0.0f),
+		mParent(nullptr)
 	{
 	}
 	Transform::~Transform()
@@ -17,6 +18,8 @@ namespace t
 	}
 	void Transform::Update()
 	{
+		if ( mParent )
+			SetParent(mParent);
 	}
 	void Transform::LateUpdate()
 	{
