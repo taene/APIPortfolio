@@ -15,11 +15,12 @@ namespace t
 	}
 	void Transform::Init()
 	{
+		if ( mParent )
+			SetParent(mParent);
 	}
 	void Transform::Update()
 	{
-		if ( mParent )
-			SetParent(mParent);
+		
 	}
 	void Transform::LateUpdate()
 	{

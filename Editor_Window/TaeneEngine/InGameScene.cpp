@@ -35,12 +35,12 @@ namespace t
 		camera->AddComponent<CameraMoveScript>();
 
 		//BackGround
-		/*GameObject* bg1 = object::Instantiate<GameObject>
+		GameObject* bg1 = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround1, Vector2::Zero);
 		SpriteRenderer* bg1Sr = bg1->AddComponent<SpriteRenderer>();
 		graphics::Texture* bg1T = Resources::Find<graphics::Texture>(L"IGS_BG1");
 		bg1Sr->SetTexture(bg1T);
-		bg1Sr->SetSize(bg1Sr->GetTextureSize() * 3.0f);*/
+		bg1Sr->SetSize(bg1Sr->GetTextureSize() * 3.0f);
 		//cameraComp->SetTarget(bg1);
 
 		//Player Head GameObject
@@ -56,8 +56,8 @@ namespace t
 		bodyTr->SetScale(Vector2(3.0f , 3.0f));
 
 		//Player 
-		Player* player = object::Instantiate<Player>(Vector2(100.0f , 100.0f));
-		player->AddComponent<PlayerScript>();
+		Player* player = object::Instantiate<Player>(enums::eLayerType::PlayerBody, Vector2(100.0f , 100.0f));
+		player->AddComponent<PlayerScript>()->SetPlayer(player);
 		Transform* playerTr = player->GetComponent<Transform>();
 		player->SetPlayerHeadBody(head , body);
 		headTr->SetParent(playerTr);
@@ -66,34 +66,31 @@ namespace t
 		//Player Head Animation
 		Animator* headAni = head->AddComponent<Animator>();
 		headAni->CreateAnimation(L"PlayerHeadIdle" , headT, Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
-			Vector2(headTr->GetPosition().x / 2.0f , headTr->GetPosition().y / 2.0f) , 1 , 0.0f);
+			Vector2::Zero , 1 , 0.0f);
 		headAni->CreateAnimation(L"PlayerHeadMoveDown" , headT, Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
-			Vector2(headTr->GetPosition().x / 2.0f , headTr->GetPosition().y / 2.0f) , 4 , 0.5f);
+			Vector2::Zero , 4 , 0.2f);
 		graphics::Texture* headUpT = Resources::Find<graphics::Texture>(L"Player_HeadUp");
 		headAni->CreateAnimation(L"PlayerHeadMoveUp" , headUpT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
-			Vector2(headTr->GetPosition().x / 2.0f , headTr->GetPosition().y / 2.0f) , 4 , 0.5f);
+			Vector2::Zero , 4 , 0.2f);
 		graphics::Texture* headLeftT = Resources::Find<graphics::Texture>(L"Player_HeadLeft");
 		headAni->CreateAnimation(L"PlayerHeadMoveLeft" , headLeftT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
-			Vector2(headTr->GetPosition().x / 2.0f , headTr->GetPosition().y / 2.0f) , 4 , 0.5f);
+			Vector2::Zero , 4 , 0.2f);
 		graphics::Texture* headRightT = Resources::Find<graphics::Texture>(L"Player_HeadRight");
 		headAni->CreateAnimation(L"PlayerHeadMoveRight" , headRightT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
-			Vector2(headTr->GetPosition().x / 2.0f , headTr->GetPosition().y / 2.0f) , 4 , 0.5f);
+			Vector2::Zero , 4 , 0.2f);
 
 		//Player Body Animation
 		Animator* bodyAni = body->AddComponent<Animator>();
 		bodyAni->CreateAnimation(L"PlayerBodyIdle" , bodyT, Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
-			Vector2(bodyTr->GetPosition().x / 2.0f , bodyTr->GetPosition().y / 2.0f) , 1 , 0.0f);
+			Vector2::Zero , 1 , 0.0f);
 		bodyAni->CreateAnimation(L"PlayerBodyMoveUpDown" , bodyT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
-			Vector2(bodyTr->GetPosition().x / 2.0f , bodyTr->GetPosition().y / 2.0f) , 20 , 0.5f);
+			Vector2::Zero , 20 , 0.05f);
 		graphics::Texture* bodyLeftT = Resources::Find<graphics::Texture>(L"Player_MoveBodyLeft");
 		headAni->CreateAnimation(L"PlayerBodyMoveLeft" , bodyLeftT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
-			Vector2(headTr->GetPosition().x / 2.0f , headTr->GetPosition().y / 2.0f) , 20 , 0.5f);
+			Vector2::Zero , 20 , 0.05f);
 		graphics::Texture* bodyRightT = Resources::Find<graphics::Texture>(L"Player_MoveBodyRight");
 		headAni->CreateAnimation(L"PlayerBodyMoveRight" , bodyRightT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
-			Vector2(headTr->GetPosition().x / 2.0f , headTr->GetPosition().y / 2.0f) , 20 , 0.5f);
-
-		/*headAni->PlayAnimation(L"PlayerHeadIdle" , false);
-		bodyAni->PlayAnimation(L"PlayerBodyIdle" , false);*/
+			Vector2::Zero , 20 , 0.05f);
 
 		Scene::Init();
 	}

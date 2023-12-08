@@ -28,7 +28,9 @@ namespace t
 		void SetParent(Transform* tr) 
 		{
 			mParent = tr;
-			mPosition = mParent->GetPosition() + GetOwner()->GetComponent<Transform>()->GetPosition();
+			Vector2 myPos = mPosition;
+			SetPosition(mParent->GetPosition());
+			mPosition += myPos;
 		}
 
 	private:

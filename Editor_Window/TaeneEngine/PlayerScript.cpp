@@ -57,75 +57,55 @@ namespace t
 		Animator* headAni = head->GetComponent<Animator>();
 		Animator* bodyAni = body->GetComponent<Animator>();
 
-		if ( Input::GetKeyPressed(eKeyCode::W) )
+		headAni->PlayAnimation(L"PlayerHeadIdle" , false);
+		bodyAni->PlayAnimation(L"PlayerBodyIdle" , false);
+
+		if ( Input::GetKeyPressed(eKeyCode::W) || Input::GetKeyPressed(eKeyCode::A)
+			|| Input::GetKeyPressed(eKeyCode::S) || Input::GetKeyPressed(eKeyCode::D) )
 		{
 			mState = eState::Move;
-			bodyAni->PlayAnimation(L"PlayerBodyMoveUpDown");
-		}
-		if ( Input::GetKeyPressed(eKeyCode::A) )
-		{
-			mState = eState::Move;
-			bodyAni->PlayAnimation(L"PlayerBodyMoveLeft");
-		}
-		if ( Input::GetKeyPressed(eKeyCode::S) )
-		{
-			mState = eState::Move;
-			bodyAni->PlayAnimation(L"PlayerBodyMoveUpDown");
-		}
-		if ( Input::GetKeyPressed(eKeyCode::D) )
-		{
-			mState = eState::Move;
-			bodyAni->PlayAnimation(L"PlayerBodyMoveRight");
+			move();
 		}
 
-		if ( Input::GetKeyPressed(eKeyCode::Up) )
+		if ( Input::GetKeyPressed(eKeyCode::Up)|| Input::GetKeyPressed(eKeyCode::Left)
+			|| Input::GetKeyPressed(eKeyCode::Down) || Input::GetKeyPressed(eKeyCode::Right) )
 		{
 			mState = eState::Attack;
-			headAni->PlayAnimation(L"PlayerHeadMoveUp");
+			attack();
 		}
-		if ( Input::GetKeyPressed(eKeyCode::Left) )
-		{
-			mState = eState::Attack;
-			headAni->PlayAnimation(L"PlayerHeadMoveLeft");
-		}
-		if ( Input::GetKeyPressed(eKeyCode::Down) )
-		{
-			mState = eState::Attack;
-			headAni->PlayAnimation(L"PlayerHeadMoveDown");
-		}
-		if ( Input::GetKeyPressed(eKeyCode::Right) )
-		{
-			mState = eState::Attack;
-			headAni->PlayAnimation(L"PlayerHeadMoveRight");
-		}
-
-
+		
 	}
+
 	void PlayerScript::move()
 	{
 		Transform* tr = player->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+
 		Animator* headAni = head->GetComponent<Animator>();
 		Animator* bodyAni = body->GetComponent<Animator>();
 
-		if (Input::GetKeyPressed(eKeyCode::D))
-		{
-			pos.x += 100.0f * Time::DeltaTime();
-		}
-		if (Input::GetKeyPressed(eKeyCode::A))
-		{
-			pos.x -= 100.0f * Time::DeltaTime();
-		}
-		if (Input::GetKeyPressed(eKeyCode::W))
+		if ( Input::GetKeyPressed(eKeyCode::W) )
 		{
 			pos.y -= 100.0f * Time::DeltaTime();
+			bodyAni->PlayAnimation(L"PlayerBodyMoveUpDown");
 		}
-		if (Input::GetKeyPressed(eKeyCode::S))
+		if ( Input::GetKeyPressed(eKeyCode::A) )
+		{
+			pos.x -= 100.0f * Time::DeltaTime();
+			bodyAni->PlayAnimation(L"PlayerBodyMoveLeft");
+		}
+		if ( Input::GetKeyPressed(eKeyCode::S) )
 		{
 			pos.y += 100.0f * Time::DeltaTime();
+			bodyAni->PlayAnimation(L"PlayerBodyMoveUpDown");
 		}
+		if ( Input::GetKeyPressed(eKeyCode::D) )
+		{
+			pos.x += 100.0f * Time::DeltaTime();
+			bodyAni->PlayAnimation(L"PlayerBodyMoveRight");
+		}
+		
 		tr->SetPosition(pos);
-
 
 		if (Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::A)
 			|| Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
@@ -138,6 +118,35 @@ namespace t
 
 	void PlayerScript::attack()
 	{
+		Transform* tr = player->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+		Animator* headAni = head->GetComponent<Animator>();
+		Animator* bodyAni = body->GetComponent<Animator>();
+
+		if ( Input::GetKeyPressed(eKeyCode::Up) )
+		{
+			headAni->PlayAnimation(L"PlayerHeadMoveUp");
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Left) )
+		{
+			headAni->PlayAnimation(L"PlayerHeadMoveLeft");
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Down) )
+		{
+			headAni->PlayAnimation(L"PlayerHeadMoveDown");
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Right) )
+		{
+			headAni->PlayAnimation(L"PlayerHeadMoveRight");
+		}
+
+		if ( Input::GetKeyPressed(eKeyCode::Up) || Input::GetKeyPressed(eKeyCode::Left)
+			|| Input::GetKeyPressed(eKeyCode::Down) || Input::GetKeyPressed(eKeyCode::Right) )
+		{
+			mState = PlayerScript::eState::Idle;
+			headAni->PlayAnimation(L"PlayerHeadIdle" , false);
+			bodyAni->PlayAnimation(L"PlayerBodyIdle" , false);
+		}
 	}
 
 	void PlayerScript::onDamaged()
