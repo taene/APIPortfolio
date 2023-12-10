@@ -28,15 +28,14 @@ namespace t
 		void SetParent(Transform* tr) 
 		{
 			mParent = tr;
-			Vector2 myPos = mPosition;
-			SetPosition(mParent->GetPosition());
-			mPosition += myPos;
+			mOffset = mPosition;
 		}
 
 	private:
 		Vector2 mPosition;
 		Vector2 mScale;
 		float mRotation;
+		Vector2 mOffset;
 
 		Transform* mParent;
 	};

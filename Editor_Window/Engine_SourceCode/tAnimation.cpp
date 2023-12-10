@@ -75,8 +75,8 @@ namespace t
 				func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
 				AlphaBlend(hdc
-					, sprite.pivot.x/*pos.x - (sprite.size.x / 2.0f)*/
-					, sprite.pivot.y/*pos.y - (sprite.size.y / 2.0f)*/
+					, pos.x - ( sprite.size.x / 2.0f ) + sprite.offset.x
+					, pos.y - ( sprite.size.y / 2.0f ) + sprite.offset.y
 					, sprite.size.x * scale.x
 					, sprite.size.y * scale.y
 					, imgHdc
@@ -100,8 +100,8 @@ namespace t
 					, sprite.size.y
 					, RGB(255 , 0 , 255));*/
 				TransparentBlt(hdc
-					, sprite.pivot.x/*pos.x - (sprite.size.x / 2.0f)*/
-					, sprite.pivot.y/*pos.y - (sprite.size.y / 2.0f)*/
+					, pos.x - ( sprite.size.x / 2.0f ) + sprite.offset.x
+					, pos.y - ( sprite.size.y / 2.0f ) + sprite.offset.y
 					, sprite.size.x * scale.x
 					, sprite.size.y * scale.y
 					, imgHdc
@@ -111,9 +111,6 @@ namespace t
 					, sprite.size.y
 					, RGB(255 , 0 , 255));
 			}
-
-			//충돌체 그리기
-			Rectangle(hdc , pos.x , pos.y , pos.x + 10 , pos.y + 10);
 		}
 		else if (type == graphics::Texture::eTextureType::Png)
 		{
@@ -146,7 +143,7 @@ namespace t
 			);
 		}
 	}
-	void Animation::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 pivot, UINT spriteLength, float duration)
+	void Animation::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLength, float duration)
 	{
 		mTexture = spriteSheet;
 		for (int i = 0; i < spriteLength; i++)
@@ -155,7 +152,7 @@ namespace t
 			sprite.leftTop.x = leftTop.x + (size.x * i);
 			sprite.leftTop.y = leftTop.y;
 			sprite.size = size;
-			sprite.pivot = pivot;
+			sprite.offset = offset;
 			sprite.duration = duration;
 
 			mSpriteSheet.push_back(sprite);

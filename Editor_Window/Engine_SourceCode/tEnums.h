@@ -23,6 +23,7 @@ namespace t::enums
 		MapTile,
 		InteractObject,
 		Enemy,
+		Player,
 		PlayerBody,
 		PlayerHead,
 		Particle,

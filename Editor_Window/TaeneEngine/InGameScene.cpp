@@ -50,13 +50,13 @@ namespace t
 		headTr->SetScale(Vector2(3.0f , 3.0f));
 
 		//Player Body GameObject
-		GameObject* body = object::Instantiate<GameObject>(enums::eLayerType::PlayerBody , Vector2(0.0f , 65.0f));
+		GameObject* body = object::Instantiate<GameObject>(enums::eLayerType::PlayerBody , Vector2(0.0f , 30.0f));
 		graphics::Texture* bodyT = Resources::Find<graphics::Texture>(L"Player_MoveBodyUpDown");
 		Transform* bodyTr = body->GetComponent<Transform>();
 		bodyTr->SetScale(Vector2(3.0f , 3.0f));
 
 		//Player 
-		Player* player = object::Instantiate<Player>(enums::eLayerType::PlayerBody, Vector2(100.0f , 100.0f));
+		Player* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(100.0f , 100.0f));
 		player->AddComponent<PlayerScript>()->SetPlayer(player);
 		Transform* playerTr = player->GetComponent<Transform>();
 		player->SetPlayerHeadBody(head , body);
@@ -70,12 +70,18 @@ namespace t
 		headAni->CreateAnimation(L"PlayerHeadMoveDown" , headT, Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
 			Vector2::Zero , 4 , 0.2f);
 		graphics::Texture* headUpT = Resources::Find<graphics::Texture>(L"Player_HeadUp");
+		headAni->CreateAnimation(L"PlayerHeadIdleUp" , headUpT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
+			Vector2::Zero , 1 , 0.0f);
 		headAni->CreateAnimation(L"PlayerHeadMoveUp" , headUpT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
 			Vector2::Zero , 4 , 0.2f);
 		graphics::Texture* headLeftT = Resources::Find<graphics::Texture>(L"Player_HeadLeft");
+		headAni->CreateAnimation(L"PlayerHeadIdleLeft" , headLeftT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
+			Vector2::Zero , 1 , 0.0f);
 		headAni->CreateAnimation(L"PlayerHeadMoveLeft" , headLeftT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
 			Vector2::Zero , 4 , 0.2f);
 		graphics::Texture* headRightT = Resources::Find<graphics::Texture>(L"Player_HeadRight");
+		headAni->CreateAnimation(L"PlayerHeadIdleRight" , headRightT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
+			Vector2::Zero , 1 , 0.0f);
 		headAni->CreateAnimation(L"PlayerHeadMoveRight" , headRightT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
 			Vector2::Zero , 4 , 0.2f);
 
@@ -86,10 +92,10 @@ namespace t
 		bodyAni->CreateAnimation(L"PlayerBodyMoveUpDown" , bodyT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
 			Vector2::Zero , 20 , 0.05f);
 		graphics::Texture* bodyLeftT = Resources::Find<graphics::Texture>(L"Player_MoveBodyLeft");
-		headAni->CreateAnimation(L"PlayerBodyMoveLeft" , bodyLeftT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
+		bodyAni->CreateAnimation(L"PlayerBodyMoveLeft" , bodyLeftT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
 			Vector2::Zero , 20 , 0.05f);
 		graphics::Texture* bodyRightT = Resources::Find<graphics::Texture>(L"Player_MoveBodyRight");
-		headAni->CreateAnimation(L"PlayerBodyMoveRight" , bodyRightT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
+		bodyAni->CreateAnimation(L"PlayerBodyMoveRight" , bodyRightT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
 			Vector2::Zero , 20 , 0.05f);
 
 		Scene::Init();

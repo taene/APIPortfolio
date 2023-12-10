@@ -86,23 +86,27 @@ namespace t
 
 		if ( Input::GetKeyPressed(eKeyCode::W) )
 		{
-			pos.y -= 100.0f * Time::DeltaTime();
+			headAni->PlayAnimation(L"PlayerHeadIdleUp" , false);
 			bodyAni->PlayAnimation(L"PlayerBodyMoveUpDown");
+			pos.y -= 200.0f * Time::DeltaTime();
 		}
 		if ( Input::GetKeyPressed(eKeyCode::A) )
 		{
-			pos.x -= 100.0f * Time::DeltaTime();
+			headAni->PlayAnimation(L"PlayerHeadIdleLeft" , false);
 			bodyAni->PlayAnimation(L"PlayerBodyMoveLeft");
+			pos.x -= 200.0f * Time::DeltaTime();
 		}
 		if ( Input::GetKeyPressed(eKeyCode::S) )
 		{
-			pos.y += 100.0f * Time::DeltaTime();
+			headAni->PlayAnimation(L"PlayerHeadIdle" , false);
 			bodyAni->PlayAnimation(L"PlayerBodyMoveUpDown");
+			pos.y += 200.0f * Time::DeltaTime();
 		}
 		if ( Input::GetKeyPressed(eKeyCode::D) )
 		{
-			pos.x += 100.0f * Time::DeltaTime();
+			headAni->PlayAnimation(L"PlayerHeadIdleRight" , false);
 			bodyAni->PlayAnimation(L"PlayerBodyMoveRight");
+			pos.x += 200.0f * Time::DeltaTime();
 		}
 		
 		tr->SetPosition(pos);
@@ -140,8 +144,8 @@ namespace t
 			headAni->PlayAnimation(L"PlayerHeadMoveRight");
 		}
 
-		if ( Input::GetKeyPressed(eKeyCode::Up) || Input::GetKeyPressed(eKeyCode::Left)
-			|| Input::GetKeyPressed(eKeyCode::Down) || Input::GetKeyPressed(eKeyCode::Right) )
+		if ( Input::GetKeyPressed(eKeyCode::Up) && Input::GetKeyPressed(eKeyCode::Left)
+			&& Input::GetKeyPressed(eKeyCode::Down) && Input::GetKeyPressed(eKeyCode::Right) )
 		{
 			mState = PlayerScript::eState::Idle;
 			headAni->PlayAnimation(L"PlayerHeadIdle" , false);

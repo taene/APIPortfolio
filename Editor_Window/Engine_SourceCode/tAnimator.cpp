@@ -56,10 +56,11 @@ namespace t
             mActiveAnimation->Render(hdc);
     }
 
-    void Animator::CreateAnimation(const std::wstring& name, 
-        graphics::Texture* spriteSheet, 
-        Vector2 leftTop, Vector2 size, Vector2 pivot,
-        UINT spriteLength, float duration)
+    void Animator::CreateAnimation(const std::wstring& name
+        , graphics::Texture* spriteSheet
+        , Vector2 leftTop
+        , Vector2 size , Vector2 offset
+        , UINT spriteLength , float duration)
     {
         Animation* animation = nullptr;
         animation = FindAnimation(name);
@@ -70,7 +71,7 @@ namespace t
         animation = new Animation();
         animation->SetName(name);
         animation->CreateAnimation(name, spriteSheet,
-            leftTop, size, pivot, spriteLength, duration);
+            leftTop, size, offset, spriteLength, duration);
 
         animation->SetAnimator(this);
 

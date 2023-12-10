@@ -7,7 +7,8 @@ namespace t
 		mPosition(0.0f, 0.0f),
 		mScale(Vector2::One),
 		mRotation(0.0f),
-		mParent(nullptr)
+		mParent(nullptr),
+		mOffset(Vector2::Zero)
 	{
 	}
 	Transform::~Transform()
@@ -20,7 +21,8 @@ namespace t
 	}
 	void Transform::Update()
 	{
-		
+		if ( mParent )
+			mPosition = mOffset + mParent->GetPosition();
 	}
 	void Transform::LateUpdate()
 	{

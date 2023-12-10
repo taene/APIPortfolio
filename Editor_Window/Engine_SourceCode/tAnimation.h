@@ -11,13 +11,13 @@ namespace t
 		{
 			Vector2 leftTop;
 			Vector2 size;
-			Vector2 pivot;
+			Vector2 offset;
 			float duration;
 
 			Sprite()
 				:leftTop(Vector2::Zero),
 				 size(Vector2::Zero),
-				 pivot(Vector2::Zero),
+				 offset(Vector2::Zero),
 				 duration(0.0f)
 			{
 
@@ -37,7 +37,7 @@ namespace t
 			graphics::Texture* spriteSheet,
 			Vector2 leftTop,
 			Vector2 size,
-			Vector2 pivot,
+			Vector2 offset,
 			UINT spriteLength,
 			float duration);
 
