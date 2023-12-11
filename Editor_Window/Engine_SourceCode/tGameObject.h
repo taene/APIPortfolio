@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Component.h"
+#include "tCollider.h"
 //#include "Bullet.h"
 
 namespace t::object

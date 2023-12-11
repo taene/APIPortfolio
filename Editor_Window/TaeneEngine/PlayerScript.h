@@ -52,6 +52,10 @@ namespace t
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void OnCollisionEnter(Collider* other) override;
+		void OnCollisionStay(Collider* other) override;
+		void OnCollisionExit(Collider* other) override;
+
 		void SetPlayer(Player* pl) { player = pl; }
 
 	public:
@@ -64,6 +68,16 @@ namespace t
 		void attack();
 		void onDamaged();
 
+
+	private:
+		bool isMove;
+		bool isAttack;
+
+		bool isUp;
+		bool isDown;
+		bool isLeft;
+		bool isRight;
+
 	private:
 		eState mState;
 		Status mStatus;
@@ -71,6 +85,9 @@ namespace t
 		Player* player;
 		GameObject* head;
 		GameObject* body;
+
+		Animator* headAni;
+		Animator* bodyAni;
 
 		//void (*StartEvent)();
 		//void (*CompleteEvent)();
