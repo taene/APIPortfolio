@@ -13,6 +13,7 @@ namespace t
 		void Init(HWND hwnd, UINT width, UINT height);
 		void Run();
 
+		void Start();
 		void Update();
 		void LateUpdate();
 		void Render();

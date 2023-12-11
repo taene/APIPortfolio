@@ -15,8 +15,9 @@
 #include "InGameScene.h"
 
 //Script
-#include "PlayerScript.h"
 #include "CameraMoveScript.h"
+#include "PlayerScript.h"
+#include "BulletScript.h"
 
 namespace t
 {
@@ -98,7 +99,22 @@ namespace t
 		bodyAni->CreateAnimation(L"PlayerBodyMoveRight" , bodyRightT , Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,
 			Vector2::Zero , 20 , 0.1f);
 
+		//Bullet
+		GameObject* bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , Vector2(100.0f , 5.0f));
+		SpriteRenderer* bulletSr = bullet->AddComponent<SpriteRenderer>();
+		bullet->AddComponent<BulletScript>();
+		graphics::Texture* bulletT = Resources::Find<graphics::Texture>(L"Bullet");
+		bulletSr->SetTexture(bulletT);
+		bulletSr->SetSize(bulletSr->GetTextureSize() * 1.5f);
+		Transform* bulletTr = bullet->GetComponent<Transform>();
+		//bulletTr->SetScale(Vector2(3.0f , 3.0f));
+		bulletTr->SetParent(playerTr);
+
 		Scene::Init();
+	}
+	void InGameScene::Start()
+	{
+		Scene::Start();
 	}
 	void InGameScene::Update()
 	{

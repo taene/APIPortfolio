@@ -18,6 +18,14 @@ namespace t
 		mBody->Init();
 	}
 
+	void Player::Start()
+	{
+		GameObject::Start();
+
+		mHead->Start();
+		mBody->Start();
+	}
+
 	void Player::Update()
 	{
 		GameObject::Update();

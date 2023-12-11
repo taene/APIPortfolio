@@ -9,7 +9,10 @@ namespace t
 	CircleCollider2D::~CircleCollider2D()
 	{
 	}
-	void CircleCollider2D::Initialize()
+	void CircleCollider2D::Init()
+	{
+	}
+	void CircleCollider2D::Start()
 	{
 	}
 	void CircleCollider2D::Update()

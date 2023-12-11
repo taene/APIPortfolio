@@ -9,7 +9,8 @@ namespace t
 		CircleCollider2D();
 		~CircleCollider2D();
 
-		virtual void Initialize();
+		virtual void Init();
+		virtual void Start();
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);

@@ -31,6 +31,12 @@
     <Filter Include="Contents\Player">
       <UniqueIdentifier>{3759add1-121a-4901-af7d-372a70a9a67f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\Bullets">
+      <UniqueIdentifier>{099d427b-e132-4dcd-abb8-5ff0aab9ff7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Projectile">
+      <UniqueIdentifier>{7549d19d-756a-4b64-b4d7-f655ad235713}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoadingScene.h">
@@ -58,6 +64,12 @@
     <ClInclude Include="Player.h">
       <Filter>Contents\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Contents\Bullets</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletScript.h">
+      <Filter>Scripts\Projectile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LoadingScene.cpp">
@@ -80,6 +92,12 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Contents\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Contents\Bullets</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletScript.cpp">
+      <Filter>Scripts\Projectile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -26,6 +26,21 @@ namespace t
 			i->Init();
 		}
 	}
+	void Layer::Start()
+	{
+		for ( GameObject* i : mGameObjects )
+		{
+			if ( i == nullptr )
+				continue;
+
+			GameObject::eState state = i->GetActive();
+			if ( state == GameObject::eState::Paused
+				|| state == GameObject::eState::Dead )
+				continue;
+
+			i->Start();
+		}
+	}
 	void Layer::Update()
 	{
 		for (GameObject* i : mGameObjects)

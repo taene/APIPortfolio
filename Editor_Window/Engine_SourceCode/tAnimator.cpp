@@ -29,6 +29,9 @@ namespace t
     void Animator::Init()
     {
     }
+    void Animator::Start()
+    {
+    }
     void Animator::Update()
     {
         if (mActiveAnimation)

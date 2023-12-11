@@ -8,6 +8,10 @@ namespace t
     void SceneManager::Init()
     {
     }
+    void SceneManager::Start()
+    {
+        mActiveScene->Start();
+    }
     void SceneManager::Update()
     {
         mActiveScene->Update();

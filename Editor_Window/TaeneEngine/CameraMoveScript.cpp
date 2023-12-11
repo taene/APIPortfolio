@@ -18,6 +18,10 @@ namespace t
 	{
 	}
 
+	void CameraMoveScript::Start()
+	{
+	}
+
 	void CameraMoveScript::Update()
 	{
 		//Transform* tr = GetOwner()->GetComponent<Transform>();

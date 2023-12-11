@@ -38,6 +38,7 @@ namespace t
 		static Scene* GetActiveScene() { return mActiveScene; }
 
 		static void Init();
+		static void Start();
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);

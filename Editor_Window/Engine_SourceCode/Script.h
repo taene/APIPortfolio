@@ -10,6 +10,7 @@ namespace t
 		~Script();
 
 		void Init() override;
+		void Start() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;

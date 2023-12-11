@@ -11,7 +11,8 @@ namespace t
 {
 	PlayerScript::PlayerScript()
 		: mState(PlayerScript::eState::Idle)
-		, player(nullptr) , head(nullptr) , body(nullptr) , headAni(nullptr) , bodyAni(nullptr) , mStatus()
+		, player(nullptr) , head(nullptr) , body(nullptr) , headAni(nullptr) , bodyAni(nullptr) , playerTr(nullptr)
+		, mStatus()
 		, isMove(false) , isAttack(false)
 		, isUp(false) , isDown(false) , isLeft(false) , isRight(false)
 	{}
@@ -19,25 +20,16 @@ namespace t
 	{}
 	void PlayerScript::Init()
 	{}
+	void PlayerScript::Start()
+	{
+		head = player->GetPlayerHead();
+		body = player->GetPlayerBody();
+		headAni = head->GetComponent<Animator>();
+		bodyAni = body->GetComponent<Animator>();
+		playerTr = player->GetComponent<Transform>();
+	}
 	void PlayerScript::Update()
 	{
-		if ( head == nullptr && body == nullptr )
-		{
-			head = player->GetPlayerHead();
-			body = player->GetPlayerBody();
-		}
-		if ( headAni == nullptr && bodyAni == nullptr )
-		{
-			headAni = head->GetComponent<Animator>();
-			bodyAni = body->GetComponent<Animator>();
-		}
-
-		/*if ( Input::GetKeyPressed(eKeyCode::D) || Input::GetKeyPressed(eKeyCode::A)
-			|| Input::GetKeyPressed(eKeyCode::W) || Input::GetKeyPressed(eKeyCode::S) )
-		{
-			isAttack = true;
-		}*/
-
 		switch ( mState )
 		{
 		case t::PlayerScript::eState::Idle:
@@ -96,45 +88,40 @@ namespace t
 			mState = PlayerScript::eState::Move;
 		}
 
-		/*if ( isAttack )
-		{*/
-		if ( Input::GetKeyDown(eKeyCode::Up) )
+		if ( !isMove )
 		{
-			//isUp = true;
-			headAni->PlayAnimation(L"PlayerHeadMoveUp");
-			mState = PlayerScript::eState::Attack;
-			//attack();
+			if ( Input::GetKeyPressed(eKeyCode::Up) )
+			{
+				isAttack = true;
+				headAni->PlayAnimation(L"PlayerHeadMoveUp");
+				mState = PlayerScript::eState::Attack;
+			}
+			if ( Input::GetKeyPressed(eKeyCode::Left) )
+			{
+				isAttack = true;
+				headAni->PlayAnimation(L"PlayerHeadMoveLeft");
+				mState = PlayerScript::eState::Attack;
+			}
+			if ( Input::GetKeyPressed(eKeyCode::Down) )
+			{
+				isAttack = true;
+				headAni->PlayAnimation(L"PlayerHeadMoveDown");
+				mState = PlayerScript::eState::Attack;
+			}
+			if ( Input::GetKeyPressed(eKeyCode::Right) )
+			{
+				isAttack = true;
+				headAni->PlayAnimation(L"PlayerHeadMoveRight");
+				mState = PlayerScript::eState::Attack;
+			}
 		}
-		if ( Input::GetKeyDown(eKeyCode::Left) )
-		{
-			//isLeft = true;
-			headAni->PlayAnimation(L"PlayerHeadMoveLeft");
-			mState = PlayerScript::eState::Attack;
-			//attack();
-		}
-		if ( Input::GetKeyDown(eKeyCode::Down) )
-		{
-			//isDown = true;
-			headAni->PlayAnimation(L"PlayerHeadMoveDown");
-			mState = PlayerScript::eState::Attack;
-			//attack();
-		}
-		if ( Input::GetKeyDown(eKeyCode::Right) )
-		{
-			//isRight = true;
-			headAni->PlayAnimation(L"PlayerHeadMoveRight");
-			mState = PlayerScript::eState::Attack;
-			//attack();
-		}
-		//}
 	}
 
 	void PlayerScript::move()
 	{
 		isMove = true;
 
-		Transform* tr = player->GetComponent<Transform>();
-		Vector2 pos = tr->GetPosition();
+		Vector2 pos = playerTr->GetPosition();
 
 		if ( Input::GetKeyPressed(eKeyCode::W) )
 		{
@@ -153,7 +140,32 @@ namespace t
 			pos.x += mStatus.speed * Time::DeltaTime();
 		}
 
-		tr->SetPosition(pos);
+		playerTr->SetPosition(pos);
+
+		if ( Input::GetKeyPressed(eKeyCode::Up) )
+		{
+			isAttack = true;
+			headAni->PlayAnimation(L"PlayerHeadMoveUp");
+			mState = PlayerScript::eState::Attack;
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Left) )
+		{
+			isAttack = true;
+			headAni->PlayAnimation(L"PlayerHeadMoveLeft");
+			mState = PlayerScript::eState::Attack;
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Down) )
+		{
+			isAttack = true;
+			headAni->PlayAnimation(L"PlayerHeadMoveDown");
+			mState = PlayerScript::eState::Attack;
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Right) )
+		{
+			isAttack = true;
+			headAni->PlayAnimation(L"PlayerHeadMoveRight");
+			mState = PlayerScript::eState::Attack;
+		}
 
 		if ( Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::A)
 			|| Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S) )
@@ -167,27 +179,28 @@ namespace t
 	{
 		isAttack = true;
 
-		Transform* tr = player->GetComponent<Transform>();
-		Vector2 pos = tr->GetPosition();
+		Vector2 pos = playerTr->GetPosition();
+
+		if ( Input::GetKeyPressed(eKeyCode::W) )
+		{
+			pos.y -= mStatus.speed * Time::DeltaTime();
+		}
+		if ( Input::GetKeyPressed(eKeyCode::A) )
+		{
+			pos.x -= mStatus.speed * Time::DeltaTime();
+		}
+		if ( Input::GetKeyPressed(eKeyCode::S) )
+		{
+			pos.y += mStatus.speed * Time::DeltaTime();
+		}
+		if ( Input::GetKeyPressed(eKeyCode::D) )
+		{
+			pos.x += mStatus.speed * Time::DeltaTime();
+		}
+
+		playerTr->SetPosition(pos);
 
 		//attack 로직
-
-		/*if ( Input::GetKeyUp(eKeyCode::Up) )
-		{
-			isUp = false;
-		}
-		if ( Input::GetKeyUp(eKeyCode::Left) )
-		{
-			isLeft = false;
-		}
-		if ( Input::GetKeyUp(eKeyCode::Down) )
-		{
-			isDown = false;
-		}
-		if ( Input::GetKeyUp(eKeyCode::Right) )
-		{
-			isRight = false;
-		}*/
 
 		if ( Input::GetKeyUp(eKeyCode::Up) || Input::GetKeyUp(eKeyCode::Left)
 			|| Input::GetKeyUp(eKeyCode::Down) || Input::GetKeyUp(eKeyCode::Right) /*!isUp && !isLeft && !isDown && !isRight*/ )	//공격안함

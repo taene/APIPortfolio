@@ -12,6 +12,9 @@ namespace t
 	void Script::Init()
 	{
 	}
+	void Script::Start()
+	{
+	}
 	void Script::Update()
 	{
 	}

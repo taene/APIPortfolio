@@ -15,6 +15,10 @@ namespace t
 	{
 	}
 
+	void CollisionManager::Start()
+	{
+	}
+
 	void CollisionManager::Update()
 	{
 		Scene* scene = SceneManager::GetActiveScene();

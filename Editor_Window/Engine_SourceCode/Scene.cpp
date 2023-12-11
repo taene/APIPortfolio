@@ -24,6 +24,16 @@ namespace t
 			i->Init();
 		}
 	}
+	void Scene::Start()
+	{
+		for ( Layer* i : mLayers )
+		{
+			if ( i == nullptr )
+				continue;
+
+			i->Start();
+		}
+	}
 	void Scene::Update()
 	{
 		for (Layer* i : mLayers)

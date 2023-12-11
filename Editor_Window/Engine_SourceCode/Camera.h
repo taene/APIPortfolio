@@ -14,6 +14,7 @@ namespace t
 		Vector2 CalculatePosition(Vector2 pos) { return pos - mDistance; }
 
 		void Init() override;
+		void Start() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;

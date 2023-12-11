@@ -56,6 +56,11 @@ namespace t
 		Scene::Init();
 	}
 
+	void LoadingScene::Start()
+	{
+		Scene::Start();
+	}
+
 	void LoadingScene::Update()
 	{
 		Scene::Update();

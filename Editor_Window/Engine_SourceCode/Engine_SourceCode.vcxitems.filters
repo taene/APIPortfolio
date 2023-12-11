@@ -10,9 +10,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Bullet.cpp">
-      <Filter>GameObject\Projectile</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tEntity.cpp">
       <Filter>Scene\SceneSystem</Filter>
     </ClCompile>
@@ -89,9 +86,6 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene.h">
       <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Bullet.h">
-      <Filter>GameObject\Projectile</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tEntity.h">
       <Filter>Scene\SceneSystem</Filter>
@@ -181,9 +175,6 @@
     </Filter>
     <Filter Include="GameObject\Monster">
       <UniqueIdentifier>{e024d2ab-8c29-42c9-a44a-51c102cb6401}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Projectile">
-      <UniqueIdentifier>{3c05a406-66a8-4a12-a987-2c16a80e3347}</UniqueIdentifier>
     </Filter>
     <Filter Include="EngineSystem">
       <UniqueIdentifier>{9925ffcf-9f48-48fc-bf2d-15480e6e69cd}</UniqueIdentifier>

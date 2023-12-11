@@ -62,6 +62,10 @@ namespace t
 
 		Scene::Init();
 	}
+	void MainMenuScene::Start()
+	{
+		Scene::Start();
+	}
 	void MainMenuScene::Update()
 	{
 		Scene::Update();

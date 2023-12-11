@@ -11,7 +11,10 @@ namespace t
 	BoxCollider2D::~BoxCollider2D()
 	{
 	}
-	void BoxCollider2D::Initialize()
+	void BoxCollider2D::Init()
+	{
+	}
+	void BoxCollider2D::Start()
 	{
 	}
 	void BoxCollider2D::Update()

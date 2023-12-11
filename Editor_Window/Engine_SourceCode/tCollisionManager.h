@@ -23,6 +23,7 @@ namespace t
 	{
 	public:
 		static void Init();
+		static void Start();
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);

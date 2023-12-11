@@ -15,6 +15,10 @@ namespace t
 	{
 	}
 
+	void Component::Start()
+	{
+	}
+
 	void Component::Update()
 	{
 	}

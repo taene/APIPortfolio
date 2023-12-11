@@ -15,19 +15,20 @@ namespace t
 		//Resources::Load<graphics::Texture>(L"LS_Logo1", L"C:\\GithubProjects\\APIPortfolio\\Assets\\Sprites\\Menu\\team_cherry_logo_main_menu.png");
 		//Resources::Load<graphics::Texture>(L"LS_Logo2", L"C:\\GithubProjects\\APIPortfolio\\Assets\\Sprites\\Menu\\Hidden_Dreams_Logo.png");
 		
-		//LoadingScene 
+		//<LoadingScene>
 		Resources::Load<graphics::Texture>(L"LS_StartMenu", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\MainMenu\\TitleMenu.bmp");
 
-		//MainMenuScene
+		//<MainMenuScene>
 		Resources::Load<graphics::Texture>(L"MMS_Bg", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\MainMenu\\MainMenuBg.bmp");
 		Resources::Load<graphics::Texture>(L"MMS_NewRunMenu", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\MainMenu\\NewRunMenu.bmp");
 		Resources::Load<graphics::Texture>(L"MMS_OutMenu", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\MainMenu\\OutMenu.bmp");
 		Resources::Load<graphics::Texture>(L"MMS_Button", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\MainMenu\\MenuButton.bmp");
 		
-		//InGameScene
+		//<InGameScene>
 		Resources::Load<graphics::Texture>(L"IGS_BG1", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Map\\StartMap.bmp");
 		Resources::Load<graphics::Texture>(L"IGS_BG2", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Map\\basement.bmp");
 
+		//player dead
 		Resources::Load<graphics::Texture>(L"Player_Death", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\death.bmp");
 		
 		//body move
@@ -42,6 +43,13 @@ namespace t
 		//player pickUp
 		Resources::Load<graphics::Texture>(L"Player_BodyPickUp", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\bodyPickUp.bmp");
 		Resources::Load<graphics::Texture>(L"Player_HeadPickUp", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\headPickUp.bmp");
+		
+		//bullet
+		Resources::Load<graphics::Texture>(L"Bullet" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Bullet\\bullet.bmp");
+		Resources::Load<graphics::Texture>(L"BulletFinish" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Bullet\\bulletFinish.bmp");
+		Resources::Load<graphics::Texture>(L"RedBullet" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Bullet\\redBullet.bmp");
+		Resources::Load<graphics::Texture>(L"RedBulletFinish" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Bullet\\redBulletFinish.bmp");
+
 
 	}
 }

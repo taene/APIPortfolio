@@ -21,6 +21,8 @@ namespace t
 		mResolution.x = application.GetWidth();
 		mResolution.y = application.GetHeight();
 	}
+	void Camera::Start()
+	{}
 	void Camera::Update()
 	{
 		if (mTarget)

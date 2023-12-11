@@ -2,6 +2,7 @@
 #include "..\\Engine_SourceCode\\Script.h"
 #include "Player.h"
 #include "tAnimator.h"
+#include "Transform.h"
 
 namespace t
 {
@@ -48,6 +49,7 @@ namespace t
 		~PlayerScript();
 
 		void Init() override;
+		void Start() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
@@ -88,6 +90,7 @@ namespace t
 
 		Animator* headAni;
 		Animator* bodyAni;
+		Transform* playerTr;
 
 		//void (*StartEvent)();
 		//void (*CompleteEvent)();

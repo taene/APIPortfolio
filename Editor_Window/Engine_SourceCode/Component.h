@@ -11,6 +11,7 @@ namespace t
 		~Component();
 
 		virtual void Init();
+		virtual void Start();
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);

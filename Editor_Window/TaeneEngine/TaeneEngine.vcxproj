@@ -134,6 +134,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletScript.h" />
     <ClInclude Include="CameraMoveScript.h" />
     <ClInclude Include="InGameScene.h" />
     <ClInclude Include="LoadingScene.h" />
@@ -145,6 +147,8 @@
     <ClInclude Include="PlayScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletScript.cpp" />
     <ClCompile Include="CameraMoveScript.cpp" />
     <ClCompile Include="InGameScene.cpp" />
     <ClCompile Include="LoadingScene.cpp" />

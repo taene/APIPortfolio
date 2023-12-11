@@ -35,10 +35,17 @@ namespace t
 
 	void Application::Run()
 	{
+		Start();
 		Update();
 		LateUpdate();
 		Render();
 		Destroy();
+	}
+
+	void Application::Start()
+	{
+		CollisionManager::Start();
+		SceneManager::Start();
 	}
 
 	void Application::Update()

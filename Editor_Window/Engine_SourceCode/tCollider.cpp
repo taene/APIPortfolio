@@ -16,7 +16,10 @@ namespace t
 	Collider::~Collider()
 	{
 	}
-	void Collider::Initialize()
+	void Collider::Init()
+	{
+	}
+	void Collider::Start()
 	{
 	}
 	void Collider::Update()

@@ -16,6 +16,9 @@ namespace t
 	void SpriteRenderer::Init()
 	{
 	}
+	void SpriteRenderer::Start()
+	{
+	}
 	void SpriteRenderer::Update()
 	{
 	}

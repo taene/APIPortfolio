@@ -44,6 +44,17 @@ namespace t
 		}
 	}
 
+	void GameObject::Start()
+	{
+		for ( Component* i : mComponents )
+		{
+			if ( i == nullptr )
+				continue;
+
+			i->Start();
+		}
+	}
+
 	void GameObject::Update()
 	{
 		for (Component* i : mComponents)

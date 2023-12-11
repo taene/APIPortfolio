@@ -19,6 +19,9 @@ namespace t
 		if ( mParent )
 			SetParent(mParent);
 	}
+	void Transform::Start()
+	{
+	}
 	void Transform::Update()
 	{
 		if ( mParent )
