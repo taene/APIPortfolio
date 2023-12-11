@@ -32,7 +32,7 @@ namespace t
 		
 		//body move
 		Resources::Load<graphics::Texture>(L"Player_MoveBodyLeft", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\moveBody_Left.bmp");
-		Resources::Load<graphics::Texture>(L"Player_MoveBodyRight", L"C:\\GithubProjects\\APIPortfolio\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\moveBody_Right.bmp");
+		Resources::Load<graphics::Texture>(L"Player_MoveBodyRight", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\moveBody_Right.bmp");
 		Resources::Load<graphics::Texture>(L"Player_MoveBodyUpDown", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\moveBody_UpDown.bmp");
 		//head move
 		Resources::Load<graphics::Texture>(L"Player_HeadDown", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\headDown.bmp");

@@ -11,7 +11,7 @@ namespace t
 {
 	PlayerScript::PlayerScript()
 		: mState(PlayerScript::eState::Idle)
-		, player(nullptr), head(nullptr),body(nullptr)
+		, player(nullptr), head(nullptr),body(nullptr), mStatus()
 	{
 	}
 	PlayerScript::~PlayerScript()
@@ -88,25 +88,25 @@ namespace t
 		{
 			headAni->PlayAnimation(L"PlayerHeadIdleUp" , false);
 			bodyAni->PlayAnimation(L"PlayerBodyMoveUpDown");
-			pos.y -= 200.0f * Time::DeltaTime();
+			pos.y -= mStatus.speed * Time::DeltaTime();
 		}
 		if ( Input::GetKeyPressed(eKeyCode::A) )
 		{
 			headAni->PlayAnimation(L"PlayerHeadIdleLeft" , false);
 			bodyAni->PlayAnimation(L"PlayerBodyMoveLeft");
-			pos.x -= 200.0f * Time::DeltaTime();
+			pos.x -= mStatus.speed * Time::DeltaTime();
 		}
 		if ( Input::GetKeyPressed(eKeyCode::S) )
 		{
 			headAni->PlayAnimation(L"PlayerHeadIdle" , false);
 			bodyAni->PlayAnimation(L"PlayerBodyMoveUpDown");
-			pos.y += 200.0f * Time::DeltaTime();
+			pos.y += mStatus.speed * Time::DeltaTime();
 		}
 		if ( Input::GetKeyPressed(eKeyCode::D) )
 		{
 			headAni->PlayAnimation(L"PlayerHeadIdleRight" , false);
 			bodyAni->PlayAnimation(L"PlayerBodyMoveRight");
-			pos.x += 200.0f * Time::DeltaTime();
+			pos.x += mStatus.speed * Time::DeltaTime();
 		}
 		
 		tr->SetPosition(pos);
@@ -144,8 +144,8 @@ namespace t
 			headAni->PlayAnimation(L"PlayerHeadMoveRight");
 		}
 
-		if ( Input::GetKeyPressed(eKeyCode::Up) && Input::GetKeyPressed(eKeyCode::Left)
-			&& Input::GetKeyPressed(eKeyCode::Down) && Input::GetKeyPressed(eKeyCode::Right) )
+		if ( Input::GetKeyUp(eKeyCode::Up) && Input::GetKeyUp(eKeyCode::Left)
+			&& Input::GetKeyUp(eKeyCode::Down) && Input::GetKeyUp(eKeyCode::Right) )
 		{
 			mState = PlayerScript::eState::Idle;
 			headAni->PlayAnimation(L"PlayerHeadIdle" , false);
