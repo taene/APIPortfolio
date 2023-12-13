@@ -53,7 +53,17 @@ namespace t
 	void PlayerScript::Render(HDC hdc)
 	{}
 	void PlayerScript::OnCollisionEnter(Collider* other)
-	{}
+	{
+		int a = rand() % 2;
+		if ( a == 1 )
+		{
+			other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector2(400.0f , 500.0f));
+		}
+		else
+		{
+			other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector2(200.0f , 500.0f));
+		}
+	}
 	void PlayerScript::OnCollisionStay(Collider* other)
 	{}
 	void PlayerScript::OnCollisionExit(Collider* other)

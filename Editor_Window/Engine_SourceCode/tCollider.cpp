@@ -6,11 +6,12 @@ namespace t
 {
 	UINT Collider::CollisionID = 1;
 
-	Collider::Collider() 
+	Collider::Collider(eColliderType type)
 		: Component(enums::eComponentType::Colider)
 		, mID(CollisionID++)
 		, mOffset(Vector2::Zero)
 		, mSize(Vector2::One)
+		, mType(type)
 	{
 	}
 	Collider::~Collider()

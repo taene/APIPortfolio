@@ -42,4 +42,12 @@ namespace t::enums
 		Prefab,
 		End,
 	};
+
+	enum class eColliderType
+	{
+		None ,
+		Circle2D ,
+		Rect2D ,
+		End ,
+	};
 }

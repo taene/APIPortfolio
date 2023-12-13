@@ -9,6 +9,11 @@
 #include "Player.h"
 #include "tAnimator.h"
 
+//Collider
+#include "tBoxCollider2D.h"
+#include "tCircleCollider2D.h"
+#include "tCollisionManager.h"
+
 //Scene
 #include "SceneManager.h"
 #include "MainMenuScene.h"
@@ -29,6 +34,8 @@ namespace t
 	}
 	void InGameScene::Init()
 	{
+		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::Bullet , true);
+
 		//Camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
 		Camera* cameraComp = camera->AddComponent<Camera>();
@@ -57,12 +64,15 @@ namespace t
 		bodyTr->SetScale(Vector2(3.0f , 3.0f));
 
 		//Player 
-		Player* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(100.0f , 100.0f));
+		Player* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(200.0f , 200.0f));
 		player->AddComponent<PlayerScript>()->SetPlayer(player);
 		Transform* playerTr = player->GetComponent<Transform>();
 		player->SetPlayerHeadBody(head , body);
 		headTr->SetParent(playerTr);
 		bodyTr->SetParent(playerTr);
+		BoxCollider2D* playerCollider = player->AddComponent<BoxCollider2D>();
+		//playerCollider->SetSize(Vector2(0.3f , 0.3f));
+		playerCollider->SetOffset(Vector2(-20.0f , -15.0f));
 
 		//Player Head Animation
 		Animator* headAni = head->AddComponent<Animator>();
@@ -107,8 +117,12 @@ namespace t
 		bulletSr->SetTexture(bulletT);
 		bulletSr->SetSize(bulletSr->GetTextureSize() * 1.5f);
 		Transform* bulletTr = bullet->GetComponent<Transform>();
+
+		CircleCollider2D* bulletCollider = bullet->AddComponent<CircleCollider2D>();
+		//bulletCollider->SetSize(Vector2(0.3f , 0.3f));
+		bulletCollider->SetOffset(Vector2(10.0f , 10.0f));
 		//bulletTr->SetScale(Vector2(3.0f , 3.0f));
-		bulletTr->SetParent(playerTr);
+		//bulletTr->SetParent(playerTr);
 
 		Scene::Init();
 	}

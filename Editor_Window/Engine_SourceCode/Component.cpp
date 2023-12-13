@@ -2,7 +2,7 @@
 
 namespace t
 {
-	Component::Component(enums::eComponentType type)
+	Component::Component(eComponentType type)
 		:mOwner(nullptr), mType(type)
 	{
 	}

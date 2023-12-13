@@ -1,11 +1,13 @@
 #include "tBoxCollider2D.h"
 #include "Transform.h"
 #include "tGameObject.h"
+#include "Renderer.h"
+#include "Camera.h"
 
 namespace t
 {
 	BoxCollider2D::BoxCollider2D()
-		:Collider()
+		:Collider(eColliderType::Rect2D)
 	{
 	}
 	BoxCollider2D::~BoxCollider2D()
@@ -27,6 +29,10 @@ namespace t
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+
+		if ( renderer::mainCamera )
+			pos = renderer::mainCamera->CalculatePosition(pos);
+
 		Vector2 offset = GetOffset();
 		HBRUSH transparentBrush = ( HBRUSH ) GetStockObject(NULL_BRUSH);
 		HBRUSH oldBrush = ( HBRUSH ) SelectObject(hdc , transparentBrush);
