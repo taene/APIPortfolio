@@ -6,6 +6,9 @@
 #include "tAnimator.h"
 #include "tObject.h"
 #include "tResources.h"
+#include "SpriteRenderer.h"
+#include "tCircleCollider2D.h"
+#include "BulletScript.h"
 
 namespace t
 {
@@ -41,6 +44,12 @@ namespace t
 		case t::PlayerScript::eState::Attack:
 			attack();
 			break;
+		case t::PlayerScript::eState::GetItem:
+			
+			break;
+		case t::PlayerScript::eState::Bomb:
+			setBomb();
+			break;
 		case t::PlayerScript::eState::Damaged:
 			onDamaged();
 			break;
@@ -54,14 +63,10 @@ namespace t
 	{}
 	void PlayerScript::OnCollisionEnter(Collider* other)
 	{
-		int a = rand() % 2;
-		if ( a == 1 )
+		if ( other->GetOwner()->GetLayerType() == eLayerType::Enemy
+			|| other->GetOwner()->GetLayerType() == eLayerType::InteractObject )
 		{
-			other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector2(400.0f , 500.0f));
-		}
-		else
-		{
-			other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector2(200.0f , 500.0f));
+			mState = PlayerScript::eState::Damaged;
 		}
 	}
 	void PlayerScript::OnCollisionStay(Collider* other)
@@ -98,33 +103,36 @@ namespace t
 			mState = PlayerScript::eState::Move;
 		}
 
-		if ( !isMove )
+		if ( Input::GetKeyPressed(eKeyCode::Up) )
 		{
-			if ( Input::GetKeyPressed(eKeyCode::Up) )
-			{
-				isAttack = true;
-				headAni->PlayAnimation(L"PlayerHeadMoveUp");
-				mState = PlayerScript::eState::Attack;
-			}
-			if ( Input::GetKeyPressed(eKeyCode::Left) )
-			{
-				isAttack = true;
-				headAni->PlayAnimation(L"PlayerHeadMoveLeft");
-				mState = PlayerScript::eState::Attack;
-			}
-			if ( Input::GetKeyPressed(eKeyCode::Down) )
-			{
-				isAttack = true;
-				headAni->PlayAnimation(L"PlayerHeadMoveDown");
-				mState = PlayerScript::eState::Attack;
-			}
-			if ( Input::GetKeyPressed(eKeyCode::Right) )
-			{
-				isAttack = true;
-				headAni->PlayAnimation(L"PlayerHeadMoveRight");
-				mState = PlayerScript::eState::Attack;
-			}
+			isAttack = true;
+			headAni->PlayAnimation(L"PlayerHeadMoveUp");
+			mState = PlayerScript::eState::Attack;
 		}
+		if ( Input::GetKeyPressed(eKeyCode::Left) )
+		{
+			isAttack = true;
+			headAni->PlayAnimation(L"PlayerHeadMoveLeft");
+			mState = PlayerScript::eState::Attack;
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Down) )
+		{
+			isAttack = true;
+			headAni->PlayAnimation(L"PlayerHeadMoveDown");
+			mState = PlayerScript::eState::Attack;
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Right) )
+		{
+			isAttack = true;
+			headAni->PlayAnimation(L"PlayerHeadMoveRight");
+			mState = PlayerScript::eState::Attack;
+		}
+
+		if ( Input::GetKeyDown(eKeyCode::E) )
+		{
+			mState = PlayerScript::eState::Bomb;
+		}
+
 	}
 
 	void PlayerScript::move()
@@ -211,6 +219,7 @@ namespace t
 		playerTr->SetPosition(pos);
 
 		//attack 로직
+		shootBullet();
 
 		if ( Input::GetKeyUp(eKeyCode::Up) || Input::GetKeyUp(eKeyCode::Left)
 			|| Input::GetKeyUp(eKeyCode::Down) || Input::GetKeyUp(eKeyCode::Right) /*!isUp && !isLeft && !isDown && !isRight*/ )	//공격안함
@@ -220,7 +229,53 @@ namespace t
 		}
 	}
 
+	void PlayerScript::shootBullet()
+	{
+		//Bullet
+		GameObject* bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(100.0f , 5.0f));
+		SpriteRenderer* bulletSr = bullet->AddComponent<SpriteRenderer>();
+		bullet->AddComponent<BulletScript>();
+		graphics::Texture* bulletT = Resources::Find<graphics::Texture>(L"Bullet");
+		bulletSr->SetTexture(bulletT);
+		bulletSr->SetSize(bulletSr->GetTextureSize() * 1.5f);
+		Transform* bulletTr = bullet->GetComponent<Transform>();
+
+		CircleCollider2D* bulletCollider = bullet->AddComponent<CircleCollider2D>();
+		bulletCollider->SetSize(Vector2(0.3f , 0.3f));
+		bulletCollider->SetOffset(Vector2(10.0f , 10.0f));
+
+		//쏜방향쪽으로 (4방향) 눈물발사
+	}
+
+	void PlayerScript::setBomb()
+	{
+		if ( Input::GetKeyDown(eKeyCode::E) )
+		{
+			GameObject* bomb = object::Instantiate<GameObject>(enums::eLayerType::InteractObject , playerTr->GetPosition());
+			//SpriteRenderer* bombSr = bomb->AddComponent<SpriteRenderer>();
+			graphics::Texture* bombPulseT = Resources::Find<graphics::Texture>(L"BombPulse");
+			Animator* bombAni = bomb->AddComponent<Animator>();
+			bombAni->CreateAnimation(L"BombPulse" , bombPulseT , Vector2(0.0f , 0.0f) , Vector2(722.0f , 583.0f) ,
+			Vector2::Zero , 59 , 0.5f);
+
+			//bombPulse 끝나고 애니메이션 재생할 폭발 애니메이션
+			graphics::Texture* bombExplosionT = Resources::Find<graphics::Texture>(L"BombExplosion");
+			//bombAni->CreateAnimation(L"BombExplosion" , bombExplosionT , Vector2(0.0f , 0.0f) , Vector2(722.0f , 583.0f) ,Vector2::Zero , 59 , 0.5f); 작업중-리소스 32비트임
+
+			bombAni->PlayAnimation(L"BombPulse" , false);
+		}
+	}
+
 	void PlayerScript::onDamaged()
-	{}
+	{
+		//데미지 받을때 애니메이션
+		//headAni->PlayAnimation(L"PlayerHeadDamaged" , false);
+		//bodyAni->PlayAnimation(L"PlayerBodyDamaged" , false);
+
+		int a = 0;
+
+		Vector2 pos = playerTr->GetPosition();
+
+	}
 
 }

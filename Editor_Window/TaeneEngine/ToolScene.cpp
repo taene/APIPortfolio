@@ -4,8 +4,12 @@
 #include "TilemapRenderer.h"
 #include "tResources.h"
 #include "tTexture.h"
+#include "tInput.h"
+
+//camera
 #include "Camera.h"
 #include "Renderer.h"
+#include "CameraMoveScript.h"
 
 namespace t
 {
@@ -16,9 +20,10 @@ namespace t
 	{}
 	void ToolScene::Init()
 	{
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Particle , Vector2(344.0f , 442.0f));
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None , Vector2::Zero);
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
+		camera->AddComponent<CameraMoveScript>();
 
 		Tile* tile = object::Instantiate<Tile>(eLayerType::MapTile);
 		tmr = tile->AddComponent<TilemapRenderer>();
@@ -38,6 +43,11 @@ namespace t
 	void ToolScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"LoadingScene");
+		}
 	}
 	void ToolScene::Render(HDC hdc)
 	{

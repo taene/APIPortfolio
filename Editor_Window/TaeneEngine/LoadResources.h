@@ -16,7 +16,7 @@ namespace t
 		//Resources::Load<graphics::Texture>(L"LS_Logo2", L"C:\\GithubProjects\\APIPortfolio\\Assets\\Sprites\\Menu\\Hidden_Dreams_Logo.png");
 
 		//<ToolScene>
-		Resources::Load<graphics::Texture>(L"basementTile" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Map\\01_basement.bmp");
+		Resources::Load<graphics::Texture>(L"basementTile" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Map\\Tile\\01_basement.bmp");
 
 
 		//<LoadingScene>
@@ -29,8 +29,8 @@ namespace t
 		Resources::Load<graphics::Texture>(L"MMS_Button", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\MainMenu\\MenuButton.bmp");
 		
 		//<InGameScene>
-		Resources::Load<graphics::Texture>(L"IGS_BG1", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Map\\StartMap.bmp");
-		Resources::Load<graphics::Texture>(L"IGS_BG2", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Map\\basement.bmp");
+		Resources::Load<graphics::Texture>(L"IGS_BG1", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Map\\Tile\\StartMap.bmp");
+		Resources::Load<graphics::Texture>(L"IGS_BG2", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Map\\Tile\\basement.bmp");
 
 		//player dead
 		Resources::Load<graphics::Texture>(L"Player_Death", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Player\\death.bmp");
@@ -59,6 +59,9 @@ namespace t
 		Resources::Load<graphics::Texture>(L"BombAppear" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\PickUp\\bomb\\bombAppear.bmp");
 		Resources::Load<graphics::Texture>(L"BombCollect" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\PickUp\\bomb\\bombCollect.bmp");
 		Resources::Load<graphics::Texture>(L"BombPulse" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\PickUp\\bomb\\bombPulse.bmp");
+		Resources::Load<graphics::Texture>(L"BombExplosion" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\PickUp\\bomb\\bombExplosion.bmp");
+		Resources::Load<graphics::Texture>(L"BombExplosionBack" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\PickUp\\bomb\\bombExplosionBack.bmp");
+
 
 	}
 }

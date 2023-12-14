@@ -35,6 +35,10 @@ namespace t
 	void InGameScene::Init()
 	{
 		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::Bullet , true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::Enemy , true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::InteractObject , true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Enemy , eLayerType::InteractObject , true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Enemy , eLayerType::Bullet , true);
 
 		//Camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
@@ -44,7 +48,7 @@ namespace t
 
 		//BackGround
 		GameObject* bg1 = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround1, Vector2::Zero);
+			(enums::eLayerType::BackGround1 , Vector2(0.0f , -5.0f));
 		SpriteRenderer* bg1Sr = bg1->AddComponent<SpriteRenderer>();
 		graphics::Texture* bg1T = Resources::Find<graphics::Texture>(L"IGS_BG1");
 		bg1Sr->SetTexture(bg1T);
@@ -123,10 +127,12 @@ namespace t
 		Transform* bulletTr = bullet->GetComponent<Transform>();
 
 		CircleCollider2D* bulletCollider = bullet->AddComponent<CircleCollider2D>();
-		//bulletCollider->SetSize(Vector2(0.3f , 0.3f));
+		bulletCollider->SetSize(Vector2(0.3f , 0.3f));
 		bulletCollider->SetOffset(Vector2(10.0f , 10.0f));
-		//bulletTr->SetScale(Vector2(3.0f , 3.0f));
 		//bulletTr->SetParent(playerTr);
+
+		//bomb Animation
+
 
 		Scene::Init();
 	}

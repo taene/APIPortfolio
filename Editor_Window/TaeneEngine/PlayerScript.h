@@ -14,6 +14,8 @@ namespace t
 			Idle ,
 			Move ,
 			Attack ,
+			GetItem ,
+			Bomb ,
 			Damaged ,
 		};
 
@@ -29,6 +31,8 @@ namespace t
 			float bulletSpeed;
 			float atk;
 			float luck;
+
+			float knockBack;
 			
 			Status()
 				:hp(6) ,
@@ -40,7 +44,8 @@ namespace t
 				atkSpeed(10.0f) ,
 				bulletSpeed(1.0f) ,
 				atk(3.5f) ,
-				luck(0.0f)
+				luck(0.0f),
+				knockBack(0.5f)
 			{
 			}
 		};
@@ -68,6 +73,8 @@ namespace t
 		void idle();
 		void move();
 		void attack();
+		void shootBullet();
+		void setBomb();
 		void onDamaged();
 
 

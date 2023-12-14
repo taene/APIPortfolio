@@ -12,6 +12,11 @@
 #include "MainMenuScene.h"
 #include "InGameScene.h"
 
+//Camera
+#include "Camera.h"
+#include "Renderer.h"
+#include "CameraMoveScript.h"
+
 extern t::Application application;
 
 namespace t
@@ -23,6 +28,11 @@ namespace t
 	{}
 	void MainMenuScene::Init()
 	{
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None , Vector2::Zero);
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		camera->AddComponent<CameraMoveScript>();
+
 		GameObject* bg = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround1 , Vector2(0 , 0));
 		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
