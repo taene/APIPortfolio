@@ -34,6 +34,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)tEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)TilemapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tMath.h" />
@@ -63,6 +64,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TilemapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tMath.cpp" />

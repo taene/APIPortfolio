@@ -20,9 +20,10 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름�
 t::Application application;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
-ATOM                MyRegisterClass(HINSTANCE hInstance);
+ATOM                MyRegisterClass(HINSTANCE hInstance , const wchar_t* name , WNDPROC proc);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK    WndTileProc(HWND , UINT , WPARAM , LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 핸들
@@ -45,7 +46,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
 
     // 1) 윈도우 창 정보 등록
-    MyRegisterClass(hInstance);
+    MyRegisterClass(hInstance , szWindowClass , WndProc);
+    MyRegisterClass(hInstance , L"TILEWINDOW" , WndTileProc);
 
     // 2) 윈도우 창 생성
     if (!InitInstance (hInstance, nCmdShow))
@@ -86,21 +88,21 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
 //
 //  용도: 창 클래스를 등록합니다.
 //
-ATOM MyRegisterClass(HINSTANCE hInstance)
+ATOM MyRegisterClass(HINSTANCE hInstance , const wchar_t* name , WNDPROC proc)
 {
     WNDCLASSEXW wcex;
 
     wcex.cbSize = sizeof(WNDCLASSEX);
 
     wcex.style          = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc    = WndProc;
+    wcex.lpfnWndProc = proc;
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hInstance;
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_EDITORWINDOW));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = NULL;
+    wcex.lpszMenuName = name;
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -127,6 +129,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
        CW_USEDEFAULT, 0, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
 
+   HWND ToolHWnd = CreateWindowW(L"TILEWINDOW" , L"TileWindow" , WS_OVERLAPPEDWINDOW ,
+       CW_USEDEFAULT , 0 , windowRect.right - windowRect.left , windowRect.bottom - windowRect.top , nullptr , nullptr , hInstance , nullptr);
+
    // 윈도우 창을 만들 때 한번 Init으로 핸들을 받아옴
    application.Init(hWnd, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
 
@@ -137,6 +142,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   ShowWindow(ToolHWnd , nCmdShow);
+   UpdateWindow(ToolHWnd);
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
@@ -193,6 +201,44 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
     return 0;
+}
+
+LRESULT CALLBACK WndTileProc(HWND hWnd , UINT message , WPARAM wParam , LPARAM lParam)
+{
+    switch ( message )
+    {
+    case WM_COMMAND:
+    {
+        int wmId = LOWORD(wParam);
+        // 메뉴 선택을 구문 분석합니다:
+        switch ( wmId )
+        {
+        case IDM_ABOUT:
+            DialogBox(hInst , MAKEINTRESOURCE(IDD_ABOUTBOX) , hWnd , About);
+            break;
+        case IDM_EXIT:
+            DestroyWindow(hWnd);
+            break;
+        default:
+            return DefWindowProc(hWnd , message , wParam , lParam);
+        }
+    }
+    break;
+    case WM_PAINT:
+    {
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hWnd , &ps);
+
+        EndPaint(hWnd , &ps);
+    }
+    break;
+    case WM_DESTROY:
+        PostQuitMessage(0);
+        break;
+
+    default:
+        return DefWindowProc(hWnd , message , wParam , lParam);
+    }
 }
 
 // 정보 대화 상자의 메시지 처리기입니다.

@@ -144,7 +144,8 @@
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerScript.h" />
-    <ClInclude Include="PlayScene.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="ToolScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
@@ -155,7 +156,8 @@
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerScript.cpp" />
-    <ClCompile Include="PlayScene.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="ToolScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

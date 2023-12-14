@@ -14,7 +14,11 @@ namespace t
 		////Hollow Knight LoadingScene
 		//Resources::Load<graphics::Texture>(L"LS_Logo1", L"C:\\GithubProjects\\APIPortfolio\\Assets\\Sprites\\Menu\\team_cherry_logo_main_menu.png");
 		//Resources::Load<graphics::Texture>(L"LS_Logo2", L"C:\\GithubProjects\\APIPortfolio\\Assets\\Sprites\\Menu\\Hidden_Dreams_Logo.png");
-		
+
+		//<ToolScene>
+		Resources::Load<graphics::Texture>(L"basementTile" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Map\\01_basement.bmp");
+
+
 		//<LoadingScene>
 		Resources::Load<graphics::Texture>(L"LS_StartMenu", L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\MainMenu\\TitleMenu.bmp");
 

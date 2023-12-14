@@ -4,9 +4,6 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{1013bd84-af07-4978-9cbf-c6ec82c7d87a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scenes\_example">
-      <UniqueIdentifier>{c6862a35-825b-42f6-b1b9-f07357890540}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents">
       <UniqueIdentifier>{e48af733-ad94-4176-bcc6-4eb28f5a6008}</UniqueIdentifier>
     </Filter>
@@ -37,13 +34,16 @@
     <Filter Include="Scripts\Projectile">
       <UniqueIdentifier>{7549d19d-756a-4b64-b4d7-f655ad235713}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scenes\MapTool">
+      <UniqueIdentifier>{c6862a35-825b-42f6-b1b9-f07357890540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Tile">
+      <UniqueIdentifier>{b8802c7e-4969-4407-898d-883ebcd6f8d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoadingScene.h">
       <Filter>Scenes\0. StartMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayScene.h">
-      <Filter>Scenes\_example</Filter>
     </ClInclude>
     <ClInclude Include="MainMenuScene.h">
       <Filter>Scenes\1. MainMenu</Filter>
@@ -70,13 +70,16 @@
     <ClInclude Include="BulletScript.h">
       <Filter>Scripts\Projectile</Filter>
     </ClInclude>
+    <ClInclude Include="ToolScene.h">
+      <Filter>Scenes\MapTool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Contents\Tile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LoadingScene.cpp">
       <Filter>Scenes\0. StartMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayScene.cpp">
-      <Filter>Scenes\_example</Filter>
     </ClCompile>
     <ClCompile Include="MainMenuScene.cpp">
       <Filter>Scenes\1. MainMenu</Filter>
@@ -98,6 +101,12 @@
     </ClCompile>
     <ClCompile Include="BulletScript.cpp">
       <Filter>Scripts\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolScene.cpp">
+      <Filter>Scenes\MapTool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Contents\Tile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

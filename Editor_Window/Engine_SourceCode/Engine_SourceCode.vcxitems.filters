@@ -82,6 +82,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tObject.cpp">
       <Filter>EngineSystem\Object</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TilemapRenderer.cpp">
+      <Filter>Component\TilemapRenderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h">
@@ -171,6 +174,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)tObject.h">
       <Filter>EngineSystem\Object</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)TilemapRenderer.h">
+      <Filter>Component\TilemapRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -244,6 +250,9 @@
     </Filter>
     <Filter Include="EngineSystem\Object">
       <UniqueIdentifier>{1099450c-9254-463a-b687-9d99cfdda1bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\TilemapRenderer">
+      <UniqueIdentifier>{78ac8463-9436-4cb9-9ad5-ec8d90a06129}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
