@@ -34,11 +34,11 @@
     <Filter Include="Scripts\Projectile">
       <UniqueIdentifier>{7549d19d-756a-4b64-b4d7-f655ad235713}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scenes\MapTool">
-      <UniqueIdentifier>{c6862a35-825b-42f6-b1b9-f07357890540}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\Tile">
       <UniqueIdentifier>{b8802c7e-4969-4407-898d-883ebcd6f8d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\00. MapTool">
+      <UniqueIdentifier>{c6862a35-825b-42f6-b1b9-f07357890540}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -71,7 +71,7 @@
       <Filter>Scripts\Projectile</Filter>
     </ClInclude>
     <ClInclude Include="ToolScene.h">
-      <Filter>Scenes\MapTool</Filter>
+      <Filter>Scenes\00. MapTool</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>Contents\Tile</Filter>
@@ -103,7 +103,7 @@
       <Filter>Scripts\Projectile</Filter>
     </ClCompile>
     <ClCompile Include="ToolScene.cpp">
-      <Filter>Scenes\MapTool</Filter>
+      <Filter>Scenes\00. MapTool</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Contents\Tile</Filter>

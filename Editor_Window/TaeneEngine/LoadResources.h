@@ -54,6 +54,11 @@ namespace t
 		Resources::Load<graphics::Texture>(L"RedBullet" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Bullet\\redBullet.bmp");
 		Resources::Load<graphics::Texture>(L"RedBulletFinish" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\Bullet\\redBulletFinish.bmp");
 
+		//bomb
+		Resources::Load<graphics::Texture>(L"BombIdle" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\PickUp\\bomb\\bombIdle.bmp");
+		Resources::Load<graphics::Texture>(L"BombAppear" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\PickUp\\bomb\\bombAppear.bmp");
+		Resources::Load<graphics::Texture>(L"BombCollect" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\PickUp\\bomb\\bombCollect.bmp");
+		Resources::Load<graphics::Texture>(L"BombPulse" , L"..\\..\\Assets\\The_Binding_of_Isaac\\Sprite\\PickUp\\bomb\\bombPulse.bmp");
 
 	}
 }
