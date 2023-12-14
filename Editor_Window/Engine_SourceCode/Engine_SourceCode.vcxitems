@@ -30,6 +30,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)tCircleCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tCollisionManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tDontDestroyOnLoad.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tGameObject.h" />
@@ -59,11 +60,13 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tCircleCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tCollisionManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Transform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tResources.cpp" />

@@ -14,28 +14,15 @@ namespace t
 			mActiveScene = scene;
 			scene->Init();
 
-			mScene.insert(std::make_pair(name, scene));
+			mScene.insert(std::make_pair(name , scene));
 
 			return scene;
 		}
 
-		static Scene* LoadScene(const std::wstring& name)
-		{
-			mActiveScene->OnExit();
-
-			std::map<std::wstring, Scene*>::iterator it
-				= mScene.find(name);
-
-			if (it == mScene.end())
-				return nullptr;
-
-			mActiveScene = it->second;
-			mActiveScene->OnEnter();
-
-			return it->second;
-		}
+		static Scene* LoadScene(const std::wstring& name);
 
 		static Scene* GetActiveScene() { return mActiveScene; }
+		static Scene* GetDontDestroyOnLoad() { return mDontDestroyOnLoad; }
 
 		static void Init();
 		static void Start();
@@ -45,9 +32,9 @@ namespace t
 		static void Destroy();
 		static void Release();
 
-
 	private:
 		static std::map<std::wstring, Scene*> mScene;
-		static Scene* mActiveScene;	//현재 실행되고 있는 씬
+		static Scene* mActiveScene;
+		static Scene* mDontDestroyOnLoad;
 	};
 }

@@ -2,16 +2,17 @@
 
 namespace t
 {
-	Scene::Scene() :mLayers{}
+	Scene::Scene() 
+		:mLayers{}
 	{
 		createLayers();
 	}
 	Scene::~Scene()
 	{
-		for (Layer* lay : mLayers)
+		for (Layer* i : mLayers)
 		{
-			delete lay;
-			lay = nullptr;
+			delete i;
+			i = nullptr;
 		}
 	}
 	void Scene::Init()
@@ -83,6 +84,11 @@ namespace t
 	void Scene::AddGameObject(GameObject* gameObj, const enums::eLayerType type)
 	{
 		mLayers[(UINT)type]->AddGameObject(gameObj);
+	}
+	void Scene::EraseGameObject(GameObject* gameObj)
+	{
+		eLayerType layerType = gameObj->GetLayerType();
+		mLayers[ ( UINT ) layerType ]->EraseGameObject(gameObj);
 	}
 	void Scene::createLayers()
 	{

@@ -60,7 +60,7 @@ namespace t
 			return component;
 		}
 
-		eState GetActive() { return mState; }
+		eState GetState() { return mState; }
 		void SetActive(bool power)
 		{
 			if ( power == true ) mState = eState::Active;
@@ -69,6 +69,9 @@ namespace t
 		bool IsActive() { return mState == eState::Active; }
 		bool IsPaused() { return mState == eState::Paused; }
 		bool IsDead() { return mState == eState::Dead; }
+
+		void SetLayerType(eLayerType layerType) { mLayerType = layerType; }
+		eLayerType GetLayerType() { return mLayerType; }
 
 	private:
 		void initTransform();
@@ -86,6 +89,7 @@ namespace t
 	private:
 		eState mState;
 		std::vector<Component*> mComponents;
+		eLayerType mLayerType;
 		/*Bullet* bullet;
 		std::vector<Bullet*> bullets;*/
 	};

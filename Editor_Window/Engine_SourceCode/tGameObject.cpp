@@ -15,7 +15,8 @@ namespace t::object
 namespace t
 {
 	GameObject::GameObject()
-		:mState(eState::Active)
+		:mState(eState::Active), 
+		mLayerType(eLayerType::None)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
 		initTransform();

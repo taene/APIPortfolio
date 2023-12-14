@@ -74,6 +74,10 @@ namespace t
 		//playerCollider->SetSize(Vector2(0.3f , 0.3f));
 		playerCollider->SetOffset(Vector2(-20.0f , -15.0f));
 
+		//object::DontDestroyOnLoad(player);
+		//object::DontDestroyOnLoad(head);
+		//object::DontDestroyOnLoad(body);
+
 		//Player Head Animation
 		Animator* headAni = head->AddComponent<Animator>();
 		headAni->CreateAnimation(L"PlayerHeadIdle" , headT, Vector2(0.0f , 0.0f) , Vector2(32.0f , 32.0f) ,

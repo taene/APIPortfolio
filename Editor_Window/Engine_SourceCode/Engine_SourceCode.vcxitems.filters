@@ -76,6 +76,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tCircleCollider2D.cpp">
       <Filter>Component\Collider\CircleCollider2D</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tDontDestroyOnLoad.cpp">
+      <Filter>Scene\SceneSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tObject.cpp">
+      <Filter>EngineSystem\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h">
@@ -113,9 +119,6 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tResources.h">
       <Filter>Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)tObject.h">
-      <Filter>EngineSystem</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tLayer.h">
       <Filter>Layer</Filter>
@@ -161,6 +164,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tCircleCollider2D.h">
       <Filter>Component\Collider\CircleCollider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tDontDestroyOnLoad.h">
+      <Filter>Scene\SceneSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tObject.h">
+      <Filter>EngineSystem\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +241,9 @@
     </Filter>
     <Filter Include="Component\Collider\CircleCollider2D">
       <UniqueIdentifier>{bf8b8a8c-dbcc-4095-9239-8de4ffb3aaf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineSystem\Object">
+      <UniqueIdentifier>{1099450c-9254-463a-b687-9d99cfdda1bb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

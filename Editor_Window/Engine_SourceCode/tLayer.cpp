@@ -2,7 +2,8 @@
 
 namespace t
 {
-	Layer::Layer() :mGameObjects{}, mType()
+	Layer::Layer() 
+		:mGameObjects{}, mType(eLayerType::None)
 	{
 	}
 	Layer::~Layer()
@@ -33,9 +34,7 @@ namespace t
 			if ( i == nullptr )
 				continue;
 
-			GameObject::eState state = i->GetActive();
-			if ( state == GameObject::eState::Paused
-				|| state == GameObject::eState::Dead )
+			if ( i->IsActive() == false )
 				continue;
 
 			i->Start();
@@ -48,9 +47,7 @@ namespace t
 			if (i == nullptr)
 				continue;
 
-			GameObject::eState state = i->GetActive();
-			if (state == GameObject::eState::Paused
-				|| state == GameObject::eState::Dead)
+			if ( i->IsActive() == false )
 				continue;
 
 			i->Update();
@@ -63,9 +60,7 @@ namespace t
 			if (i == nullptr)
 				continue;
 
-			GameObject::eState state = i->GetActive();
-			if (state == GameObject::eState::Paused
-				|| state == GameObject::eState::Dead)
+			if ( i->IsActive() == false )
 				continue;
 
 			i->LateUpdate();
@@ -78,9 +73,7 @@ namespace t
 			if (i == nullptr)
 				continue;
 
-			GameObject::eState state = i->GetActive();
-			if (state == GameObject::eState::Paused
-				|| state == GameObject::eState::Dead)
+			if ( i->IsActive() == false )
 				continue;
 
 			i->Render(hdc);
@@ -88,16 +81,21 @@ namespace t
 	}
 	void Layer::Destroy()
 	{
+		std::vector<GameObject*> deleteObjects = {};
+		findDeadGameObjects(deleteObjects);
+		eraseDeadGameObject();
+		deleteGameObjects(deleteObjects);
+
 		//GameObjectIter == std::vector<GameObject*>::iterator
 
-		for (GameObjectIter iter = mGameObjects.begin()
+		/*for ( GameObjectIter iter = mGameObjects.begin()
 			; iter != mGameObjects.end()
 			; )
 		{
-			GameObject::eState active = (*iter)->GetActive();
-			if (active == GameObject::eState::Dead)
+			GameObject::eState active = ( *iter )->GetActive();
+			if ( active == GameObject::eState::Dead )
 			{
-				GameObject* deathObj = (*iter);
+				GameObject* deathObj = ( *iter );
 				iter = mGameObjects.erase(iter);
 
 				delete deathObj;
@@ -107,7 +105,7 @@ namespace t
 			}
 
 			iter++;
-		}
+		}*/
 	}
 	void Layer::AddGameObject(GameObject* gameObject)
 	{
@@ -116,10 +114,38 @@ namespace t
 
 		mGameObjects.push_back(gameObject);
 	}
+	void Layer::EraseGameObject(GameObject* eraseGameObj)
+	{
+		// std::erase() iter넣어줘서 해당 이터레이와 같은 객체 삭제
+		std::erase_if(mGameObjects ,
+			[=] (GameObject* gameObj)
+			{
+				return gameObj == eraseGameObj;
+			});
+	}
 	void Layer::findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs)
-	{}
-	void Layer::deleteGameObjects(std::vector<GameObject*> gameObjs)
-	{}
-	void Layer::eraseGameObject()
-	{}
+	{
+		for ( GameObject* gameObj : mGameObjects )
+		{
+			GameObject::eState active = gameObj->GetState();
+			if ( active == GameObject::eState::Dead )
+				gameObjs.push_back(gameObj);
+		}
+	}
+	void Layer::deleteGameObjects(std::vector<GameObject*> deleteObjs)
+	{
+		for ( GameObject* obj : deleteObjs )
+		{
+			delete obj;
+			obj = nullptr;
+		}
+	}
+	void Layer::eraseDeadGameObject()
+	{
+		std::erase_if(mGameObjects ,
+			   [ ] (GameObject* gameObj)
+			   {
+					  return ( gameObj )->IsDead();
+			   });
+	}
 }
