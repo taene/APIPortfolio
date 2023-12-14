@@ -232,6 +232,7 @@ namespace t
 	void PlayerScript::shootBullet()
 	{
 		//Bullet
+		//미리 많이 만들어놓고 사용할것인지 만들고 지우고 할것인지 고민좀해보자
 		GameObject* bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(100.0f , 5.0f));
 		SpriteRenderer* bulletSr = bullet->AddComponent<SpriteRenderer>();
 		bullet->AddComponent<BulletScript>();
@@ -239,10 +240,10 @@ namespace t
 		bulletSr->SetTexture(bulletT);
 		bulletSr->SetSize(bulletSr->GetTextureSize() * 1.5f);
 		Transform* bulletTr = bullet->GetComponent<Transform>();
-
 		CircleCollider2D* bulletCollider = bullet->AddComponent<CircleCollider2D>();
 		bulletCollider->SetSize(Vector2(0.3f , 0.3f));
 		bulletCollider->SetOffset(Vector2(10.0f , 10.0f));
+		bullet->SetActive(false);
 
 		//쏜방향쪽으로 (4방향) 눈물발사
 	}
