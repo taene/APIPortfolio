@@ -29,6 +29,7 @@ namespace t
 		Player* mPlayer;
 		Vector2 shootDir;
 		Player::Status mStatus;
+		//int dir;
 
 		//const std::vector<GameObject*> bullets;
 

@@ -262,6 +262,7 @@ namespace t
 
 	void PlayerScript::shootBullet(Vector2 dir)
 	{
+		//머리방향 ㄴㄴ 총알은 총알이 알아서 움직이게 플레이어 개입 ㄴㄴ
 		headDir = dir;
 		GameObject* bullet = nullptr;
 		//Bullet
