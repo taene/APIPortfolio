@@ -15,7 +15,7 @@ namespace t
 	PlayerScript::PlayerScript()
 		: mState(PlayerScript::eState::Idle)
 		, player(nullptr) , head(nullptr) , body(nullptr) , headAni(nullptr) 
-		, bodyAni(nullptr) , playerTr(nullptr) , headDir(Vector2::Zero) //, bullets{nullptr}
+		, bodyAni(nullptr) , playerTr(nullptr)
 		, mStatus()
 		, isMove(false) , isAttack(false)
 		, isUp(false) , isDown(false) , isLeft(false) , isRight(false)
@@ -263,25 +263,24 @@ namespace t
 	void PlayerScript::shootBullet(Vector2 dir)
 	{
 		//머리방향 ㄴㄴ 총알은 총알이 알아서 움직이게 플레이어 개입 ㄴㄴ
-		headDir = dir;
 		GameObject* bullet = nullptr;
 		//Bullet
-		if ( headDir == Vector2::Up )
+		if ( dir == Vector2::Up )
 		{
 			bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(5.0f , -40.0f));
 			//bullets.push_back(bullet);
 		}
-		if ( headDir == Vector2::Left )
+		if ( dir == Vector2::Left )
 		{
 			bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(-60.0f , 10.0f));
 			//bullets.push_back(bullet);
 		}
-		if ( headDir == Vector2::Down )
+		if ( dir == Vector2::Down )
 		{
 			bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(5.0f , 50.0f));
 			//bullets.push_back(bullet);
 		}
-		if ( headDir == Vector2::Right )
+		if ( dir == Vector2::Right )
 		{
 			bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(70.0f , 10.0f));
 			//bullets.push_back(bullet);
@@ -289,6 +288,7 @@ namespace t
 		SpriteRenderer* bulletSr = bullet->AddComponent<SpriteRenderer>();
 		BulletScript* bulletScript = bullet->AddComponent<BulletScript>();
 		bulletScript->SetPlayer(player);
+		bulletScript->SetDirection(dir);
 		
 		graphics::Texture* bulletT = Resources::Find<graphics::Texture>(L"Bullet");
 		bulletSr->SetTexture(bulletT);

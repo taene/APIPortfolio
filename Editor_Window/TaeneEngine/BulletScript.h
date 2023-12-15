@@ -21,6 +21,7 @@ namespace t
 		void OnCollisionExit(Collider* other) override;
 
 		void SetPlayer(Player* player) { mPlayer = player; }
+		void SetDirection(Vector2 dir) { shootDir = dir; }
 
 	private:
 		void shoot();
@@ -29,7 +30,6 @@ namespace t
 		Player* mPlayer;
 		Vector2 shootDir;
 		Player::Status mStatus;
-		//int dir;
 
 		//const std::vector<GameObject*> bullets;
 

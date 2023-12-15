@@ -33,7 +33,6 @@ namespace t
 		void OnCollisionExit(Collider* other) override;
 
 		void SetPlayer(Player* pl) { player = pl; }
-		Vector2 GetHeadDir() { return headDir; }
 		
 		//맞나 확인하기
 		//std::vector<GameObject*> GetBullet() { return bullets; }
@@ -68,8 +67,6 @@ namespace t
 		Player* player;
 		GameObject* head;
 		GameObject* body;
-		Vector2 headDir;
-		std::vector<GameObject*> bullets;
 
 		Animator* headAni;
 		Animator* bodyAni;

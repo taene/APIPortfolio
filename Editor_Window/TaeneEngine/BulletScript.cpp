@@ -21,8 +21,6 @@ namespace t
 		if ( mPlayer )
 		{
 			PlayerScript* playerScript = mPlayer->GetComponent<PlayerScript>();
-			shootDir = playerScript->GetHeadDir();
-			//bullets = playerScript->GetBullet();
 		}
 	}
 	void BulletScript::Update()
@@ -50,9 +48,6 @@ namespace t
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
-
-		//Transform* plTr = mPlayer->GetComponent<Transform>();
-		//Vector2 dest = mDest - plTr->GetPosition();
 		
 		if ( shootDir == Vector2::Up )
 		{
