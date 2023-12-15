@@ -293,7 +293,6 @@ namespace t
 		bulletSr->SetTexture(bulletT);
 		bulletSr->SetSize(bulletSr->GetTextureSize() * 1.5f);
 		Transform* bulletTr = bullet->GetComponent<Transform>();
-
 		CircleCollider2D* bulletCollider = bullet->AddComponent<CircleCollider2D>();
 		bulletCollider->SetSize(Vector2(0.3f , 0.3f));
 		bulletCollider->SetOffset(Vector2(10.0f , 10.0f));

@@ -118,6 +118,10 @@ namespace t
 			Vector2::Zero , 20 , 0.1f);
 
 		//Bullet
+		//std::vector<GameObject*> bullets = {};
+		//bullets.resize(100);
+		//1) 100개 만들어놓고 setfalse하고 setTrue로 하면서 사용하다가 2) setfalse인 총알이 배열에 없으면 또만들기?
+
 		GameObject* bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , Vector2(100.0f , 5.0f));
 		SpriteRenderer* bulletSr = bullet->AddComponent<SpriteRenderer>();
 		bullet->AddComponent<BulletScript>();
