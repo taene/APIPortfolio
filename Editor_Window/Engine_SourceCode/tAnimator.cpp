@@ -1,6 +1,7 @@
 #include "tAnimator.h"
 #include "tResources.h"
 #include "tTexture.h"
+#include "tTime.h"
 
 namespace t
 {

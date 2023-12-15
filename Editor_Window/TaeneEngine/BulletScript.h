@@ -1,5 +1,6 @@
 #pragma once
 #include "Script.h"
+#include "Player.h"
 
 namespace t
 {
@@ -19,8 +20,19 @@ namespace t
 		void OnCollisionStay(Collider* other) override;
 		void OnCollisionExit(Collider* other) override;
 
-	private:
+		void SetPlayer(Player* player) { mPlayer = player; }
 
+	private:
+		void shoot();
+
+	private:
+		Player* mPlayer;
+		Vector2 shootDir;
+		Player::Status mStatus;
+
+		//const std::vector<GameObject*> bullets;
+
+		float mTime;
 	};
 
 }

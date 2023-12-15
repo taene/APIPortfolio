@@ -1,17 +1,41 @@
 #include "BulletScript.h"
+#include "PlayerScript.h"
+#include "tTime.h"
+#include "tObject.h"
 
 namespace t
 {
 	BulletScript::BulletScript()
+		:mPlayer(nullptr)
+		, mTime(0.0f)
+		, shootDir(Vector2::Zero)
+		, mStatus()
+		//, bullets{}
 	{}
 	BulletScript::~BulletScript()
 	{}
 	void BulletScript::Init()
 	{}
 	void BulletScript::Start()
-	{}
+	{
+		if ( mPlayer )
+		{
+			PlayerScript* playerScript = mPlayer->GetComponent<PlayerScript>();
+			shootDir = playerScript->GetHeadDir();
+			//bullets = playerScript->GetBullet();
+		}
+	}
 	void BulletScript::Update()
-	{}
+	{
+		mTime += Time::DeltaTime();
+		if ( mTime > 3.0f )
+		{
+			object::Destory(GetOwner());
+			mTime = 0.0f;
+		}
+
+		shoot();
+	}
 	void BulletScript::LateUpdate()
 	{}
 	void BulletScript::Render(HDC hdc)
@@ -22,4 +46,31 @@ namespace t
 	{}
 	void BulletScript::OnCollisionExit(Collider * other)
 	{}
+	void BulletScript::shoot()
+	{
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+
+		//Transform* plTr = mPlayer->GetComponent<Transform>();
+		//Vector2 dest = mDest - plTr->GetPosition();
+		
+		if ( shootDir == Vector2::Up )
+		{
+			pos.y -= mStatus.bulletSpeed * Time::DeltaTime();
+		}
+		if ( shootDir == Vector2::Left )
+		{
+			pos.x -= mStatus.bulletSpeed * Time::DeltaTime();
+		}
+		if ( shootDir == Vector2::Down )
+		{
+			pos.y += mStatus.bulletSpeed * Time::DeltaTime();
+		}
+		if ( shootDir == Vector2::Right )
+		{
+			pos.x += mStatus.bulletSpeed * Time::DeltaTime();
+		}
+
+		tr->SetPosition(pos);
+	}
 }

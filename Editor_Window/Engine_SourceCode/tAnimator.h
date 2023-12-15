@@ -60,6 +60,7 @@ namespace t
 		std::function<void()>& GetEndEvent(const std::wstring& name);
 
 		bool IsComplete() { return mActiveAnimation->IsComplete(); }
+		//bool IsComplete(const std::wstring& name) { return FindAnimation(name)->IsComplete(); }
 
 	private:
 		std::map<std::wstring, Animation*> mAnimations;

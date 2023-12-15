@@ -81,6 +81,14 @@ namespace t::math
 			return Vector2(x * v.x , y * v.y);
 		}
 
+		bool operator==(Vector2 v)
+		{
+			if ( x == v.x && y == v.y )
+				return true;
+			else
+				return false;
+		}
+
 		void clear()
 		{
 			x = 0.0f;

@@ -35,18 +35,21 @@ namespace t
 	void Collider::OnCollisionEnter(Collider* other)
 	{
 		Script* script = GetOwner()->GetComponent<Script>();
-		script->OnCollisionEnter(other);
+		if ( script )
+			script->OnCollisionEnter(other);
 	}
 
 	void Collider::OnCollisionStay(Collider* other)
 	{
 		Script* script = GetOwner()->GetComponent<Script>();
-		script->OnCollisionStay(other);
+		if ( script )
+			script->OnCollisionStay(other);
 	}
 
 	void Collider::OnCollisionExit(Collider* other)
 	{
 		Script* script = GetOwner()->GetComponent<Script>();
-		script->OnCollisionExit(other);
+		if ( script )
+			script->OnCollisionExit(other);
 	}
 }

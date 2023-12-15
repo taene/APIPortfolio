@@ -24,6 +24,8 @@ namespace t::graphics
 		void SetWidth(UINT width) { mWidth = width; }
 		UINT GetHeight() { return mHeight; }
 		void SetHeight(UINT height) { mHeight = height; }
+		void SetSize(Vector2 size) { mWidth = size.x; mHeight = size.y; }
+
 		HDC GetHdc() { return mHdc; }
 		eTextureType GetTextureType() { return textureType; }
 		Gdiplus::Image* GetImage() { return mImage; }

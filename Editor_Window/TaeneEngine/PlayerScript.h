@@ -19,37 +19,6 @@ namespace t
 			Damaged ,
 		};
 
-		struct Status
-		{
-			int hp;
-			int	coin;
-			int	bomb;
-			int	key;
-			float speed;
-			float range;
-			float atkSpeed;
-			float bulletSpeed;
-			float atk;
-			float luck;
-
-			float knockBack;
-			
-			Status()
-				:hp(6) ,
-				coin(0) ,
-				bomb(1) ,
-				key(0) ,
-				speed(200.0f) ,
-				range(23.75f) ,
-				atkSpeed(10.0f) ,
-				bulletSpeed(1.0f) ,
-				atk(3.5f) ,
-				luck(0.0f),
-				knockBack(0.5f)
-			{
-			}
-		};
-
 		PlayerScript();
 		~PlayerScript();
 
@@ -64,16 +33,21 @@ namespace t
 		void OnCollisionExit(Collider* other) override;
 
 		void SetPlayer(Player* pl) { player = pl; }
+		Vector2 GetHeadDir() { return headDir; }
+		
+		//맞나 확인하기
+		//std::vector<GameObject*> GetBullet() { return bullets; }
 
 	public:
 		//이벤트함수
+		void DeleteBomb(GameObject* bomb);
 
 	private:
 		//로직함수
 		void idle();
 		void move();
 		void attack();
-		void shootBullet();
+		void shootBullet(Vector2 dir);
 		void setBomb();
 		void onDamaged();
 
@@ -89,11 +63,13 @@ namespace t
 
 	private:
 		eState mState;
-		Status mStatus;
+		Player::Status mStatus;
 
 		Player* player;
 		GameObject* head;
 		GameObject* body;
+		Vector2 headDir;
+		std::vector<GameObject*> bullets;
 
 		Animator* headAni;
 		Animator* bodyAni;
