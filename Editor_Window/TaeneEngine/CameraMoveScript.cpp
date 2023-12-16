@@ -24,32 +24,27 @@ namespace t
 
 	void CameraMoveScript::Update()
 	{
-		//Transform* tr = GetOwner()->GetComponent<Transform>();
-		//Vector2 pos = tr->GetPosition();
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
 
-		//const float speed = 200.0f;
+		if ( Input::GetKeyPressed(eKeyCode::Right) )
+		{
+			pos.x += 300.0f * Time::DeltaTime();
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Left) )
+		{
+			pos.x -= 300.0f * Time::DeltaTime();
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Up) )
+		{
+			pos.y -= 300.0f * Time::DeltaTime();
+		}
+		if ( Input::GetKeyPressed(eKeyCode::Down) )
+		{
+			pos.y += 300.0f * Time::DeltaTime();
+		}
 
-		//if (Input::GetKeyPressed(eKeyCode::A))
-		//{
-		//	pos.x -= speed * Time::DeltaTime();
-		//	//tr->SetPosition(pos);
-		//}
-		//if (Input::GetKeyPressed(eKeyCode::D))
-		//{
-		//	pos.x += speed * Time::DeltaTime();
-		//	//tr->SetPosition(pos);
-		//}
-		//if (Input::GetKeyPressed(eKeyCode::W))
-		//{
-		//	pos.y -= speed * Time::DeltaTime();
-		//	//tr->SetPosition(pos);
-		//}
-		//if (Input::GetKeyPressed(eKeyCode::S))
-		//{
-		//	pos.y += speed * Time::DeltaTime();
-		//	//tr->SetPosition(pos);
-		//}
-		//tr->SetPosition(pos);
+		tr->SetPosition(pos);
 
 	}
 

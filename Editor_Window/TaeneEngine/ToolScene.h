@@ -1,5 +1,6 @@
 #pragma once
 #include "..\\Engine_SourceCode\\Scene.h"
+#include "Tile.h"
 
 namespace t
 {
@@ -18,8 +19,12 @@ namespace t
 		void OnEnter() override;
 		void OnExit()  override;
 
-	private:
-		class TilemapRenderer* tmr;
-    };
+		void Save();
+		void Load();
 
+	private:
+		std::vector<Tile*> mTiles;
+    };
 }
+
+LRESULT CALLBACK WndTileProc(HWND hWnd , UINT message , WPARAM wParam , LPARAM lParam);

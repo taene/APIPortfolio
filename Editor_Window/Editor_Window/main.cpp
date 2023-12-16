@@ -1,11 +1,14 @@
 // Editor_Window.cpp : 애플리케이션에 대한 진입점을 정의합니다.
-//
+
 
 #include "framework.h"
 #include "main.h"
 #include "..\\Engine_SourceCode\\tApplication.h"
+#include "..\\Engine_SourceCode\\tResources.h"
+#include "..\\Engine_SourceCode\\tTexture.h"
 #include "..\\TaeneEngine\\LoadScenes.h"
 #include "..\\TaeneEngine\\LoadResources.h"
+#include "..\\TaeneEngine\\ToolScene.h"
 
 ULONG_PTR gpToken;
 Gdiplus::GdiplusStartupInput gpsi;
@@ -23,7 +26,6 @@ t::Application application;
 ATOM                MyRegisterClass(HINSTANCE hInstance , const wchar_t* name , WNDPROC proc);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-LRESULT CALLBACK    WndTileProc(HWND , UINT , WPARAM , LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 핸들
@@ -129,7 +131,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
        CW_USEDEFAULT, 0, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
 
    HWND ToolhWnd = CreateWindowW(L"TILEWINDOW" , L"TileWindow" , WS_OVERLAPPEDWINDOW ,
-       CW_USEDEFAULT , 0 , 520 , 468 , nullptr , nullptr , hInstance , nullptr);
+       0 , 0 , windowRect.right - windowRect.left , windowRect.bottom - windowRect.top , nullptr , nullptr , hInstance , nullptr);
 
    // 윈도우 창을 만들 때 한번 Init으로 핸들을 받아옴
    application.Init(hWnd, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
@@ -142,14 +144,24 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
-   ShowWindow(ToolhWnd , nCmdShow);
-   UpdateWindow(ToolhWnd);
-
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    //리소스, 씬 로드
    t::LoadResources();
    t::LoadScenes();
+
+   t::graphics::Texture* texture
+       = t::Resources::Find<t::graphics::Texture>(L"basementTile");
+
+   RECT rect = { 0, 0, ( LONG ) texture->GetWidth(), ( LONG ) texture->GetHeight() };
+   AdjustWindowRect(&rect , WS_OVERLAPPEDWINDOW , false);
+
+   UINT toolWidth = rect.right - rect.left;
+   UINT toolHeight = rect.bottom - rect.top;
+
+   SetWindowPos(ToolhWnd , nullptr , windowRect.right - windowRect.left , 0 , toolWidth , toolHeight , 0);
+   ShowWindow(ToolhWnd , true);
+   UpdateWindow(ToolhWnd);
 
    return TRUE;
 }
@@ -198,44 +210,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
-    }
-    return 0;
-}
-
-LRESULT CALLBACK WndTileProc(HWND hWnd , UINT message , WPARAM wParam , LPARAM lParam)
-{
-    switch ( message )
-    {
-    case WM_COMMAND:
-    {
-        int wmId = LOWORD(wParam);
-        // 메뉴 선택을 구문 분석합니다:
-        switch ( wmId )
-        {
-        case IDM_ABOUT:
-            DialogBox(hInst , MAKEINTRESOURCE(IDD_ABOUTBOX) , hWnd , About);
-            break;
-        case IDM_EXIT:
-            DestroyWindow(hWnd);
-            break;
-        default:
-            return DefWindowProc(hWnd , message , wParam , lParam);
-        }
-    }
-    break;
-    case WM_PAINT:
-    {
-        PAINTSTRUCT ps;
-        HDC hdc = BeginPaint(hWnd , &ps);
-        // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-        EndPaint(hWnd , &ps);
-    }
-    break;
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
-    default:
-        return DefWindowProc(hWnd , message , wParam , lParam);
     }
     return 0;
 }

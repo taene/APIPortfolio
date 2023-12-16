@@ -6,13 +6,20 @@
 
 namespace t
 {
+	Vector2 TilemapRenderer::TileSize = Vector2::One;
+	Vector2 TilemapRenderer::OriginTileSize = Vector2::One;
+	Vector2 TilemapRenderer::SelectedIndex = Vector2::One;
+
 	TilemapRenderer::TilemapRenderer()
 		:Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
-		, mTileSize(52.0f , 52.0f)
+		, mOriginTileSize(52.0f , 52.0f)
 		, mScale(Vector2::One)	//transform의 스케일설정과 spriteRenderer의 스케일설정은 따로임(알아서 설정)
-		, mIndex(0,0)
-	{}
+		, mIndex(0 , 0)
+	{
+		TileSize = mOriginTileSize * mScale;
+		OriginTileSize = mOriginTileSize;
+	}
 
 	TilemapRenderer::~TilemapRenderer()
 	{}
@@ -53,12 +60,12 @@ namespace t
 
 				AlphaBlend(hdc
 					, pos.x , pos.y
-					, mTileSize.x * mScale.x * scale.x
-					, mTileSize.y * mScale.y * scale.y
+					, mOriginTileSize.x * mScale.x * scale.x
+					, mOriginTileSize.y * mScale.y * scale.y
 					, mTexture->GetHdc()
-					, mIndex.x * mTileSize.x , mIndex.y * mTileSize.y
-					, mTileSize.x
-					, mTileSize.y
+					, mIndex.x * mOriginTileSize.x , mIndex.y * mOriginTileSize.y
+					, mOriginTileSize.x
+					, mOriginTileSize.y
 					, func);
 			}
 			else
@@ -66,12 +73,12 @@ namespace t
 				//https://blog.naver.com/power2845/50147965306
 				TransparentBlt(hdc
 					, pos.x , pos.y
-					, mTileSize.x * mScale.x * scale.x
-					, mTileSize.y * mScale.y * scale.y
+					, mOriginTileSize.x * mScale.x * scale.x
+					, mOriginTileSize.y * mScale.y * scale.y
 					, mTexture->GetHdc()
-					, mIndex.x * mTileSize.x , mIndex.y * mTileSize.y
-					, mTileSize.x
-					, mTileSize.y
+					, mIndex.x * mOriginTileSize.x , mIndex.y * mOriginTileSize.y
+					, mOriginTileSize.x
+					, mOriginTileSize.y
 					, RGB(255 , 0 , 255));
 			}
 		}

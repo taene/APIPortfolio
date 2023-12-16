@@ -12,6 +12,8 @@ namespace t
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void SetIndexPosition(int x , int y);
+
 	private:
     };
 

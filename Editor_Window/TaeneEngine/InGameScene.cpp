@@ -9,6 +9,10 @@
 #include "Player.h"
 #include "tAnimator.h"
 
+//Tile
+#include "TilemapRenderer.h"
+#include "Tile.h"
+
 //Collider
 #include "tBoxCollider2D.h"
 #include "tCircleCollider2D.h"
@@ -34,6 +38,8 @@ namespace t
 	}
 	void InGameScene::Init()
 	{
+		//mapTileFileSaveLoad();
+
 		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::Bullet , true);
 		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::Enemy , true);
 		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::InteractObject , true);
@@ -166,5 +172,36 @@ namespace t
 	}
 	void InGameScene::OnExit()
 	{
+	}
+	void InGameScene::mapTileFileSaveLoad()
+	{
+		FILE* pFile = nullptr;
+		_wfopen_s(&pFile , L"..\\Resources\\Test" , L"rb");
+
+		while ( true )
+		{
+			int idxX = 0;
+			int idxY = 0;
+
+			int posX = 0;
+			int posY = 0;
+
+
+			if ( fread(&idxX , sizeof(int) , 1 , pFile) == NULL )
+				break;
+			if ( fread(&idxY , sizeof(int) , 1 , pFile) == NULL )
+				break;
+			if ( fread(&posX , sizeof(int) , 1 , pFile) == NULL )
+				break;
+			if ( fread(&posY , sizeof(int) , 1 , pFile) == NULL )
+				break;
+
+			Tile* tile = object::Instantiate<Tile>(eLayerType::MapTile , Vector2(posX , posY));
+			TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
+			tmr->SetTexture(Resources::Find<graphics::Texture>(L"basementTile"));
+			tmr->SetIndex(Vector2(idxX , idxY));
+		}
+
+		fclose(pFile);
 	}
 }

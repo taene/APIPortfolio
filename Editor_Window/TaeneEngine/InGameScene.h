@@ -19,6 +19,7 @@ namespace t
         void OnExit() override;
 
     private:
+        void mapTileFileSaveLoad();
 
     };
 }
