@@ -27,19 +27,19 @@ namespace t
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
-		if ( Input::GetKeyPressed(eKeyCode::Right) )
+		if ( Input::GetKeyPressed(eKeyCode::L) )
 		{
 			pos.x += 300.0f * Time::DeltaTime();
 		}
-		if ( Input::GetKeyPressed(eKeyCode::Left) )
+		if ( Input::GetKeyPressed(eKeyCode::J) )
 		{
 			pos.x -= 300.0f * Time::DeltaTime();
 		}
-		if ( Input::GetKeyPressed(eKeyCode::Up) )
+		if ( Input::GetKeyPressed(eKeyCode::I) )
 		{
 			pos.y -= 300.0f * Time::DeltaTime();
 		}
-		if ( Input::GetKeyPressed(eKeyCode::Down) )
+		if ( Input::GetKeyPressed(eKeyCode::K) )
 		{
 			pos.y += 300.0f * Time::DeltaTime();
 		}

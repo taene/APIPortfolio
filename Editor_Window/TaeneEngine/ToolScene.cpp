@@ -19,7 +19,7 @@ namespace t
 	{}
 	void ToolScene::Init()
 	{
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None , Vector2::Zero);
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 		camera->AddComponent<CameraMoveScript>();
@@ -76,10 +76,10 @@ namespace t
 			Load();
 		}
 
-		/*if (Input::GetKeyDown(eKeyCode::N))
+		if (Input::GetKeyDown(eKeyCode::N))
 		{
 			SceneManager::LoadScene(L"LoadingScene");
-		}*/
+		}
 	}
 	void ToolScene::Render(HDC hdc)
 	{

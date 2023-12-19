@@ -42,6 +42,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Transform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tRigidbody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tTime.h" />
   </ItemGroup>
@@ -72,6 +73,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Transform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tRigidbody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tTime.cpp" />
   </ItemGroup>

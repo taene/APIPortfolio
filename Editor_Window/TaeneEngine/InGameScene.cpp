@@ -1,13 +1,18 @@
 #include "tInput.h"
 #include "tObject.h"
 #include "tResources.h"
+#include "Renderer.h"
+
+//Component
 #include "tTexture.h"
 #include "Transform.h"
 #include "SpriteRenderer.h"
 #include "Camera.h"
-#include "Renderer.h"
-#include "Player.h"
 #include "tAnimator.h"
+#include "tRigidbody.h"
+
+//Contents
+#include "Player.h"
 
 //Tile
 #include "TilemapRenderer.h"
@@ -40,12 +45,6 @@ namespace t
 	{
 		//mapTileFileSaveLoad();
 
-		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::Bullet , true);
-		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::Enemy , true);
-		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::InteractObject , true);
-		CollisionManager::CollisionLayerCheck(eLayerType::Enemy , eLayerType::InteractObject , true);
-		CollisionManager::CollisionLayerCheck(eLayerType::Enemy , eLayerType::Bullet , true);
-
 		//Camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
 		Camera* cameraComp = camera->AddComponent<Camera>();
@@ -76,6 +75,7 @@ namespace t
 		//Player 
 		Player* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(200.0f , 200.0f));
 		player->AddComponent<PlayerScript>()->SetPlayer(player);
+		player->AddComponent<Rigidbody>();
 		Transform* playerTr = player->GetComponent<Transform>();
 		player->SetPlayerHeadBody(head , body);
 		headTr->SetParent(playerTr);
@@ -169,6 +169,11 @@ namespace t
 	}
 	void InGameScene::OnEnter()
 	{
+		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::Bullet , true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::Enemy , true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Player , eLayerType::InteractObject , true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Enemy , eLayerType::InteractObject , true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Enemy , eLayerType::Bullet , true);
 	}
 	void InGameScene::OnExit()
 	{

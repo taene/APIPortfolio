@@ -1,12 +1,13 @@
 #include "PlayerScript.h"
 #include "tInput.h"
-#include "Transform.h"
 #include "tTime.h"
-#include "tGameObject.h"
-#include "tAnimator.h"
 #include "tObject.h"
-#include "tResources.h"
+#include "tGameObject.h"
+#include "Transform.h"
+#include "tAnimator.h"
+#include "tRigidbody.h"
 #include "SpriteRenderer.h"
+#include "tResources.h"
 #include "tCircleCollider2D.h"
 #include "BulletScript.h"
 
@@ -147,21 +148,27 @@ namespace t
 
 		Vector2 pos = playerTr->GetPosition();
 
+		Rigidbody* rb = GetOwner()->GetComponent<Rigidbody>();
+
 		if ( Input::GetKeyPressed(eKeyCode::W) )
 		{
-			pos.y -= mStatus.speed * Time::DeltaTime();
+			//pos.y -= mStatus.speed * Time::DeltaTime();
+			rb->AddForce(Vector2::Up * mStatus.speed);
 		}
 		if ( Input::GetKeyPressed(eKeyCode::A) )
 		{
-			pos.x -= mStatus.speed * Time::DeltaTime();
+			//pos.x -= mStatus.speed * Time::DeltaTime();
+			rb->AddForce(Vector2::Left * mStatus.speed);
 		}
 		if ( Input::GetKeyPressed(eKeyCode::S) )
 		{
-			pos.y += mStatus.speed * Time::DeltaTime();
+			//pos.y += mStatus.speed * Time::DeltaTime();
+			rb->AddForce(Vector2::Down * mStatus.speed);
 		}
 		if ( Input::GetKeyPressed(eKeyCode::D) )
 		{
-			pos.x += mStatus.speed * Time::DeltaTime();
+			//pos.x += mStatus.speed * Time::DeltaTime();
+			rb->AddForce(Vector2::Right * mStatus.speed);
 		}
 
 		playerTr->SetPosition(pos);

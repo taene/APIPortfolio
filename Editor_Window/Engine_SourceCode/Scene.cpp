@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "tCollisionManager.h"
 
 namespace t
 {
@@ -80,6 +81,7 @@ namespace t
 	}
 	void Scene::OnExit()
 	{
+		CollisionManager::Clear();
 	}
 	void Scene::AddGameObject(GameObject* gameObj, const enums::eLayerType type)
 	{

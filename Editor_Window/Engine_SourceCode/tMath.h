@@ -49,6 +49,10 @@ namespace t::math
 
 		}
 
+		Vector2 operator-()
+		{
+			return Vector2(-x , -y);
+		}
 
 		Vector2 operator+(Vector2 other)
 		{
@@ -83,10 +87,7 @@ namespace t::math
 
 		bool operator==(Vector2 v)
 		{
-			if ( x == v.x && y == v.y )
-				return true;
-			else
-				return false;
+			return ( x == v.x ) && ( y == v.y );
 		}
 
 		void clear()

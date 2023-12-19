@@ -24,6 +24,6 @@ namespace t
 		//SceneManager::CreateScene<MainMenuScene>(L"MainMenuScene");
 		//SceneManager::CreateScene<MainMenuScene>(L"MainMenuScene");
 
-		SceneManager::LoadScene(L"ToolScene");
+		SceneManager::LoadScene(L"InGameScene");
 	}
 }

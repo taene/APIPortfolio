@@ -56,7 +56,7 @@
       <Filter>Renderer</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tAnimation.cpp">
-      <Filter>Resource\Animation</Filter>
+      <Filter>Component\Animator\Animation</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tCollider.cpp">
       <Filter>Component\Collider</Filter>
@@ -80,10 +80,13 @@
       <Filter>Scene\SceneSystem</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)tObject.cpp">
-      <Filter>EngineSystem\Object</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)TilemapRenderer.cpp">
       <Filter>Component\TilemapRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tRigidbody.cpp">
+      <Filter>Component\Rigidbody</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -148,7 +151,7 @@
       <Filter>Renderer</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tAnimation.h">
-      <Filter>Resource\Animation</Filter>
+      <Filter>Component\Animator\Animation</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tCollider.h">
       <Filter>Component\Collider</Filter>
@@ -172,10 +175,13 @@
       <Filter>Scene\SceneSystem</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tObject.h">
-      <Filter>EngineSystem\Object</Filter>
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)TilemapRenderer.h">
       <Filter>Component\TilemapRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tRigidbody.h">
+      <Filter>Component\Rigidbody</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -230,9 +236,6 @@
     <Filter Include="Renderer">
       <UniqueIdentifier>{401e3973-17cf-4172-9524-12baecbfb1fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource\Animation">
-      <UniqueIdentifier>{6feeaf75-88d5-40f0-a251-39c5c17d6e18}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\Collider">
       <UniqueIdentifier>{9ea172bc-d843-4ce4-bc00-55423cce0781}</UniqueIdentifier>
     </Filter>
@@ -248,11 +251,17 @@
     <Filter Include="Component\Collider\CircleCollider2D">
       <UniqueIdentifier>{bf8b8a8c-dbcc-4095-9239-8de4ffb3aaf2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="EngineSystem\Object">
-      <UniqueIdentifier>{1099450c-9254-463a-b687-9d99cfdda1bb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\TilemapRenderer">
       <UniqueIdentifier>{78ac8463-9436-4cb9-9ad5-ec8d90a06129}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animator\Animation">
+      <UniqueIdentifier>{6feeaf75-88d5-40f0-a251-39c5c17d6e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{1099450c-9254-463a-b687-9d99cfdda1bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Rigidbody">
+      <UniqueIdentifier>{9fa600fc-4f2b-4ba5-b6fd-696b57672386}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

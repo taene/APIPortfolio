@@ -6,6 +6,7 @@
 #include "..\\Engine_SourceCode\\tApplication.h"
 #include "..\\Engine_SourceCode\\tResources.h"
 #include "..\\Engine_SourceCode\\tTexture.h"
+#include "..\\Engine_SourceCode\\SceneManager.h"
 #include "..\\TaeneEngine\\LoadScenes.h"
 #include "..\\TaeneEngine\\LoadResources.h"
 #include "..\\TaeneEngine\\ToolScene.h"
@@ -130,9 +131,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
        CW_USEDEFAULT, 0, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
 
-   HWND ToolhWnd = CreateWindowW(L"TILEWINDOW" , L"TileWindow" , WS_OVERLAPPEDWINDOW ,
-       0 , 0 , windowRect.right - windowRect.left , windowRect.bottom - windowRect.top , nullptr , nullptr , hInstance , nullptr);
-
+   
    // 윈도우 창을 만들 때 한번 Init으로 핸들을 받아옴
    application.Init(hWnd, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
 
@@ -150,18 +149,28 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    t::LoadResources();
    t::LoadScenes();
 
-   t::graphics::Texture* texture
-       = t::Resources::Find<t::graphics::Texture>(L"basementTile");
+   t::Scene* activeScene = t::SceneManager::GetActiveScene();
+   std::wstring name = activeScene->GetName();
+   if ( name == L"ToolScene" )
+   {
+	   HWND ToolhWnd = CreateWindowW(L"TILEWINDOW" , L"TileWindow" , WS_OVERLAPPEDWINDOW ,
+			  0 , 0 , windowRect.right - windowRect.left , windowRect.bottom - windowRect.top , nullptr , nullptr , hInstance , nullptr);
 
-   RECT rect = { 0, 0, ( LONG ) texture->GetWidth(), ( LONG ) texture->GetHeight() };
-   AdjustWindowRect(&rect , WS_OVERLAPPEDWINDOW , false);
+	   t::graphics::Texture* texture
+		   = t::Resources::Find<t::graphics::Texture>(L"basementTile");
 
-   UINT toolWidth = rect.right - rect.left;
-   UINT toolHeight = rect.bottom - rect.top;
+	   RECT rect = { 0, 0, ( LONG ) texture->GetWidth(), ( LONG ) texture->GetHeight() };
+	   AdjustWindowRect(&rect , WS_OVERLAPPEDWINDOW , false);
 
-   SetWindowPos(ToolhWnd , nullptr , windowRect.right - windowRect.left , 0 , toolWidth , toolHeight , 0);
-   ShowWindow(ToolhWnd , true);
-   UpdateWindow(ToolhWnd);
+	   UINT toolWidth = rect.right - rect.left;
+	   UINT toolHeight = rect.bottom - rect.top;
+
+	   SetWindowPos(ToolhWnd , nullptr , windowRect.right - windowRect.left , 0 , toolWidth , toolHeight , 0);
+	   ShowWindow(ToolhWnd , true);
+	   UpdateWindow(ToolhWnd);
+   }
+
+   
 
    return TRUE;
 }
