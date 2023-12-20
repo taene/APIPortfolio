@@ -23,6 +23,10 @@ namespace t
 		void Load();
 
 	private:
+		void renderGrid(HDC hdc);
+		void createTileObject();
+
+	private:
 		std::vector<Tile*> mTiles;
     };
 }

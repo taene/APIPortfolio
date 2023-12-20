@@ -21,12 +21,8 @@ namespace t
 	{
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
 		Camera* cameraComp = camera->AddComponent<Camera>();
-		renderer::mainCamera = cameraComp;
 		camera->AddComponent<CameraMoveScript>();
-
-		/*Tile* tile = object::Instantiate<Tile>(eLayerType::MapTile);
-		tmr = tile->AddComponent<TilemapRenderer>();
-		tmr->SetTexture(Resources::Find<graphics::Texture>(L"basementTile"));*/
+		renderer::mainCamera = cameraComp;
 
 		Scene::Init();
 	}
@@ -44,34 +40,14 @@ namespace t
 
 		if ( Input::GetKeyDown(eKeyCode::LButton) )
 		{
-			Vector2 pos = Input::GetMousePosition();
-			pos = renderer::mainCamera->CalculateTilePosition(pos);
-
-			if ( pos.x >= 0.0f && pos.y >= 0.0f )
-			{
-				int idxX = pos.x / TilemapRenderer::TileSize.x;
-				int idxY = pos.y / TilemapRenderer::TileSize.y;
-
-				Tile* tile = object::Instantiate<Tile>(eLayerType::MapTile);
-				TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
-				tmr->SetTexture(Resources::Find<graphics::Texture>(L"basementTile"));
-				tmr->SetIndex(TilemapRenderer::SelectedIndex);
-
-				tile->SetIndexPosition(idxX , idxY);
-				mTiles.push_back(tile);
-			}
-			else
-			{
-				//
-			}
-
+			createTileObject();
 		}
 
-		if ( Input::GetKeyDown(eKeyCode::S) )
+		if ( Input::GetKeyPressed(eKeyCode::Ctrl) && Input::GetKeyPressed(eKeyCode::S) )
 		{
 			Save();
 		}
-		if ( Input::GetKeyDown(eKeyCode::L) )
+		if ( Input::GetKeyPressed(eKeyCode::Ctrl) && Input::GetKeyPressed(eKeyCode::L) )
 		{
 			Load();
 		}
@@ -86,27 +62,7 @@ namespace t
 		Scene::Render(hdc);
 
 		//grid
-		for ( size_t i = 0; i < 50; i++ )
-		{
-			Vector2 pos = renderer::mainCamera->CalculatePosition
-			(
-				Vector2(TilemapRenderer::TileSize.x * i , 0.0f)
-			);
-
-			MoveToEx(hdc , ( TilemapRenderer::TileSize.x ) * i , 0 , NULL);
-			LineTo(hdc , ( TilemapRenderer::TileSize.x ) * i , 2000);
-		}
-
-		for ( size_t i = 0; i < 50; i++ )
-		{
-			Vector2 pos = renderer::mainCamera->CalculatePosition
-			(
-				Vector2(0.0f , TilemapRenderer::TileSize.y * i)
-			);
-
-			MoveToEx(hdc , 0 , ( TilemapRenderer::TileSize.y ) * i , NULL);
-			LineTo(hdc , 2000 , ( TilemapRenderer::TileSize.y ) * i);
-		}
+		renderGrid(hdc);
 	}
 	void ToolScene::OnEnter()
 	{
@@ -214,6 +170,53 @@ namespace t
 		}
 
 		fclose(pFile);
+	}
+	void ToolScene::renderGrid(HDC hdc)
+	{
+		for ( size_t i = 0; i < 50; i++ )
+		{
+			Vector2 pos = renderer::mainCamera->CalculatePosition
+			(
+				Vector2(TilemapRenderer::TileSize.x * i , 0.0f)
+			);
+
+			MoveToEx(hdc , pos.x , 0 , NULL);
+			LineTo(hdc , pos.x , 2000);
+		}
+
+		for ( size_t i = 0; i < 50; i++ )
+		{
+			Vector2 pos = renderer::mainCamera->CalculatePosition
+			(
+				Vector2(0.0f , TilemapRenderer::TileSize.y * i)
+			);
+
+			MoveToEx(hdc , 0 , pos.y , NULL);
+			LineTo(hdc , 2000 , pos.y);
+		}
+	}
+	void ToolScene::createTileObject()
+	{
+		Vector2 pos = Input::GetMousePosition();
+		pos = renderer::mainCamera->CalculateTilePosition(pos);
+
+		if ( pos.x >= 0.0f && pos.y >= 0.0f )
+		{
+			int idxX = pos.x / TilemapRenderer::TileSize.x;
+			int idxY = pos.y / TilemapRenderer::TileSize.y;
+
+			Tile* tile = object::Instantiate<Tile>(eLayerType::MapTile);
+			TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
+			tmr->SetTexture(Resources::Find<graphics::Texture>(L"basementTile"));
+			tmr->SetIndex(TilemapRenderer::SelectedIndex);
+
+			tile->SetIndexPosition(idxX , idxY);
+			mTiles.push_back(tile);
+		}
+		else
+		{
+			//
+		}
 	}
 }
 

@@ -26,6 +26,7 @@ t::Application application;
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance , const wchar_t* name , WNDPROC proc);
 BOOL                InitInstance(HINSTANCE, int);
+BOOL                InitToolScene(HINSTANCE);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
@@ -149,30 +150,40 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    t::LoadResources();
    t::LoadScenes();
 
-   t::Scene* activeScene = t::SceneManager::GetActiveScene();
-   std::wstring name = activeScene->GetName();
-   if ( name == L"ToolScene" )
-   {
-	   HWND ToolhWnd = CreateWindowW(L"TILEWINDOW" , L"TileWindow" , WS_OVERLAPPEDWINDOW ,
-			  0 , 0 , windowRect.right - windowRect.left , windowRect.bottom - windowRect.top , nullptr , nullptr , hInstance , nullptr);
-
-	   t::graphics::Texture* texture
-		   = t::Resources::Find<t::graphics::Texture>(L"basementTile");
-
-	   RECT rect = { 0, 0, ( LONG ) texture->GetWidth(), ( LONG ) texture->GetHeight() };
-	   AdjustWindowRect(&rect , WS_OVERLAPPEDWINDOW , false);
-
-	   UINT toolWidth = rect.right - rect.left;
-	   UINT toolHeight = rect.bottom - rect.top;
-
-	   SetWindowPos(ToolhWnd , nullptr , windowRect.right - windowRect.left , 0 , toolWidth , toolHeight , 0);
-	   ShowWindow(ToolhWnd , true);
-	   UpdateWindow(ToolhWnd);
-   }
-
-   
+   InitToolScene(hInstance);
 
    return TRUE;
+}
+
+
+BOOL InitToolScene(HINSTANCE hInstance)
+{
+    t::Scene* activeScene = t::SceneManager::GetActiveScene();
+    std::wstring name = activeScene->GetName();
+
+    RECT windowRect = { 0,0,1440,816 };
+
+    if ( name == L"ToolScene" )
+    {
+        HWND ToolhWnd = CreateWindowW(L"TILEWINDOW" , L"TileWindow" , WS_OVERLAPPEDWINDOW ,
+               0 , 0 , windowRect.right - windowRect.left , windowRect.bottom - windowRect.top , nullptr , nullptr , hInstance , nullptr);
+
+        //Tile 윈도우 크기 조정 -- TOOL
+        t::graphics::Texture* texture
+            = t::Resources::Find<t::graphics::Texture>(L"basementTile");
+
+        RECT rect = { 0, 0, ( LONG ) texture->GetWidth(), ( LONG ) texture->GetHeight() };
+        AdjustWindowRect(&rect , WS_OVERLAPPEDWINDOW , false);
+
+        UINT toolWidth = rect.right - rect.left;
+        UINT toolHeight = rect.bottom - rect.top;
+
+        SetWindowPos(ToolhWnd , nullptr , windowRect.right - windowRect.left , 0 , toolWidth , toolHeight , 0);
+        ShowWindow(ToolhWnd , true);
+        UpdateWindow(ToolhWnd);
+    }
+
+    return TRUE;
 }
 
 //
