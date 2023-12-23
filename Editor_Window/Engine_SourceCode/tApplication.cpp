@@ -4,6 +4,7 @@
 #include "SceneManager.h"
 #include "tResources.h"
 #include "tCollisionManager.h"
+#include "tUIManager.h"
 
 namespace t
 {
@@ -25,12 +26,14 @@ namespace t
 		winWidth = width;
 		winHeight = height;
 		createBuffer(width, height);
-
-		//_monster.SetPosition(0, 0);
-		SceneManager::Init();
-		CollisionManager::Init();
 		Time::Init();
 		Input::Init();
+
+		//_monster.SetPosition(0, 0);
+		CollisionManager::Init();
+		UIManager::Init();
+		SceneManager::Init();
+
 	}
 
 	void Application::Run()
@@ -39,6 +42,7 @@ namespace t
 		Update();
 		LateUpdate();
 		Render();
+
 		Destroy();
 	}
 
@@ -52,7 +56,9 @@ namespace t
 	{
 		Input::Update();
 		Time::Update();
+
 		CollisionManager::Update();
+		UIManager::Update();
 		SceneManager::Update();
 		//_monster.Update();
 
@@ -89,15 +95,17 @@ namespace t
 	void Application::LateUpdate()
 	{
 		CollisionManager::LateUpdate();
+		UIManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
 	void Application::Render()
 	{
 		clearRenderTargert();
-
 		Time::Render(mBackHdc);
+
 		CollisionManager::Render(mBackHdc);
+		UIManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 		//_monster.Render(_backHdc);
 
@@ -115,6 +123,7 @@ namespace t
 	void Application::Release()
 	{
 		SceneManager::Release();
+		UIManager::Release();
 		Resources::Release();
 	}
 

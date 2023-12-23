@@ -88,6 +88,15 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tRigidbody.cpp">
       <Filter>Component\Rigidbody</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tUIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tUIBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tUIHUD.cpp">
+      <Filter>UI\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h">
@@ -183,6 +192,15 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)tRigidbody.h">
       <Filter>Component\Rigidbody</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tUIManager.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tUIBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tUIHUD.h">
+      <Filter>UI\HUD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -262,6 +280,12 @@
     </Filter>
     <Filter Include="Component\Rigidbody">
       <UniqueIdentifier>{9fa600fc-4f2b-4ba5-b6fd-696b57672386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{991a9151-f68b-4325-9af2-f3a881d751ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\HUD">
+      <UniqueIdentifier>{4f946d23-0c33-4c5d-b6a1-6f91630fd159}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

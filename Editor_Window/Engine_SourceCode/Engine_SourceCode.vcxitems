@@ -45,6 +45,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)tRigidbody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tUIBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tUIHUD.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tUIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Camera.cpp" />
@@ -76,5 +79,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)tRigidbody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tUIBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tUIHUD.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)tUIManager.cpp" />
   </ItemGroup>
 </Project>

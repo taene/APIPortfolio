@@ -51,4 +51,11 @@ namespace t::enums
 		Rect2D ,
 		End ,
 	};
+
+	enum class eUIType
+	{
+		HpBar,
+		//Button,
+		End,
+	};
 }
