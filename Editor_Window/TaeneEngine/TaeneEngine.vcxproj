@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletPoolManager.h" />
     <ClInclude Include="BulletScript.h" />
     <ClInclude Include="CameraMoveScript.h" />
     <ClInclude Include="InGameScene.h" />
@@ -150,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletPoolManager.cpp" />
     <ClCompile Include="BulletScript.cpp" />
     <ClCompile Include="CameraMoveScript.cpp" />
     <ClCompile Include="InGameScene.cpp" />

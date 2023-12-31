@@ -28,7 +28,9 @@ namespace t
 		mTime += Time::DeltaTime();
 		if ( mTime > 3.0f )
 		{
-			object::Destory(GetOwner());
+			//object::Destory(GetOwner());
+			GetOwner()->GetComponent<Transform>()->SetPosition(Vector2(mPlayer->GetComponent<Transform>()->GetPosition()));
+			GetOwner()->SetActive(false);
 			mTime = 0.0f;
 		}
 

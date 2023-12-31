@@ -33,6 +33,11 @@
 #include "PlayerScript.h"
 #include "BulletScript.h"
 
+
+//PoolManager
+#include "BulletPoolManager.h"
+
+
 namespace t
 {
 	InGameScene::InGameScene()
@@ -128,18 +133,27 @@ namespace t
 		//bullets.resize(100);
 		//1) 100개 만들어놓고 setfalse하고 setTrue로 하면서 사용하다가 2) setfalse인 총알이 배열에 없으면 또만들기?
 
-		GameObject* bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , Vector2(100.0f , 5.0f));
-		SpriteRenderer* bulletSr = bullet->AddComponent<SpriteRenderer>();
-		bullet->AddComponent<BulletScript>();
-		graphics::Texture* bulletT = Resources::Find<graphics::Texture>(L"Bullet");
-		bulletSr->SetTexture(bulletT);
-		bulletSr->SetSize(bulletSr->GetTextureSize() * 1.5f);
-		Transform* bulletTr = bullet->GetComponent<Transform>();
+		for ( int i = 0; i < 1000; i++ )
+		{
+			GameObject* bullet = BulletPoolManager::SetBullet();
+			SpriteRenderer* bulletSr = bullet->AddComponent<SpriteRenderer>();
+			BulletScript* bulletScript = bullet->AddComponent<BulletScript>();
+			bulletScript->SetPlayer(player);
+			//bulletScript->SetDirection(dir);
 
-		CircleCollider2D* bulletCollider = bullet->AddComponent<CircleCollider2D>();
-		bulletCollider->SetSize(Vector2(0.3f , 0.3f));
-		bulletCollider->SetOffset(Vector2(10.0f , 10.0f));
-		//bulletTr->SetParent(playerTr);
+			graphics::Texture* bulletT = Resources::Find<graphics::Texture>(L"Bullet");
+			bulletSr->SetTexture(bulletT);
+			bulletSr->SetSize(bulletSr->GetTextureSize() * 1.5f);
+			Transform* bulletTr = bullet->GetComponent<Transform>();
+
+			CircleCollider2D* bulletCollider = bullet->AddComponent<CircleCollider2D>();
+			bulletCollider->SetSize(Vector2(0.3f , 0.3f));
+			bulletCollider->SetOffset(Vector2(10.0f , 10.0f));
+
+			bullet->SetActive(false);
+		}
+		
+
 
 		//bomb Animation
 

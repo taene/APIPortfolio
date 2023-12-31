@@ -10,6 +10,8 @@
 #include "tResources.h"
 #include "tCircleCollider2D.h"
 #include "BulletScript.h"
+#include "BulletPoolManager.h"
+#include "Bullet.h"
 
 namespace t
 {
@@ -148,27 +150,27 @@ namespace t
 
 		Vector2 pos = playerTr->GetPosition();
 
-		Rigidbody* rb = GetOwner()->GetComponent<Rigidbody>();
+		//Rigidbody* rb = GetOwner()->GetComponent<Rigidbody>();
 
 		if ( Input::GetKeyPressed(eKeyCode::W) )
 		{
-			//pos.y -= mStatus.speed * Time::DeltaTime();
-			rb->AddForce(Vector2::Up * mStatus.speed);
+			pos.y -= mStatus.speed * Time::DeltaTime();
+			//rb->AddForce(Vector2::Up * mStatus.speed);
 		}
 		if ( Input::GetKeyPressed(eKeyCode::A) )
 		{
-			//pos.x -= mStatus.speed * Time::DeltaTime();
-			rb->AddForce(Vector2::Left * mStatus.speed);
+			pos.x -= mStatus.speed * Time::DeltaTime();
+			//rb->AddForce(Vector2::Left * mStatus.speed);
 		}
 		if ( Input::GetKeyPressed(eKeyCode::S) )
 		{
-			//pos.y += mStatus.speed * Time::DeltaTime();
-			rb->AddForce(Vector2::Down * mStatus.speed);
+			pos.y += mStatus.speed * Time::DeltaTime();
+			//rb->AddForce(Vector2::Down * mStatus.speed);
 		}
 		if ( Input::GetKeyPressed(eKeyCode::D) )
 		{
-			//pos.x += mStatus.speed * Time::DeltaTime();
-			rb->AddForce(Vector2::Right * mStatus.speed);
+			pos.x += mStatus.speed * Time::DeltaTime();
+			//rb->AddForce(Vector2::Right * mStatus.speed);
 		}
 
 		playerTr->SetPosition(pos);
@@ -269,41 +271,35 @@ namespace t
 
 	void PlayerScript::shootBullet(Vector2 dir)
 	{
-		//머리방향 ㄴㄴ 총알은 총알이 알아서 움직이게 플레이어 개입 ㄴㄴ
-		GameObject* bullet = nullptr;
 		//Bullet
 		if ( dir == Vector2::Up )
 		{
-			bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(5.0f , -40.0f));
-			//bullets.push_back(bullet);
+			GameObject* bullet = BulletPoolManager::GetBullet();
+			bullet->GetComponent<Transform>()->SetPosition(playerTr->GetPosition() + Vector2(5.0f , -40.0f));
+			bullet->GetComponent<BulletScript>()->SetDirection(dir);
+			//bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(5.0f , -40.0f));
 		}
 		if ( dir == Vector2::Left )
 		{
-			bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(-60.0f , 10.0f));
-			//bullets.push_back(bullet);
+			GameObject* bullet = BulletPoolManager::GetBullet();
+			bullet->GetComponent<Transform>()->SetPosition(playerTr->GetPosition() + Vector2(-60.0f , 10.0f));
+			bullet->GetComponent<BulletScript>()->SetDirection(dir);
+			//bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(-60.0f , 10.0f));
 		}
 		if ( dir == Vector2::Down )
 		{
-			bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(5.0f , 50.0f));
-			//bullets.push_back(bullet);
+			GameObject* bullet = BulletPoolManager::GetBullet();
+			bullet->GetComponent<Transform>()->SetPosition(playerTr->GetPosition() + Vector2(5.0f , 50.0f));
+			bullet->GetComponent<BulletScript>()->SetDirection(dir);
+			//bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(5.0f , 50.0f));
 		}
 		if ( dir == Vector2::Right )
 		{
-			bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(70.0f , 10.0f));
-			//bullets.push_back(bullet);
+			GameObject* bullet = BulletPoolManager::GetBullet();
+			bullet->GetComponent<Transform>()->SetPosition(playerTr->GetPosition() + Vector2(70.0f , 10.0f));
+			bullet->GetComponent<BulletScript>()->SetDirection(dir);
+			//bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(70.0f , 10.0f));
 		}
-		SpriteRenderer* bulletSr = bullet->AddComponent<SpriteRenderer>();
-		BulletScript* bulletScript = bullet->AddComponent<BulletScript>();
-		bulletScript->SetPlayer(player);
-		bulletScript->SetDirection(dir);
-		
-		graphics::Texture* bulletT = Resources::Find<graphics::Texture>(L"Bullet");
-		bulletSr->SetTexture(bulletT);
-		bulletSr->SetSize(bulletSr->GetTextureSize() * 1.5f);
-		Transform* bulletTr = bullet->GetComponent<Transform>();
-		CircleCollider2D* bulletCollider = bullet->AddComponent<CircleCollider2D>();
-		bulletCollider->SetSize(Vector2(0.3f , 0.3f));
-		bulletCollider->SetOffset(Vector2(10.0f , 10.0f));
 	}
 
 	void PlayerScript::setBomb()

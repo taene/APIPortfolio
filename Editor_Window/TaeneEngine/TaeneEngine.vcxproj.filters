@@ -40,6 +40,9 @@
     <Filter Include="Scenes\00. MapTool">
       <UniqueIdentifier>{c6862a35-825b-42f6-b1b9-f07357890540}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PoolManager">
+      <UniqueIdentifier>{a6143a71-7014-4e80-a374-ad65611ae5e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoadingScene.h">
@@ -76,6 +79,9 @@
     <ClInclude Include="Tile.h">
       <Filter>Contents\Tile</Filter>
     </ClInclude>
+    <ClInclude Include="BulletPoolManager.h">
+      <Filter>PoolManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LoadingScene.cpp">
@@ -107,6 +113,9 @@
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Contents\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletPoolManager.cpp">
+      <Filter>PoolManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

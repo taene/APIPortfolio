@@ -29,7 +29,7 @@ namespace t
 				speed(200.0f) ,
 				range(23.75f) ,
 				atkSpeed(10.0f) ,
-				bulletSpeed(200.0f +1.0) ,
+				bulletSpeed(200.0f) ,
 				atk(3.5f) ,
 				luck(0.0f) ,
 				knockBack(0.5f)
