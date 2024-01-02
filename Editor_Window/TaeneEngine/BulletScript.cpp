@@ -139,27 +139,22 @@ namespace t
 	{
 		Transform* tr = mBullet->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
-		Rigidbody* rb = mBullet->GetComponent<Rigidbody>();
 		
 		if ( shootDir == Vector2::Up )
 		{
 			pos.y -= mStatus.bulletSpeed * Time::DeltaTime();
-			//rb->AddForce(shootDir * bulletSpeed);
 		}
 		if ( shootDir == Vector2::Left )
 		{
 			pos.x -= mStatus.bulletSpeed * Time::DeltaTime();
-			//rb->AddForce(shootDir * bulletSpeed);
 		}
 		if ( shootDir == Vector2::Down )
 		{
 			pos.y += mStatus.bulletSpeed * Time::DeltaTime();
-			//rb->AddForce(shootDir * bulletSpeed);
 		}
 		if ( shootDir == Vector2::Right )
 		{
 			pos.x += mStatus.bulletSpeed * Time::DeltaTime();
-			//rb->AddForce(shootDir * bulletSpeed);
 		}
 
 		tr->SetPosition(pos);

@@ -158,6 +158,7 @@ namespace t
 			bullet->SetActive(false);
 		}
 		
+		//Enemy
 		Enemy* enemy = object::Instantiate<Enemy>(enums::eLayerType::Player , Vector2(400.0f , 200.0f));
 		enemy->AddComponent<EnemyScript>()->SetTarget(player);
 		CircleCollider2D* enemyCollider = enemy->AddComponent<CircleCollider2D>();

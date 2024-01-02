@@ -17,7 +17,7 @@ namespace t
 {
 	PlayerScript::PlayerScript()
 		: mState(PlayerScript::eState::Idle)
-		, player(nullptr) , head(nullptr) , body(nullptr) , headAni(nullptr) 
+		, player(nullptr) , head(nullptr) , body(nullptr) , headAni(nullptr) , bomb(nullptr)
 		, bodyAni(nullptr) , playerTr(nullptr)
 		, mStatus()
 		, isMove(false) , isAttack(false)
@@ -262,7 +262,7 @@ namespace t
 		
 
 		if ( Input::GetKeyUp(eKeyCode::Up) || Input::GetKeyUp(eKeyCode::Left)
-			|| Input::GetKeyUp(eKeyCode::Down) || Input::GetKeyUp(eKeyCode::Right) /*!isUp && !isLeft && !isDown && !isRight*/ )	//공격안함
+			|| Input::GetKeyUp(eKeyCode::Down) || Input::GetKeyUp(eKeyCode::Right) )
 		{
 			isAttack = false;
 			mState = PlayerScript::eState::Idle;
@@ -305,50 +305,41 @@ namespace t
 	void PlayerScript::setBomb()
 	{
 		Transform* bodyTr = body->GetComponent<Transform>();
-		GameObject* bomb = object::Instantiate<GameObject>(enums::eLayerType::InteractObject , bodyTr->GetPosition() + Vector2(30.0f , 30.0f));
-		//SpriteRenderer* bombSr = bomb->AddComponent<SpriteRenderer>();
+		bomb = object::Instantiate<GameObject>(enums::eLayerType::InteractObject , bodyTr->GetPosition() + Vector2(30.0f , 30.0f));
+		Transform* bombTr = bomb->GetComponent<Transform>();
 		Animator* bombAni = bomb->AddComponent<Animator>();
 		graphics::Texture* bombPulseT = Resources::Find<graphics::Texture>(L"BombPulse");
-		graphics::Texture* bombExplosionT = Resources::Find<graphics::Texture>(L"BombExplosion");
 		bombAni->CreateAnimation(L"BombPulse" , bombPulseT , Vector2(0.0f , 0.0f) , Vector2(96.0f , 96.0f) , Vector2::Zero , 59 , 0.01f);
-		bombAni->CreateAnimation(L"BombExplosion" , bombExplosionT , Vector2(0.0f , 0.0f) , Vector2(96.0f , 96.0f) , Vector2::Zero , 13 , 0.01f);
-		
-		//CircleCollider2D* bombCollider = bomb->AddComponent<CircleCollider2D>();
-		//bombCollider->SetSize();
-		//bombCollider->SetOffset();
+		CircleCollider2D* bombCollider = bomb->AddComponent<CircleCollider2D>();
+		bombCollider->SetSize(Vector2(0.5f , 0.5f));
+		bombCollider->SetOffset(Vector2(-21.0f , -10.0f));
+
+		bombAni->GetCompleteEvent(L"BombPulse") = std::bind(&PlayerScript::setExplosion , this);
 
 		bombAni->PlayAnimation(L"BombPulse" , false);
-		//위 애니메이션이 끝난 후 아래 애니메이션 실행
-		float time = 0.0f;
-		while ( time < 500.0f )
-		{
-			time += Time::DeltaTime();
-			if ( bombAni->IsComplete() )
-			{
-				bombAni->PlayAnimation(L"BombExplosion" , false);
-				time = 0.0f;
-				break;
-			}
-			//time = 0.0f;
-		}
 
-		//BombExplosion 애니메이션이 다 끝나면 delete bomb
-		while ( time < 500.0f )
-		{
-			time += Time::DeltaTime();
-			if ( bombAni->IsComplete() )
-			{
-				delete bomb;
-				bomb = nullptr;
-				time = 0.0f;
-				break;
-			}
-		}
+		//BombExplosion 애니메이션이 다 끝나면 delete bomb 후 bombExplosion 게임오브젝트를 만드는 이벤트함수를 걸어서
+		//bombExplosion 애니메이션 실행하고 콜라이더도 따로 설정
+		
 
 		if ( Input::GetKeyUp(eKeyCode::E))
 		{
 			mState = PlayerScript::eState::Idle;
 		}
+	}
+
+	void PlayerScript::setExplosion()
+	{
+		Transform* bombTr = bomb->GetComponent<Transform>();
+		GameObject* bombExplosion = object::Instantiate<GameObject>(enums::eLayerType::Effect , bombTr->GetPosition());
+		Animator* bombExplosionAni = bombExplosion->AddComponent<Animator>();
+		graphics::Texture* bombExplosionT = Resources::Find<graphics::Texture>(L"BombExplosion");
+		bombExplosionAni->CreateAnimation(L"BombExplosion" , bombExplosionT , Vector2(0.0f , 0.0f) , Vector2(96.0f , 96.0f) , Vector2::Zero , 13 , 0.01f);
+		CircleCollider2D* bombExplosionCollider = bombExplosion->AddComponent<CircleCollider2D>();
+		bombExplosionCollider->SetSize(Vector2(1.0f , 1.0f));
+		bombExplosionCollider->SetOffset(Vector2(-21.0f , -10.0f));
+
+		bombExplosionAni->PlayAnimation(L"BombExplosion");
 	}
 
 	void PlayerScript::onDamaged()

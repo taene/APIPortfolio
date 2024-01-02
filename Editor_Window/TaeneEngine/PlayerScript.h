@@ -45,6 +45,7 @@ namespace t
 		void attack();
 		void shootBullet(Vector2 dir);
 		void setBomb();
+		void setExplosion();
 		void onDamaged();
 
 
@@ -64,6 +65,7 @@ namespace t
 		Player* player;
 		GameObject* head;
 		GameObject* body;
+		GameObject* bomb;
 
 		Animator* headAni;
 		Animator* bodyAni;

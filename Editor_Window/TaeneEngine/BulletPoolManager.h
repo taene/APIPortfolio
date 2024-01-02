@@ -3,6 +3,7 @@
 #include "tGameObject.h"
 #include "tObject.h"
 #include "Bullet.h" 
+#include "tRigidbody.h"
 
 namespace t
 {
@@ -29,6 +30,7 @@ namespace t
 				{
 					// 발견하면 select 변수에 할당
 					select = iter;
+					select->GetComponent<Rigidbody>()->SetVelocity(Vector2::Zero);
 					select->SetActive(true);
 					break;
 				}
@@ -37,8 +39,6 @@ namespace t
             if ( select == nullptr )
             {
                 // 새롭게 생성하고 select 변수에 할당
-                /*select = object::Instantiate<GameObject>(enums::eLayerType::Bullet);
-				pools.push_back(select);*/
 				select = select = object::Instantiate<Bullet>(enums::eLayerType::Bullet);
 				pools.push_back(select);
             }

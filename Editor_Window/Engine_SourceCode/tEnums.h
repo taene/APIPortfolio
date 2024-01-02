@@ -23,6 +23,7 @@ namespace t::enums
 		Enemy,
 		Player,
 		InteractObject,
+		Effect,
 		PlayerBody,
 		PlayerHead,
 		Bullet,
