@@ -139,6 +139,8 @@
     <ClInclude Include="BulletPoolManager.h" />
     <ClInclude Include="BulletScript.h" />
     <ClInclude Include="CameraMoveScript.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyScript.h" />
     <ClInclude Include="InGameScene.h" />
     <ClInclude Include="LoadingScene.h" />
     <ClInclude Include="LoadResources.h" />
@@ -154,6 +156,8 @@
     <ClCompile Include="BulletPoolManager.cpp" />
     <ClCompile Include="BulletScript.cpp" />
     <ClCompile Include="CameraMoveScript.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyScript.cpp" />
     <ClCompile Include="InGameScene.cpp" />
     <ClCompile Include="LoadingScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />

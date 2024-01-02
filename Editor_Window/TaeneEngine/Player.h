@@ -13,7 +13,7 @@ namespace t
 			int	bomb;
 			int	key;
 			float speed;
-			float range;
+			float bulletActiveTime;
 			float atkSpeed;
 			float bulletSpeed;
 			float atk;
@@ -27,7 +27,7 @@ namespace t
 				bomb(1) ,
 				key(0) ,
 				speed(200.0f) ,
-				range(23.75f) ,
+				bulletActiveTime(2.0f) ,
 				atkSpeed(10.0f) ,
 				bulletSpeed(200.0f) ,
 				atk(3.5f) ,
@@ -46,6 +46,7 @@ namespace t
 		void SetPlayerHeadBody(GameObject* head , GameObject* body) { mHead = head; mBody = body; }
 		GameObject* GetPlayerHead() { return mHead; }
 		GameObject* GetPlayerBody() { return mBody; }
+
 
 	private:
 

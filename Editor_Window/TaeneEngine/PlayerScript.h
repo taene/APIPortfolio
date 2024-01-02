@@ -33,9 +33,6 @@ namespace t
 		void OnCollisionExit(Collider* other) override;
 
 		void SetPlayer(Player* pl) { player = pl; }
-		
-		//맞나 확인하기
-		//std::vector<GameObject*> GetBullet() { return bullets; }
 
 	public:
 		//이벤트함수

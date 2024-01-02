@@ -274,28 +274,28 @@ namespace t
 		//Bullet
 		if ( dir == Vector2::Up )
 		{
-			GameObject* bullet = BulletPoolManager::GetBullet();
+			Bullet* bullet = BulletPoolManager::GetBullet();
 			bullet->GetComponent<Transform>()->SetPosition(playerTr->GetPosition() + Vector2(5.0f , -40.0f));
 			bullet->GetComponent<BulletScript>()->SetDirection(dir);
 			//bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(5.0f , -40.0f));
 		}
 		if ( dir == Vector2::Left )
 		{
-			GameObject* bullet = BulletPoolManager::GetBullet();
+			Bullet* bullet = BulletPoolManager::GetBullet();
 			bullet->GetComponent<Transform>()->SetPosition(playerTr->GetPosition() + Vector2(-60.0f , 10.0f));
 			bullet->GetComponent<BulletScript>()->SetDirection(dir);
 			//bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(-60.0f , 10.0f));
 		}
 		if ( dir == Vector2::Down )
 		{
-			GameObject* bullet = BulletPoolManager::GetBullet();
+			Bullet* bullet = BulletPoolManager::GetBullet();
 			bullet->GetComponent<Transform>()->SetPosition(playerTr->GetPosition() + Vector2(5.0f , 50.0f));
 			bullet->GetComponent<BulletScript>()->SetDirection(dir);
 			//bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(5.0f , 50.0f));
 		}
 		if ( dir == Vector2::Right )
 		{
-			GameObject* bullet = BulletPoolManager::GetBullet();
+			Bullet* bullet = BulletPoolManager::GetBullet();
 			bullet->GetComponent<Transform>()->SetPosition(playerTr->GetPosition() + Vector2(70.0f , 10.0f));
 			bullet->GetComponent<BulletScript>()->SetDirection(dir);
 			//bullet = object::Instantiate<GameObject>(enums::eLayerType::Bullet , playerTr->GetPosition() + Vector2(70.0f , 10.0f));

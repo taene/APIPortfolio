@@ -9,7 +9,7 @@ namespace t
 		Rigidbody();
 		~Rigidbody();
 
-		virtual void Initialize();
+		virtual void Init();
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
@@ -24,8 +24,10 @@ namespace t
 
 	private:
 		bool mbGround;
+		//bool useGravity;
 		float mMass;
 		float mFriction;
+
 
 		Vector2 mForce;
 		Vector2 mAccelation;

@@ -7,22 +7,22 @@ namespace t
 {
 	Rigidbody::Rigidbody()
 		: Component(enums::eComponentType::Rigidbody)
-		, mbGround(false)
+		, mbGround(false) , useGravity(false)
 		, mMass(1.0f)
 		, mFriction(10.0f)
 		, mForce(Vector2::Zero)
 		, mVelocity(Vector2::Zero)
-		, mLimitedVelocity(Vector2(200.0f, 1000.0f))
-		, mGravity(Vector2(0.0f, 800.0f))
+		, mLimitedVelocity(Vector2(200.0f , 1000.0f))
+		, mGravity(Vector2(0.0f , 800.0f))
 		, mAccelation(Vector2::Zero)
 	{
-		
+
 	}
 
 	Rigidbody::~Rigidbody()
 	{}
 
-	void Rigidbody::Initialize()
+	void Rigidbody::Init()
 	{}
 
 	void Rigidbody::Update()
@@ -70,6 +70,11 @@ namespace t
 		}
 		mVelocity = gravity + sideVelocity;
 
+
+
+		// 마찰력
+
+		// 마찰력에 의한 반대방향으로의 가속도
 		if ( !( mVelocity == Vector2::Zero ) )
 		{
 			//속도에 반대방향으로 마찰력 작용

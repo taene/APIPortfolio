@@ -11,9 +11,6 @@
 #include "tAnimator.h"
 #include "tRigidbody.h"
 
-//Contents
-#include "Player.h"
-
 //Tile
 #include "TilemapRenderer.h"
 #include "Tile.h"
@@ -28,10 +25,15 @@
 #include "MainMenuScene.h"
 #include "InGameScene.h"
 
+//Contents
+#include "Player.h"
+#include "Enemy.h"
+
 //Script
 #include "CameraMoveScript.h"
 #include "PlayerScript.h"
 #include "BulletScript.h"
+#include "EnemyScript.h"
 
 
 //PoolManager
@@ -80,7 +82,7 @@ namespace t
 		//Player 
 		Player* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(200.0f , 200.0f));
 		player->AddComponent<PlayerScript>()->SetPlayer(player);
-		player->AddComponent<Rigidbody>();
+		//player->AddComponent<Rigidbody>();
 		Transform* playerTr = player->GetComponent<Transform>();
 		player->SetPlayerHeadBody(head , body);
 		headTr->SetParent(playerTr);
@@ -135,10 +137,13 @@ namespace t
 
 		for ( int i = 0; i < 1000; i++ )
 		{
-			GameObject* bullet = BulletPoolManager::SetBullet();
+			Bullet* bullet = BulletPoolManager::SetBullet();
+			bullet->SetPlayerHead(head);
 			SpriteRenderer* bulletSr = bullet->AddComponent<SpriteRenderer>();
 			BulletScript* bulletScript = bullet->AddComponent<BulletScript>();
-			bulletScript->SetPlayer(player);
+			Rigidbody* bulletRb = bullet->AddComponent<Rigidbody>();
+			bulletScript->SetPlayerInScript(player);
+			bulletScript->SetBulletInScript(bullet);
 			//bulletScript->SetDirection(dir);
 
 			graphics::Texture* bulletT = Resources::Find<graphics::Texture>(L"Bullet");
@@ -153,8 +158,11 @@ namespace t
 			bullet->SetActive(false);
 		}
 		
-
-
+		Enemy* enemy = object::Instantiate<Enemy>(enums::eLayerType::Player , Vector2(400.0f , 200.0f));
+		enemy->AddComponent<EnemyScript>()->SetTarget(player);
+		CircleCollider2D* enemyCollider = enemy->AddComponent<CircleCollider2D>();
+		enemyCollider->SetSize(Vector2(0.3f , 0.3f));
+		//enemyCollider->SetOffset(Vector2(-20.0f , -15.0f));
 		//bomb Animation
 
 

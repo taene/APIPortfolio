@@ -3,6 +3,7 @@
 namespace t
 {
 	Bullet::Bullet()
+		:mHead(nullptr)
 	{}
 	Bullet::~Bullet()
 	{}

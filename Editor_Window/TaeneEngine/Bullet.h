@@ -15,9 +15,9 @@ namespace t
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-
+		void SetPlayerHead(GameObject* head) { mHead = head; }
 
 	private:
-
+		GameObject* mHead;
 	};
 }

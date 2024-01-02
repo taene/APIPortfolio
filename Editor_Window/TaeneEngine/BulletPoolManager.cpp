@@ -2,5 +2,5 @@
 
 namespace t
 {
-	std::vector<GameObject*> BulletPoolManager::pools = {};
+	std::vector<Bullet*> BulletPoolManager::pools = {};
 }

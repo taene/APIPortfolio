@@ -43,6 +43,15 @@
     <Filter Include="PoolManager">
       <UniqueIdentifier>{a6143a71-7014-4e80-a374-ad65611ae5e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Enemy">
+      <UniqueIdentifier>{98573554-6fa3-4684-b4bf-8d96f19b6d9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Boss">
+      <UniqueIdentifier>{e3c0333a-60f8-4eea-b63d-c5071768077b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Enemy">
+      <UniqueIdentifier>{e76eae30-61d5-4503-aa56-3dde96f1039a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoadingScene.h">
@@ -82,6 +91,12 @@
     <ClInclude Include="BulletPoolManager.h">
       <Filter>PoolManager</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyScript.h">
+      <Filter>Scripts\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Contents\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LoadingScene.cpp">
@@ -116,6 +131,12 @@
     </ClCompile>
     <ClCompile Include="BulletPoolManager.cpp">
       <Filter>PoolManager</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyScript.cpp">
+      <Filter>Scripts\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Contents\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
